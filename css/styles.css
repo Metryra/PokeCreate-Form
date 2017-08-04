@@ -1,0 +1,102 @@
+/* Fonts */
+    @font-face {
+        font-family: 'SF Mono';
+        src: url('../fonts/SFMono-Regular.otf');
+	}
+
+/* Variables */
+    :root {
+        --ppar-blur: blur(10px);
+    }
+
+/* Common */
+	* {
+		margin: 0;
+		padding: 0;
+		font-family: 'SF Mono';
+		font-size: 12px;
+	}
+	body {
+		transition: 0.3s ease-in-out;
+        text-align: center;
+    }
+	a { text-decoration: none; }
+	input {
+		text-align: center;
+		margin: 2px;
+	}
+    footer {
+        position: fixed;
+        left: 0;    right: 0;
+        bottom: 10px;
+        font-size: 10px;
+        color: rgba(0,0,0, 0.5);
+    }
+    footer a { color: rgba(0,0,0, 0.5); }
+
+.link {
+    position: relative;
+    margin: 30px 0;
+}
+.link a {
+    color: #000;
+    font-size: 20px;
+}
+.link a:hover { text-decoration: underline;}
+
+.bg {
+    position: fixed;
+    left: 0;    right: 0;
+    top: 0;    bottom: 0;
+    background-image: url('../images/ppar.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Form & Result */
+    .form,
+    .result {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 30px;
+        padding: 10px;
+        width: 450px;
+        overflow: scroll;
+    }
+    .form {
+        height: 500px;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0, 0.3);
+        text-align: left;
+        transform: translateY(-9px);
+    }
+	textarea {
+		display: block;
+        position: relative;
+        border: none;
+        border-radius: 5px;
+        background: #eee;
+        box-shadow: 0 5px 10px rgba(0,0,0, 0.3);
+		padding: 10px;
+		width: 400px;	height: 500px;
+	}
+	#copy {
+		position: relative;
+		right: 15px;    bottom: 25px;
+		transform: translateX(185px);
+		padding: 2px;
+	}
+
+    @supports
+        (-webkit-backdrop-filter: var(--ppar-blur)) or
+        (-moz-backdrop-filter: var(--ppar-blur)) or
+        (backdrop-filter: var(--ppar-blur)) {
+        .form {
+            -webkit-backdrop-filter: var(--ppar-blur);
+            -moz-backdrop-filter: var(--ppar-blur);
+            backdrop-filter: var(--ppar-blur);
+            background: rgba(0, 0, 0, 0);
+        }
+    }
