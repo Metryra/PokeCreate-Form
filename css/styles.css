@@ -86,6 +86,12 @@
         vertical-align: middle;
     }
 
+/* jQuery UI */
+    .ui-autocomplete {
+        max-height: 370px;
+        overflow-y: scroll;
+    }
+
 /* Form & Result */
     .form,
     .result {

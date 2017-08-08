@@ -218,7 +218,7 @@ $(function() {
 	}
 
 	$('#copy').click(function() {
-		$('.result #form').select();
+		$('.result textarea').select();
 		document.execCommand('copy');
 	});
 });
