@@ -24,7 +24,7 @@ $(function() {
 		$.getJSON('../PPAR/js/ppa.json', function(ppaJSON) {
             for (var i in ppaJSON) {
 				if (!ppaJSON[i].name.match(
-						/(Pikachu |Mega|Primal|School|Minior Shield|Original|Egg)/
+						/(Mega|Primal|Wishiwashi School|Minior Shield|Giratina Original|Egg)/
 					)) {
 					pkmnList.push(ppaJSON[i].name);
 					ppaList.push(ppaJSON[i].dex);
@@ -72,6 +72,54 @@ $(function() {
 					if (pkmn.indexOf('Alolan') == 0) {
 						$('#form').val('Alolan');
 						form = 'Alolan';
+					} else if (pkmn.indexOf('Pikachu ') == 0) {
+						$('#form').val($('#pkmn').val().replace('Pikachu ', ''));
+						form = $('#pkmn').val().replace('Pikachu ', '');
+					} else if (pkmn.indexOf('Unown') == 0) {
+						$('#form').val($('#pkmn').val().replace('Unown ', ''));
+						form = $('#pkmn').val().replace('Unown ', '');
+					} else if (pkmn.indexOf('Deoxys') == 0) {
+						$('#form').val($('#pkmn').val().replace('Deoxys ', ''));
+						form = $('#pkmn').val().replace('Deoxys ', '');
+					} else if (pkmn.indexOf('Deerling') == 0) {
+						$('#form').val($('#pkmn').val().replace('Deerling ', ''));
+						form = $('#pkmn').val().replace('Deerling ', '');
+					} else if (pkmn.indexOf('Sawsbuck') == 0) {
+						$('#form').val($('#pkmn').val().replace('Sawsbuck ', ''));
+						form = $('#pkmn').val().replace('Sawsbuck ', '');
+					} else if (pkmn.indexOf('Tornadus') == 0) {
+						$('#form').val($('#pkmn').val().replace('Tornadus ', ''));
+						form = $('#pkmn').val().replace('Tornadus ', '');
+					} else if (pkmn.indexOf('Thundurus') == 0) {
+						$('#form').val($('#pkmn').val().replace('Thundurus ', ''));
+						form = $('#pkmn').val().replace('Thundurus ', '');
+					} else if (pkmn.indexOf('Landorus') == 0) {
+						$('#form').val($('#pkmn').val().replace('Landorus ', ''));
+						form = $('#pkmn').val().replace('Landorus ', '');
+					} else if (pkmn.indexOf('Kyurem ') == 0) {
+						$('#form').val($('#pkmn').val().replace('Kyurem ', ''));
+						form = $('#pkmn').val().replace('Kyurem ', '');
+					} else if (pkmn.indexOf('Vivillon ') == 0) {
+						$('#form').val($('#pkmn').val().replace('Vivillon ', ''));
+						form = $('#pkmn').val().replace('Vivillon ', '');
+					} else if (pkmn.indexOf('Flabebe') == 0) {
+						$('#form').val($('#pkmn').val().replace('Flabebe ', ''));
+						form = $('#pkmn').val().replace('Flabebe ', '');
+					} else if (pkmn.indexOf('Floette') == 0) {
+						$('#form').val($('#pkmn').val().replace('Floette ', ''));
+						form = $('#pkmn').val().replace('Floette ', '');
+					} else if (pkmn.indexOf('Florges') == 0) {
+						$('#form').val($('#pkmn').val().replace('Florges ', ''));
+						form = $('#pkmn').val().replace('Florges ', '');
+					} else if (pkmn.indexOf('Furfrou ') == 0) {
+						$('#form').val($('#pkmn').val().replace('Furfrou ', ''));
+						form = $('#pkmn').val().replace('Furfrou ', '');
+					} else if (pkmn.indexOf('Zygarde') == 0) {
+						$('#form').val($('#pkmn').val().replace('Zygarde ', ''));
+						form = $('#pkmn').val().replace('Zygarde ', '');
+					} else if (pkmn.indexOf('Hoopa') == 0) {
+						$('#form').val($('#pkmn').val().replace('Hoopa ', ''));
+						form = $('#pkmn').val().replace('Hoopa ', '');
 					} else if (pkmn.indexOf('Lycanroc') == 0) {
 						$('#form').val($('#pkmn').val().replace('Lycanroc ', ''));
 						form = $('#pkmn').val().replace('Lycanroc ', '');
@@ -84,19 +132,17 @@ $(function() {
 					}
 			gender = $('#gender').val();
 				if (pkmn.match(
-						/( F|Nidorina|Nidoqueen)/
+						/( Nidoran F|Nidorina|Nidoqueen|Chansey|Kangaskhan|Jynx|Smoochum|Miltank|Blissey|Illumise|Latias|Wormadam|Vespiqueen|Happiny|Froslass|Cresselia|Unfezant F|Petilil|Lilligant|Vullaby|Mandibuzz|Flabebe|Floette|Florges|Salazzle|Bounsweet|Steenee|Tsareena)/
 					)) {
 					$('#gender').val('F');
 				} else if (pkmn.match(
-						/( M|Nidorino|Nidoking)/
+						/( Nidoran M|Nidorino|Nidoking|Hitmonlee|Hitmonchan|Tauros|Tyrogue|Hitmontop|Volbeat|Latios|Mothim|Gallade|Unfezant M|Throh|Sawk|Rufflet|Braviary|Tornadus|Thundurus|Landorus)/
 					)) {
 					$('#gender').val('M');
 				} else if (pkmn.match(
-						/(Magnemite|Magneton|Voltorb|Electrode)/
+						/(Magnemite|Magneton|Voltorb|Electrode|Staryu|Starmie|Ditto|Porygon|Articuno|Zapdos|Moltres|Mewtwo|Mew|Unown|Porygon2|Raikou|Entei|Suicune|Lugia|Ho-oh|Celebi|Shedinja|Lunatone|Solrock|Baltoy|Claydol|Beldum|Metang|Metagross|Regirock|Regice|Registeel|Kyogre|Groudon|Rayquaza|Jirachi|Deoxys|Bronzor|Bronzong|Magnezone|Porygon-Z|Rotom|Uxie|Mesprit|Azelf|Dialga|Palkia|Regigigas|Giratina|Phione|Manaphy|Darkrai|Shaymin|Arceus|Victini|Klink|Klang|Klinklang|Cyrogonal|Golett|Golurk|Cobalion|Terrakion|Virizion|Reshiram|Zekrom|Kyurem|Keldeo|Meloetta|Genesect|Carbink|Xerneas|Yveltal|Zygarde|Diancie|Hoopa|Volcanion|Type: Null|Silvally|Minior|Dhelmise|Tapu Koko|Tapu Bulu|Tapu Lele|Tapu Fini|Cosmog|Cosmoem|Solgaleo|Lunala|Nihilego|Buzzwole|Pheromosa|Xurkitree|Celesteela|Kartana|Guzzlord|Necrozma|Magearna|Marshadow)/
 					)) {
-					$('#gender').val('None');
-				} else {
-					$('#gender').val('F');
+					$('#gender').val('Genderless');
 				}
 			shiny = '';
 				if ( $('#shiny').prop('checked') ) {
@@ -155,7 +201,7 @@ $(function() {
 			gts_pkmn = $('#gts_pkmn').val();
 				var gts_ppa = ppaList[pkmnList.indexOf(gts_pkmn)];
 				if (gts_ppa == undefined ||
-					gts_ppa == '0025Co') {
+					gts_ppa == '0129s') {
 					gts_ppa = 'Egg';
 				}
 				$('label[for=gts_pkmn] img').attr({
