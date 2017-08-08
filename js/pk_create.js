@@ -8,13 +8,14 @@ $(function() {
 
 	/* Pokémon */
 		var pkmn = [];
-		$.getJSON('https://nuotsu.github.io/PPAR/js/ppa.json', function(ppaJSON) {
-            for (var i in ppaJSON) {
-				pkmn.push(ppaJSON[i].nameENG);
+		$.getJSON('https://nuotsu.github.io/PPAR/js/ppa.json', function(data) {
+            for (var i in data) {
+				pkmn.push(data[i].nameENG);
             }
 			$('#name').autocomplete({
 				source: pkmn
 			});
+			console.log(pkmn);
 		});
 
 	function write() {
@@ -120,7 +121,7 @@ $(function() {
 				'* **Language**: ' + lang + '\n' +
 				'* **Pokérus**: ' + pkrs + '\n\n' +
 				'&nbsp;' + '\n\n' +
-				'* **Meeting Location**: ' + mtg_game + ' ¦ ' + mtg_loc + ' ¦ Lv.' + mtg_level +
+				'* **Meeting Location**: ' + mtg_game + ' ¦ ' + mtg_loc + ' ¦ Lv.' + mtg_level + '\n' +
 				'* **PokéBall**: ' + ball + ' ball\n' +
 				'* **Ribbons**: ' + ribbons + '\n\n' +
 				'&nbsp;' + '\n\n' +
