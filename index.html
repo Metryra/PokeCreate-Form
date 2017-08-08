@@ -23,20 +23,18 @@
 		<a href="https://www.reddit.com/r/PokemonCreate/" target="_blank">PokémonCreate!</a>
 	</div>
 
+	<div class="ppar">Background image generated with <a href="https://nuotsu.github.io/PPAR/en/" target="_blank">PPAR</a>.</div>
+
 	<div class="form">
 		<label for="game_ver">Game Version: </label><select id="game_ver">
 			<option value="Sun">Sun</option>
 			<option value="Moon">Moon</option>
-			<!-- <option value="Omega Ruby">Omega Ruby</option>
-			<option value="Alpha Sapphire">Alpha Sapphire</option>
-			<option value="X">X</option>
-			<option value="Y">Y</option> -->
 		</select><br>
 		<input id="pkhex" class="special optional" type="text" placeholder="PKHeX File Link">
-		<input id="serebii" class="special event-only" type="text" placeholder="Serebii Link"><br>
-		<br>
-		<input id="name" type="text" placeholder="Pokémon">
-		<input id="nickname" type="text" placeholder="Nickname"><br>
+		<input id="serebii" class="special event-only" type="text" placeholder="Serebii Link">
+		<br><br>
+		<label for="pkmn"><img src="images/ppa/Egg_PPA.png"></label><input id="pkmn" type="text" placeholder="Pokémon">
+		<input id="nickname" type="text" placeholder="Nickname">
 		<input id="form" type="text" placeholder="Form"><br>
 		<select id="gender">
 				<option value="M">♂</option>
@@ -45,8 +43,7 @@
 		</select>
 		<input id="shiny" type="checkbox"><label for="shiny">Shiny</label>
 		<br><br>
-		<label for="level">Lv.</label>
-			<input id="level" name="level" type="number" value="50" min="1" max="100">
+		<label for="level">Lv.</label><input id="level" name="level" type="number" value="50" min="1" max="100">
 		<select id="nature">
 			<option value="Jolly">S↑　C↓　Jolly</option>
 			<option value="Timid">S↑　A↓　Timid</option>
@@ -83,11 +80,10 @@
 			<option value="CHS">CHS</option>
 			<option value="CHT">CHT</option>
 		</select>
-		<input id="pkrs" type="checkbox"><label for="pkrs">Pok&eacute;rus</label><br>
-		<br>
+		<input id="pkrs" type="checkbox"><label for="pkrs">Pok&eacute;rus</label>
+		<br><br>
 		<div class="MTG">Meeting Location:<br>
-			<label for="mtg_game">Game: </label>
-			<select id="mtg_game">
+			<label for="mtg_game">Game: </label><select id="mtg_game">
 				<option value="Sun">Sun</option>
 				<option value="Moon">Moon</option>
 				<option value="Omega Ruby">Omega Ruby</option>
@@ -105,11 +101,10 @@
 				<option value="Pearl">Pearl</option>
 			</select> ¦
 			<input id="mtg_loc" type="text" placeholder="Location"> ¦
-			<label for="mtg_level">Lv.</label>
-				<input id="mtg_level" name="level" type="number" value="1" min="1" max="100">
+			<label for="mtg_level">Lv.</label><input id="mtg_level" name="level" type="number" value="1" min="1" max="100">
 		</div>
-		<select id="ball">
-			<option value="Poke">Poke Ball</option>
+		<label for="ball"><img src="images/balls/Poke_ball.png"></label> <select id="ball">
+			<option value="Poke">Poké Ball</option>
 			<option value="Great">Great Ball</option>
 			<option value="Ultra">Ultra Ball</option>
 			<option value="Master">Master Ball</option>
@@ -176,23 +171,22 @@
 				<option value="F">F</option>
 			</select>
 		</div>
-		<input id="id" type="text" maxlength="6" placeholder="Gen 7 ID"><br>
-		<input id="tid" type="text" maxlength="6" placeholder="TID"><br>
+		<input id="id" type="text" maxlength="6" placeholder="Gen 7 ID">
+		<input id="tid" type="text" maxlength="6" placeholder="TID">
 		<input id="sid" class="optional special" type="text" maxlength="6" placeholder="SID">
 		<br><br>
-		<input id="ign" type="text" placeholder="IGN"><br>
+		<input id="ign" type="text" placeholder="IGN">
 		<input id="fc" type="text" placeholder="FC">
 		<br><br>
 		<div class="GTS">GTS Deposit:<br>
-			<input id="gts_pkmn" type="text" placeholder="Pokémon"> ¦
+			<label for="gts_pkmn"><img src="images/ppa/Egg_PPA.png"></label><input id="gts_pkmn" type="text" placeholder="Pokémon"> ¦
 			<select id="gts_gender">
 				<option value="M">♂</option>
 				<option value="F">♀</option>
 				<option value="None">--</option>
 			</select> ¦
-			<label for="gts_level">Lv.</label>
-				<input id="gts_level" name="level" type="number" value="1" min="1" max="100"> ¦
-			<select id="gts_ball">
+			<label for="gts_level">Lv.</label><input id="gts_level" name="level" type="number" value="1" min="1" max="100"> ¦
+			<label for="gts_ball"><img src="images/balls/Poke_ball.png"></label> <select id="gts_ball">
 				<option value="Poke">Poke Ball</option>
 				<option value="Great">Great Ball</option>
 				<option value="Ultra">Ultra Ball</option>
