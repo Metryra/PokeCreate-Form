@@ -166,7 +166,7 @@ $(function() {
 			mtg_level = $('#mtg_level').val();
 			ball = $('#ball').val();
 				$('label[for=ball] img').attr({
-					'src': 'images/balls/' + ball + '_ball.png'
+					'src': 'images/ball/' + ball + '_ball.png'
 				});
 			ribbons = '';
 				if ( $('#ribbons').val() != '' ) {
@@ -211,7 +211,7 @@ $(function() {
 			gts_level = $('#gts_level').val();
 			gts_ball = $('#gts_ball').val();
 				$('label[for=gts_ball] img').attr({
-					'src': 'images/balls/' + gts_ball + '_ball.png'
+					'src': 'images/ball/' + gts_ball + '_ball.png'
 				});
 			msg = $('#msg').val();
 		// Form
