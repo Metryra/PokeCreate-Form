@@ -7,6 +7,7 @@
 /* Variables */
     :root {
         --ppar-blur: blur(10px);
+        --green: #84a66f;
     }
 
 /* Common */
@@ -53,6 +54,14 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* Special */
+    .special {
+        border: 0.5px dashed var(--green);
+        padding: 1.5px;
+    }
+    div.special { padding: 5px; }
+    sup { color: var(--green); }
 
 /* Form & Result */
     .form,

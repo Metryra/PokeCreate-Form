@@ -9,8 +9,10 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
 	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	<script src="js/pk_create.js"></script>
 </head>
 
@@ -25,13 +27,13 @@
 		<label for="game_ver">Game Version: </label><select id="game_ver">
 			<option value="Sun">Sun</option>
 			<option value="Moon">Moon</option>
-			<option value="Omega Ruby">Omega Ruby</option>
+			<!-- <option value="Omega Ruby">Omega Ruby</option>
 			<option value="Alpha Sapphire">Alpha Sapphire</option>
 			<option value="X">X</option>
-			<option value="Y">Y</option>
+			<option value="Y">Y</option> -->
 		</select><br>
-		<input id="pkhex" type="text" placeholder="PKHeX File Link">
-		<input id="serebii" type="text" placeholder="Serebii Link"><br>
+		<input id="pkhex" class="special optional" type="text" placeholder="PKHeX File Link">
+		<input id="serebii" class="special event-only" type="text" placeholder="Serebii Link"><br>
 		<br>
 		<input id="name" type="text" placeholder="Pokémon">
 		<input id="nickname" type="text" placeholder="Nickname"><br>
@@ -84,46 +86,59 @@
 		<input id="pkrs" type="checkbox"><label for="pkrs">Pok&eacute;rus</label><br>
 		<br>
 		<div class="MTG">Meeting Location:<br>
-			<input id="mtg_pkmn" type="text" placeholder="Location"> ¦
-			<select id="mtg_gender">
-					<option value="F">♀</option>
-					<option value="M">♂</option>
-					<option value="None">--</option>
+			<label for="mtg_game">Game: </label>
+			<select id="mtg_game">
+				<option value="Sun">Sun</option>
+				<option value="Moon">Moon</option>
+				<option value="Omega Ruby">Omega Ruby</option>
+				<option value="Alpha Sapphire">Alpha Sapphire</option>
+				<option value="X">X</option>
+				<option value="Y">Y</option>
+				<option value="Black 2">Black 2</option>
+				<option value="White 2">White 2</option>
+				<option value="Black">Black</option>
+				<option value="White">White</option>
+				<option value="Platinum">Platinum</option>
+				<option value="Heart Gold">Heart Gold</option>
+				<option value="Soul Silver">Soul Silver</option>
+				<option value="Diamond">Diamond</option>
+				<option value="Pearl">Pearl</option>
 			</select> ¦
+			<input id="mtg_loc" type="text" placeholder="Location"> ¦
 			<label for="mtg_level">Lv.</label>
-				<input id="mtg_level" name="level" type="number" value="1" min="1" max="100"> ¦
-			<select id="ball">
-				<option value="Poke">Poke Ball</option>
-				<option value="Great">Great Ball</option>
-				<option value="Ultra">Ultra Ball</option>
-				<option value="Master">Master Ball</option>
-				<option value="Safari">Safari Ball</option>
-				<option value="Sport">Sport Ball</option>
-				<option value="Premier">Premier Ball</option>
-				<option value="Repeat">Repeat Ball</option>
-				<option value="Timer">Timer Ball</option>
-				<option value="Nest">Nest Ball</option>
-				<option value="Net">Net Ball</option>
-				<option value="Dive">Dive Ball</option>
-				<option value="Luxury">Luxury Ball</option>
-				<option value="Heal">Heal Ball</option>
-				<option value="Quick">Quick Ball</option>
-				<option value="Dusk">Dusk Ball</option>
-				<option value="Cherish">Cherish Ball</option>
-				<option value="Park">Park Ball</option>
-				<option value="Dream">Dream Ball</option>
-				<option value="Beast">Beast Ball</option>
-				<optgroup label="- Apricorn Balls -">
-				<option value="Level">Level Ball</option>
-				<option value="Lure">Lure Ball</option>
-				<option value="Moon">Moon Ball</option>
-				<option value="Friend">Friend Ball</option>
-				<option value="Love">Love Ball</option>
-				<option value="Heavy">Heavy Ball</option>
-				<option value="Fast">Fast Ball</option>
-				</optgroup>
-			</select>
+				<input id="mtg_level" name="level" type="number" value="1" min="1" max="100">
 		</div>
+		<select id="ball">
+			<option value="Poke">Poke Ball</option>
+			<option value="Great">Great Ball</option>
+			<option value="Ultra">Ultra Ball</option>
+			<option value="Master">Master Ball</option>
+			<option value="Safari">Safari Ball</option>
+			<option value="Sport">Sport Ball</option>
+			<option value="Premier">Premier Ball</option>
+			<option value="Repeat">Repeat Ball</option>
+			<option value="Timer">Timer Ball</option>
+			<option value="Nest">Nest Ball</option>
+			<option value="Net">Net Ball</option>
+			<option value="Dive">Dive Ball</option>
+			<option value="Luxury">Luxury Ball</option>
+			<option value="Heal">Heal Ball</option>
+			<option value="Quick">Quick Ball</option>
+			<option value="Dusk">Dusk Ball</option>
+			<option value="Cherish">Cherish Ball</option>
+			<option value="Park">Park Ball</option>
+			<option value="Dream">Dream Ball</option>
+			<option value="Beast">Beast Ball</option>
+			<optgroup label="- Apricorn Balls -">
+			<option value="Level">Level Ball</option>
+			<option value="Lure">Lure Ball</option>
+			<option value="Moon">Moon Ball</option>
+			<option value="Friend">Friend Ball</option>
+			<option value="Love">Love Ball</option>
+			<option value="Heavy">Heavy Ball</option>
+			<option value="Fast">Fast Ball</option>
+			</optgroup>
+		</select>
 		<input id="ribbons" type="text" placeholder="Ribbons">
 		<br><br>
 		<label for="ivs">IVs: </label><input id="ivs" type="text" value="31/31/31/31/31/31"><br>
@@ -163,7 +178,7 @@
 		</div>
 		<input id="id" type="text" maxlength="6" placeholder="Gen 7 ID"><br>
 		<input id="tid" type="text" maxlength="6" placeholder="TID"><br>
-		<input id="sid" type="text" maxlength="6" placeholder="SID">
+		<input id="sid" class="optional special" type="text" maxlength="6" placeholder="SID">
 		<br><br>
 		<input id="ign" type="text" placeholder="IGN"><br>
 		<input id="fc" type="text" placeholder="FC">
@@ -222,6 +237,11 @@
 			<option value="This is a Pokémon that I just raised so that it will do great in battles.">"This is a Pokémon that I just raised so that it will do great in battles."</option>
 			<option value="This is a Pokémon with great potential. Please raise it if you'd like.">"This is a Pokémon with great potential. Please raise it if you'd like."</option>
 		</select>
+		<br><br>
+		<div class="special">
+			<p><sup>*</sup> = Optional</p>
+			<p><sup>**</sup> = Event Only</p>
+		</div>
 	</div>
 
 	<div class="result">

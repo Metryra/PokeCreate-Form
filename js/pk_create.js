@@ -2,6 +2,21 @@ $(function() {
 	$('input[type=text]').keyup(write);
 	$('input[type=number], input[type=checkbox], select').change(write);
 
+	/* Special */
+		$('.special.optional').after( '<sup>*</sup>' );
+		$('.special.event-only').after( '<sup>**</sup>' );
+
+	/* Pokémon */
+		var pkmn = [];
+		$.getJSON('https://nuotsu.github.io/PPAR/js/ppa.json', function(ppaJSON) {
+            for (var i in ppaJSON) {
+				pkmn.push(ppaJSON[i].nameENG);
+            }
+			$('#name').autocomplete({
+				source: pkmn
+			});
+		});
+
 	function write() {
 		// Terms
 			game_ver = $('#game_ver').val();
@@ -44,8 +59,8 @@ $(function() {
 				} else {
 					pkrs = 'No';
 				}
-			mtg_pkmn = $('#mtg_pkmn').val();
-			mtg_gender = $('#mtg_gender').val();
+			mtg_game = $('#mtg_game').val();
+			mtg_loc = $('#mtg_loc').val();
 			mtg_level = $('#mtg_level').val();
 			ball = $('#ball').val();
 			ribbons = '';
@@ -105,7 +120,7 @@ $(function() {
 				'* **Language**: ' + lang + '\n' +
 				'* **Pokérus**: ' + pkrs + '\n\n' +
 				'&nbsp;' + '\n\n' +
-				'* **Meeting Location**: ' + mtg_pkmn + ' ¦ ' + mtg_gender + ' ¦ Lv.' + mtg_level + ' ¦ ' + ball + ' Ball\n' +
+				'* **Meeting Location**: ' + mtg_game + ' ¦ ' + mtg_loc + ' ¦ Lv.' + mtg_level +
 				'* **PokéBall**: ' + ball + ' ball\n' +
 				'* **Ribbons**: ' + ribbons + '\n\n' +
 				'&nbsp;' + '\n\n' +
