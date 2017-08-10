@@ -126,9 +126,6 @@ $(function() {
 					} else if (pkmn.indexOf('Minior') == 0) {
 						$('#form').val($('#pkmn').val().replace('Minior ', ''));
 						form = $('#pkmn').val().replace('Minior ', '');
-					} else {
-						$('#form').val('');
-						form = 'N/A';
 					}
 			gender = $('#gender').val();
 				if (pkmn.match(
