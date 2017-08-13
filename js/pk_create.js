@@ -23,10 +23,10 @@ $(function() {
 		var ppaList = [];
 		$.getJSON('../PPAR/js/ppa.json', function(ppaJSON) {
             for (var i in ppaJSON) {
-				if (!ppaJSON[i].name.match(
+				if (!ppaJSON[i].nameENG.match(
 						/(Mega|Primal|Wishiwashi School|Minior Shield|Giratina Original|Egg)/
 					)) {
-					pkmnList.push(ppaJSON[i].name);
+					pkmnList.push(ppaJSON[i].nameENG);
 					ppaList.push(ppaJSON[i].dex);
 				}
             }
