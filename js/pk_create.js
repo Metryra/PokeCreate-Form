@@ -23,12 +23,8 @@ $(function() {
 		var ppaList = [];
 		$.getJSON('../PPAR/js/ppa.json', function(ppaJSON) {
             for (var i in ppaJSON) {
-				if (!ppaJSON[i].nameENG.match(
-						/(Mega|Primal|Wishiwashi School|Minior Shield|Giratina Original|Egg)/
-					)) {
-					pkmnList.push(ppaJSON[i].nameENG);
-					ppaList.push(ppaJSON[i].dex);
-				}
+				pkmnList.push(ppaJSON[i].nameENG);
+				ppaList.push(ppaJSON[i].dex);
             }
 			return pkmnList;
 		});
@@ -129,11 +125,11 @@ $(function() {
 					}
 			gender = $('#gender').val();
 				if (pkmn.match(
-						/( Nidoran F|Nidorina|Nidoqueen|Chansey|Kangaskhan|Jynx|Smoochum|Miltank|Blissey|Illumise|Latias|Wormadam|Vespiqueen|Happiny|Froslass|Cresselia|Unfezant F|Petilil|Lilligant|Vullaby|Mandibuzz|Flabebe|Floette|Florges|Salazzle|Bounsweet|Steenee|Tsareena)/
+						/( Nidoran (F)|Nidorina|Nidoqueen|Chansey|Kangaskhan|Jynx|Smoochum|Miltank|Blissey|Illumise|Latias|Wormadam|Vespiqueen|Happiny|Froslass|Cresselia|Unfezant (F)|Petilil|Lilligant|Vullaby|Mandibuzz|Flabebe|Floette|Florges|Meowstic (F)|Salazzle|Bounsweet|Steenee|Tsareena)/
 					)) {
 					$('#gender').val('F');
 				} else if (pkmn.match(
-						/( Nidoran M|Nidorino|Nidoking|Hitmonlee|Hitmonchan|Tauros|Tyrogue|Hitmontop|Volbeat|Latios|Mothim|Gallade|Unfezant M|Throh|Sawk|Rufflet|Braviary|Tornadus|Thundurus|Landorus)/
+						/( Nidoran (M)|Nidorino|Nidoking|Hitmonlee|Hitmonchan|Tauros|Tyrogue|Hitmontop|Volbeat|Latios|Mothim|Gallade|Unfezant (M)|Throh|Sawk|Rufflet|Braviary|Tornadus|Thundurus|Landorus|Meowstic (M))/
 					)) {
 					$('#gender').val('M');
 				} else if (pkmn.match(
