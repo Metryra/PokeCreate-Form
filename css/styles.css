@@ -49,13 +49,16 @@
         font-size: 20px;
     }
     .link a:hover { text-decoration: underline;}
-
+    .sub-link { margin: 10px; }
+    .sub-link a {
+        margin: 10px;
+        font-size: 16px;
+    }
     .ppar {
         position: fixed;
         right: 0;    top: 0;
         padding: 5px;
     }
-
     .bg {
         position: fixed;
         left: 0;    right: 0;
@@ -81,7 +84,8 @@
         vertical-align: middle;
     }
     label[for="ball"] img,
-    label[for="gts_ball"] img {
+    label[for="gts_ball"] img,
+    label[for="edit_ball"] img {
         width: 18px;
         vertical-align: middle;
     }
@@ -92,7 +96,7 @@
         overflow-y: scroll;
     }
 
-/* Form & Result */
+/* Form */
     .form,
     .result {
         display: inline-block;
@@ -110,6 +114,12 @@
         text-align: left;
         transform: translateY(-9px);
     }
+    .form.pk_edit > *:not(p) {
+        display: inline-block;
+        margin: 4px 0;
+    }
+
+/* Result */
 	textarea {
 		display: block;
         position: relative;

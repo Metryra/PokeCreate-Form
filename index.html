@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>PokéRequest Form</title>
+	<title>PokémonCreate | Request Form</title>
 	<!-- <link rel="icon" href="images/"> -->
 
 	<meta charset="UTF-8">
@@ -10,17 +10,17 @@
 
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<script src="js/pk_create.js"></script>
 </head>
 
 <body>
 	<div class="bg"></div>
 
 	<div class="link">
-		<a href="https://www.reddit.com/r/PokemonCreate/" target="_blank">PokémonCreate!</a>
+		<a href="https://www.reddit.com/r/PokemonCreate/" target="_blank">Submit!</a>
+		<p class="sub-link">
+			<a href="index.html">PokémonCreate</a>
+			<a href="edit.html">PokémonEdit</a>
+		</p>
 	</div>
 
 	<div class="ppar">Background image generated with <a href="https://nuotsu.github.io/PPAR/" target="_blank">PPAR</a>.</div>
@@ -37,14 +37,15 @@
 		<input id="nickname" type="text" placeholder="Nickname">
 		<input id="form" type="text" placeholder="Form"><br>
 		<select id="gender">
-				<option value="M">♂</option>
-				<option value="F">♀</option>
+				<option value="Male">♂</option>
+				<option value="Female">♀</option>
 				<option value="Genderless">--</option>
 		</select>
 		<input id="shiny" type="checkbox"><label for="shiny">Shiny</label>
 		<br><br>
 		<label for="level">Lv.</label><input id="level" name="level" type="number" value="50" min="1" max="100">
-		<select id="nature">
+		<label for="nature">Nature:
+			<select id="nature">
 			<option value="Jolly">S↑　C↓　Jolly</option>
 			<option value="Timid">S↑　A↓　Timid</option>
 			<option value="Adamant">A↑　C↓　Adamant</option>
@@ -67,77 +68,95 @@
 			<option value="Gentle">D↑　B↓　Gentle</option>
 			<option value="Hardy">−↑　−↓　Hardy</option>
 		</select><br>
+		</label>
 		<input id="item" type="text" placeholder="Item">
 		<input id="ability" type="text" placeholder="Ability"><br>
-		<select id="lang">
-			<option value="ENG">ENG</option>
-			<option value="FRE">FRE</option>
-			<option value="GER">GER</option>
-			<option value="ITA">ITA</option>
-			<option value="JPN">JPN</option>
-			<option value="KOR">KOR</option>
-			<option value="SPA">SPA</option>
-			<option value="CHS">CHS</option>
-			<option value="CHT">CHT</option>
-		</select>
-		<input id="pkrs" type="checkbox"><label for="pkrs">Pok&eacute;rus</label>
-		<br><br>
+		<label for="lang">Language:
+			<select id="lang">
+				<option value="ENG">ENG</option>
+				<option value="FRE">FRE</option>
+				<option value="GER">GER</option>
+				<option value="ITA">ITA</option>
+				<option value="JPN">JPN</option>
+				<option value="KOR">KOR</option>
+				<option value="SPA">SPA</option>
+				<option value="CHS">CHS</option>
+				<option value="CHT">CHT</option>
+			</select>
+		</label><br>
+		<label for="pkrs">Pokérus:
+            <select id="pkrs">
+				<option value="Cured">Cured</option>
+				<option value="Infected">Infected</option>
+				<option value="Uninfected">Uninfected</option>
+    		</select>
+        </label><br><br>
 		<div class="MTG">Meeting Location:<br>
-			<label for="mtg_game">Game: </label><select id="mtg_game">
-				<option value="Sun">Sun</option>
-				<option value="Moon">Moon</option>
-				<option value="Omega Ruby">Omega Ruby</option>
-				<option value="Alpha Sapphire">Alpha Sapphire</option>
-				<option value="X">X</option>
-				<option value="Y">Y</option>
-				<option value="Black 2">Black 2</option>
-				<option value="White 2">White 2</option>
-				<option value="Black">Black</option>
-				<option value="White">White</option>
-				<option value="Platinum">Platinum</option>
-				<option value="Heart Gold">Heart Gold</option>
-				<option value="Soul Silver">Soul Silver</option>
-				<option value="Diamond">Diamond</option>
-				<option value="Pearl">Pearl</option>
-			</select> ¦
+			<label for="mtg_game">Game:
+				<select id="mtg_game">
+					<option value="Sun">Sun</option>
+					<option value="Moon">Moon</option>
+					<option value="Omega Ruby">Omega Ruby</option>
+					<option value="Alpha Sapphire">Alpha Sapphire</option>
+					<option value="X">X</option>
+					<option value="Y">Y</option>
+					<option value="Black 2">Black 2</option>
+					<option value="White 2">White 2</option>
+					<option value="Black">Black</option>
+					<option value="White">White</option>
+					<option value="Platinum">Platinum</option>
+					<option value="Heart Gold">Heart Gold</option>
+					<option value="Soul Silver">Soul Silver</option>
+					<option value="Diamond">Diamond</option>
+					<option value="Pearl">Pearl</option>
+				</select> ¦
+			</label>
 			<input id="mtg_loc" type="text" placeholder="Location"> ¦
-			<label for="mtg_level">Lv.</label><input id="mtg_level" name="level" type="number" value="1" min="1" max="100">
+			<label for="mtg_level">Lv.
+				<input id="mtg_level" name="level" type="number" value="1" min="1" max="100">
+			</label>
 		</div>
-		<label for="ball"><img src="images/ball/Poke_ball.png"></label> <select id="ball">
-			<option value="Poke">Poké Ball</option>
-			<option value="Great">Great Ball</option>
-			<option value="Ultra">Ultra Ball</option>
-			<option value="Master">Master Ball</option>
-			<option value="Safari">Safari Ball</option>
-			<option value="Sport">Sport Ball</option>
-			<option value="Premier">Premier Ball</option>
-			<option value="Repeat">Repeat Ball</option>
-			<option value="Timer">Timer Ball</option>
-			<option value="Nest">Nest Ball</option>
-			<option value="Net">Net Ball</option>
-			<option value="Dive">Dive Ball</option>
-			<option value="Luxury">Luxury Ball</option>
-			<option value="Heal">Heal Ball</option>
-			<option value="Quick">Quick Ball</option>
-			<option value="Dusk">Dusk Ball</option>
-			<option value="Cherish">Cherish Ball</option>
-			<option value="Park">Park Ball</option>
-			<option value="Dream">Dream Ball</option>
-			<option value="Beast">Beast Ball</option>
-			<optgroup label="- Apricorn Balls -">
-			<option value="Level">Level Ball</option>
-			<option value="Lure">Lure Ball</option>
-			<option value="Moon">Moon Ball</option>
-			<option value="Friend">Friend Ball</option>
-			<option value="Love">Love Ball</option>
-			<option value="Heavy">Heavy Ball</option>
-			<option value="Fast">Fast Ball</option>
-			</optgroup>
-		</select>
+		<label for="ball"><img src="images/ball/Poke_ball.png">
+			<select id="ball">
+				<option value="Poke">Poké Ball</option>
+				<option value="Great">Great Ball</option>
+				<option value="Ultra">Ultra Ball</option>
+				<option value="Master">Master Ball</option>
+				<option value="Safari">Safari Ball</option>
+				<option value="Sport">Sport Ball</option>
+				<option value="Premier">Premier Ball</option>
+				<option value="Repeat">Repeat Ball</option>
+				<option value="Timer">Timer Ball</option>
+				<option value="Nest">Nest Ball</option>
+				<option value="Net">Net Ball</option>
+				<option value="Dive">Dive Ball</option>
+				<option value="Luxury">Luxury Ball</option>
+				<option value="Heal">Heal Ball</option>
+				<option value="Quick">Quick Ball</option>
+				<option value="Dusk">Dusk Ball</option>
+				<option value="Cherish">Cherish Ball</option>
+				<option value="Park">Park Ball</option>
+				<option value="Dream">Dream Ball</option>
+				<option value="Beast">Beast Ball</option>
+				<optgroup label="- Apricorn Balls -">
+				<option value="Level">Level Ball</option>
+				<option value="Lure">Lure Ball</option>
+				<option value="Moon">Moon Ball</option>
+				<option value="Friend">Friend Ball</option>
+				<option value="Love">Love Ball</option>
+				<option value="Heavy">Heavy Ball</option>
+				<option value="Fast">Fast Ball</option>
+				</optgroup>
+			</select>
+		</label>
 		<input id="ribbons" type="text" placeholder="Ribbons">
 		<br><br>
-		<label for="ivs">IVs: </label><input id="ivs" type="text" value="31/31/31/31/31/31"><br>
-		<label for="evs">EVs: </label><input id="evs" type="text" value="-/-/-/-/-/-"><br>
+		<label for="ivs">IVs:
+			<input id="ivs" type="text" value="31/31/31/31/31/31">
+		</label><br>
+		<label for="evs">EVs:
+			<input id="evs" type="text" value="-/-/-/-/-/-">
+		</label><br>
 		<label for="hp">HP:</label>
 			<select id="hp">
 				<option value="--">--</option>
@@ -159,16 +178,17 @@
 				<option value="Fighting">Fighting</option>
 			</select>
 		<br><br>
-		<input id="move_1" type="text" placeholder="Move 1">
-		<input id="move_2" type="text" placeholder="Move 2"><br>
-		<input id="move_3" type="text" placeholder="Move 3">
-		<input id="move_4" type="text" placeholder="Move 4">
-		<br><br>
+		<div>Moves:<br>
+			<input id="move_1" type="text" placeholder="Move 1">
+			<input id="move_2" type="text" placeholder="Move 2"><br>
+			<input id="move_3" type="text" placeholder="Move 3">
+			<input id="move_4" type="text" placeholder="Move 4">
+		</div><br>
 		<div class="OT">OT:<br>
 			<input id="ot_name" type="text" placeholder="OT Name"> ¦
 			<select id="ot_gender">
-				<option value="M">M</option>
-				<option value="F">F</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
 			</select>
 		</div>
 		<input id="id" type="text" maxlength="6" placeholder="Gen 7 ID">
@@ -238,7 +258,7 @@
 		</div>
 	</div>
 
-	<div class="result">
+	<div class="result pk_create">
 		<textarea placeholder="Simply type into the inputs to the left!"></textarea>
 		<button id="copy">Copy</button>
 	</div>
@@ -248,6 +268,10 @@
 		<a href="https://twitter.com/pkmn_maru" target="_blank">Nuotsu</a>
 		2017
 	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="js/pk_create.js"></script>
 </body>
 
 </html>
