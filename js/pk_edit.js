@@ -1,11 +1,11 @@
 // hover for PPAR
 	$('.ppar').hover(function() {
 		$('.bg').css({
-			'background-image': 'url(\'images/ppar_show.png\')'
+			'background-image': 'url(\'img/ppar_show.png\')'
 		})
 	}, function() {
 		$('.bg').css({
-			'background-image': 'url(\'images/ppar.png\')'
+			'background-image': 'url(\'img/ppar.png\')'
 		})
 	})
 
@@ -46,7 +46,7 @@ function write() {
         edit_ability = $('#edit_ability').val()
         edit_ball = $('#edit_ball').val()
             $('label[for=edit_ball] img').attr({
-                'src': 'images/ball/' + edit_ball + '_ball.png'
+                'src': 'img/ball/' + edit_ball + '_ball.png'
             })
         edit_lang = $('#edit_lang').val()
         edit_reg = $('#edit_reg').val()
