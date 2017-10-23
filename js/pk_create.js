@@ -1,11 +1,11 @@
 // hover for PPAR
 	$('.ppar').hover(function() {
 		$('.bg').css({
-			'background-image': 'url(\'images/ppar_show.png\')'
+			'background-image': 'url(\'img/ppar_show.png\')'
 		})
 	}, function() {
 		$('.bg').css({
-			'background-image': 'url(\'images/ppar.png\')'
+			'background-image': 'url(\'img/ppar.png\')'
 		})
 	})
 
