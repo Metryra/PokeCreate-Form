@@ -45,7 +45,7 @@ function write() {
 			if (ppa == undefined ||
 				ppa == '0025Co') ppa = 'Egg'
 			$('label[for=pkmn] img').attr({
-				'src': 'images/ppa/' + ppa + '_PPA.png'
+				'src': 'img/ppa/' + ppa + '_PPA.png'
 			})
 		nickname = $('#nickname').val()
 		nn = $('#nn').val()
