@@ -135,7 +135,7 @@ function write() {
 		mtg_level = $('#mtg_level').val()
 		ball = $('#ball').val()
 			$('label[for=ball] img').attr({
-				'src': 'images/ball/' + ball + '_ball.png'
+				'src': 'img/ball/' + ball + '_ball.png'
 			})
 		ribbons = ''
 			if ( $('#ribbons').val() != '' ) ribbons = $('#ribbons').val()
