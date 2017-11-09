@@ -163,13 +163,13 @@ function write() {
 			if (gts_ppa == undefined ||
 				gts_ppa == '0129s') gts_ppa = 'Egg'
 			$('label[for=gts_pkmn] img').attr({
-				'src': 'images/ppa/' + gts_ppa + '_PPA.png'
+				'src': 'img/ppa/' + gts_ppa + '_PPA.png'
 			})
 		gts_gender = $('#gts_gender').val()
 		gts_level = $('#gts_level').val()
 		gts_ball = $('#gts_ball').val()
 			$('label[for=gts_ball] img').attr({
-				'src': 'images/ball/' + gts_ball + '_ball.png'
+				'src': 'img/ball/' + gts_ball + '_ball.png'
 			})
 		msg = $('#msg').val()
 	// Form for PokémonCreate
