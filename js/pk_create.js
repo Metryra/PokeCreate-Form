@@ -20,7 +20,7 @@
 // Pokémon
 	var pkmnList = []
 	var ppaList = []
-	$.getJSON('../PPAR/js/ppa.json', function(ppaJSON) {
+	$.getJSON('https://nuotsu.github.io/PPAR/js/ppa.json', function(ppaJSON) {
         for (var i in ppaJSON) {
 			pkmnList.push(ppaJSON[i].nameENG);
 			ppaList.push(ppaJSON[i].dex);
@@ -45,7 +45,7 @@ function write() {
 			if (ppa == undefined ||
 				ppa == '0025Co') ppa = 'Egg'
 			$('label[for=pkmn] img').attr({
-				'src': 'img/ppa/' + ppa + '_PPA.png'
+				'src': 'https://nuotsu.github.io/PPAR/img/ppa/' + ppa + '_PPA.png'
 			})
 		nickname = $('#nickname').val()
 		nn = $('#nn').val()
@@ -135,7 +135,7 @@ function write() {
 		mtg_level = $('#mtg_level').val()
 		ball = $('#ball').val()
 			$('label[for=ball] img').attr({
-				'src': 'img/ball/' + ball + '_ball.png'
+				'src': 'https://nuotsu.github.io/PPAR/img/ball/' + ball + '_ball.png'
 			})
 		ribbons = ''
 			if ( $('#ribbons').val() != '' ) ribbons = $('#ribbons').val()
@@ -163,13 +163,13 @@ function write() {
 			if (gts_ppa == undefined ||
 				gts_ppa == '0129s') gts_ppa = 'Egg'
 			$('label[for=gts_pkmn] img').attr({
-				'src': 'img/ppa/' + gts_ppa + '_PPA.png'
+				'src': 'https://nuotsu.github.io/PPAR/img/ppa/' + gts_ppa + '_PPA.png'
 			})
 		gts_gender = $('#gts_gender').val()
 		gts_level = $('#gts_level').val()
 		gts_ball = $('#gts_ball').val()
 			$('label[for=gts_ball] img').attr({
-				'src': 'img/ball/' + gts_ball + '_ball.png'
+				'src': 'https://nuotsu.github.io/PPAR/img/ball/' + gts_ball + '_ball.png'
 			})
 		msg = $('#msg').val()
 	// Form for PokémonCreate

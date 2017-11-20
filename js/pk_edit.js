@@ -20,7 +20,7 @@
 // Pokémon
 	var pkmnList = []
 	var ppaList = []
-	$.getJSON('../PPAR/js/ppa.json', function(ppaJSON) {
+	$.getJSON('https://nuotsu.github.io/PPAR/js/ppa.json', function(ppaJSON) {
         for (var i in ppaJSON) {
 			pkmnList.push(ppaJSON[i].nameENG)
 			ppaList.push(ppaJSON[i].dex)
@@ -46,7 +46,7 @@ function write() {
         edit_ability = $('#edit_ability').val()
         edit_ball = $('#edit_ball').val()
             $('label[for=edit_ball] img').attr({
-                'src': 'img/ball/' + edit_ball + '_ball.png'
+                'src': 'https://nuotsu.github.io/PPAR/img/ball/' + edit_ball + '_ball.png'
             })
         edit_lang = $('#edit_lang').val()
         edit_reg = $('#edit_reg').val()
