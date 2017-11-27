@@ -1,14 +1,9 @@
 // hover for PPAR
 	$('.ppar').hover(function() {
-		$('.bg').css({
-			'background-image': 'url(\'img/ppar_show.png\')'
-		})
+		$('.bg').addClass('show')
 	}, function() {
-		$('.bg').css({
-			'background-image': 'url(\'img/ppar.png\')'
-		})
+		$('.bg').removeClass('show')
 	})
-
 // Upon change of inputs
 	$('input[type=text]').keyup(write)
 	$('input[type=number], input[type=checkbox], select').change(write)
@@ -16,6 +11,17 @@
 // Special
 	$('.special.optional').after('<sup>*</sup>')
 	$('.special.event-only').after('<sup>**</sup>')
+
+// Meeting Date: Today
+	now = new Date()
+	    yyyy = now.getFullYear()
+	    mm = now.getMonth()+1
+	        if (mm < 10) mm = `0${mm}`
+	    d = now.getDate()
+	    dd = ''
+	        if (d < 10) dd = `0${dd}`
+	timestamp = `${mm}/${d}/${yyyy}`
+	$('#edit_mtg_date').val(timestamp)
 
 // Pokémon
 	var pkmnList = []
@@ -52,6 +58,7 @@ function write() {
         edit_reg = $('#edit_reg').val()
         edit_mtg_game = $('#edit_mtg_game').val()
         edit_mtg_loc = $('#edit_mtg_loc').val()
+		edit_mtg_date = $('#edit_mtg_date').val()
         edit_mtg_level = $('#edit_mtg_level').val()
         edit_ivs = $('#edit_ivs').val()
         edit_evs = $('#edit_evs').val()
@@ -91,8 +98,8 @@ function write() {
 			'Ability: ' + edit_ability + '\n\n' +
 			'Ball: ' + edit_ball + ' Ball\n\n' +
 			'Language and Region: ' + edit_lang + ' ¦ ' + edit_reg + '\n\n' +
-			'Meeting Location: ' +
-                edit_mtg_game + ' ¦ ' + edit_mtg_loc + ' ¦ Lv.' + edit_mtg_level + '\n\n' +
+			'Meeting Info: ' +
+                edit_mtg_game + ' ¦ ' + edit_mtg_loc + ' ¦ ' + edit_mtg_date + ' ¦ Lv.' + edit_mtg_level + '\n\n' +
 			'IVs: ' + edit_ivs + '\n\n' +
 			'EVs: ' + edit_evs + '\n\n' +
 			'Moves: ' +

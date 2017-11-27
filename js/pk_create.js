@@ -1,12 +1,8 @@
 // hover for PPAR
 	$('.ppar').hover(function() {
-		$('.bg').css({
-			'background-image': 'url(\'img/ppar_show.png\')'
-		})
+		$('.bg').addClass('show')
 	}, function() {
-		$('.bg').css({
-			'background-image': 'url(\'img/ppar.png\')'
-		})
+		$('.bg').removeClass('show')
 	})
 
 // Upon change of inputs
@@ -16,6 +12,17 @@
 // Special
 	$('.special.optional').after('<sup>*</sup>')
 	$('.special.event-only').after('<sup>**</sup>')
+
+// Meeting Date: Today
+	now = new Date()
+	    yyyy = now.getFullYear()
+	    mm = now.getMonth()+1
+	        if (mm < 10) mm = `0${mm}`
+	    d = now.getDate()
+	    dd = ''
+	        if (d < 10) dd = `0${dd}`
+	timestamp = `${mm}/${d}/${yyyy}`
+	$('#mtg_date').val(timestamp)
 
 // Pokémon
 	var pkmnList = []
@@ -132,6 +139,7 @@ function write() {
 		pkrs = $('#pkrs').val()
 		mtg_game = $('#mtg_game').val()
 		mtg_loc = $('#mtg_loc').val()
+		mtg_date = $('#mtg_date').val()
 		mtg_level = $('#mtg_level').val()
 		ball = $('#ball').val()
 			$('label[for=ball] img').attr({
@@ -194,7 +202,7 @@ function write() {
 			'* **Language**: ' + lang + '\n' +
 			'* **Pokérus**: ' + pkrs + '\n\n' +
 			'&nbsp;' + '\n\n' +
-			'* **Meeting Location**: ' + mtg_game + ' ¦ ' + mtg_loc + ' ¦ Lv.' + mtg_level + '\n' +
+			'* **Meeting Info**: ' + mtg_game + ' ¦ ' + mtg_loc + ' ¦ ' + mtg_date + ' ¦ Lv.' + mtg_level + '\n' +
 			'* **PokéBall**: ' + ball + ' Ball\n' +
 			'* **Ribbons**: ' + ribbons + '\n\n' +
 			'&nbsp;' + '\n\n' +

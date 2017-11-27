@@ -63,11 +63,15 @@
         position: fixed;
         left: 0;    right: 0;
         top: 0;    bottom: 0;
-        background-image: url('../img/ppar.png');
+        background-image: url('../img/ppar.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        opacity: 0.2;
         transition: 0.3s ease-in-out;
+    }
+    .bg.show {
+        opacity: 1;
     }
 
 /* Special */
