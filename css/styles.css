@@ -1,154 +1,225 @@
 /* Fonts */
     @font-face {
+        font-family: 'SFPD';
+        src: url('../fonts/SF-Pro-Display-Regular.otf');
+    }
+    @font-face {
+        font-family: 'SFPD Bold';
+        src: url('../fonts/SF-Pro-Display-Bold.otf');
+    }
+    @font-face {
         font-family: 'SF Mono';
-        src: url('../fonts/SFMono-Regular.otf');
-	}
+        src: url('../fonts/SFMono.otf');
+        font-weight: normal;
+    }
+    @font-face {
+        font-family: 'SF Mono';
+        src: url('../fonts/SFMono-Bold.otf');
+        font-weight: bold;
+    }
 
 /* Variables */
     :root {
-        --ppar-blur: blur(10px);
-        --green: #84a66f;
+        --transition: 0.2s ease-in-out;
+        --blur: blur(10px) saturate(1.8);
     }
 
 /* Common */
-	* {
-		margin: 0;
-		padding: 0;
-		font-family: 'SF Mono';
-		font-size: 12px;
-	}
-	body {
-		transition: 0.3s ease-in-out;
+    *{
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+    }
+    input {
+        text-align: center;
+        border: 2px solid rgba(0,0,0, 0);
+        border-radius: 3px;
+        background: rgba(0,0,0, 0.05);
+        outline: none;
+        transition: var(--transition);
+    }
+    input:focus {
+        border-bottom: 2px solid rgba(0,0,0, 0.5);
+    }
+    button {
+        padding: 2px 6px;
+    }
+
+/* Nav */
+    nav {
+        position: fixed;
+        width: 100vw;
+        height: 100px;
         text-align: center;
     }
-	a {
-        text-decoration: underline;
-        color: #000;
+    #logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
-	input {
-        margin: 2px;
-		text-align: center;
-	}
-    footer {
-        position: fixed;
-        left: 0;    right: 0;
-        bottom: 10px;
-        font-size: 10px;
-        color: rgba(0,0,0, 0.5);
+    #logo img {
+        width: 150px;
     }
-    footer a { color: rgba(0,0,0, 0.5); }
 
-/* Elements */
-    .link {
-        position: relative;
-        margin: 30px 0;
-    }
-    .link a {
-        text-decoration: none;
-        color: #000;
-        font-size: 20px;
-    }
-    .link a:hover { text-decoration: underline;}
-    .sub-link { margin: 10px; }
-    .sub-link a {
-        margin: 10px;
-        font-size: 16px;
-    }
-    .ppar {
-        position: fixed;
-        right: 0;    top: 0;
-        padding: 5px;
-    }
+/* Footer */
     .bg {
         position: fixed;
-        left: 0;    right: 0;
-        top: 0;    bottom: 0;
-        background-image: url('../img/ppar.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        display: inline-block;
+        background:
+            url('../img/ppar.jpg')
+            center/cover no-repeat;
         opacity: 0.2;
-        transition: 0.3s ease-in-out;
+        transition: var(--transition);
     }
     .bg.show {
         opacity: 1;
     }
-
-/* Special */
-    .special {
-        border: 0.5px dashed var(--green);
-        padding: 1.5px;
+    footer {
+        cursor: default;
+        position: fixed;
+        left: 50%;
+        bottom: 10px;
+        transform: translate(-50%, 0);
+        font-family: 'SF Mono';
     }
-    div.special { padding: 5px; }
-    sup { color: var(--green); }
+    footer a {
+        text-decoration: underline;
+        color: #000;
+    }
+    footer,
+    footer a,
+    footer span {
+        font-size: 10px;
+    }
 
-    label[for="pkmn"] img,
-    label[for="gts_pkmn"] img {
-        width: 28px;
+/* Request Form */
+    main {
+        position: fixed;
+        top: 100px;
+        width: 100vw;
+        height: calc(100vh - 100px);
+        text-align: center;
+        overflow: scroll;
+    }
+    article {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 10px 10px 10px;
+        max-width: 90%;
+        overflow: scroll;
+    }
+    article.left {
+        height: 570px;
+        background: rgba(255,255,255, 0.9);
+    }
+    article.left,
+    article.right textarea {
+        padding: 10px;
+        border: 0.5px solid rgba(0,0,0, 0.3);
+        outline: none;
+    }
+    article.right textarea {
+        width: 400px;
+        height: 520px;
+        background: rgba(255,255,255, 0.9);
+    }
+    article.right a {
+        display: table;
+        margin: 0 auto;
+    }
+    article.right button {
+        margin: 10px 0;
+    }
+
+    table th {
+        text-align: left ;
+        font-family: 'SFPD Bold';
+    }
+    table td {
+        text-align: left;
+        font-family: 'SFPD';
+    }
+    table td:first-child {
+        text-align: right !important;
+    }
+    table td > * {
         vertical-align: middle;
     }
-    label[for="ball"] img,
-    label[for="gts_ball"] img,
-    label[for="edit_ball"] img {
-        width: 18px;
-        vertical-align: middle;
+    table tr.break {
+        display: inline-block;
+        margin: 10px 0;
+    }
+
+    #img_pkmn,
+    #img_gts_pkmn,
+    #img_ball,
+    #img_gts_ball,
+    #img_pkrs {
+        display: inline-block;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: pixelated;
+    }
+    #img_pkmn,
+    #img_gts_pkmn {
+        width: 40px;
+        height: 40px;
+        margin: -10px -5px;
+        background:
+            url('https://nuotsu.github.io/PPAR/img/ppa/Egg_PPA.png')
+            center/cover no-repeat;
+    }
+    #img_ball,
+    #img_gts_ball {
+        width: 24px;
+        height: 24px;
+        margin: -10px -5px;
+        background:
+            url('https://nuotsu.github.io/PPAR/img/ball/Poke_ball.png')
+            center/cover no-repeat;
+    }
+    #img_pkrs {
+        height: 8px;
+    }
+
+    .spreads td,
+    .ivev td {
+        width: 50px;
+        border-radius: 4px 4px 0 0;
+        text-align: center !important;
+        font-family: 'SFPD Bold';
+        color: #fff;
+    }
+    .spreads input {
+        width: calc(100% - 5px);
+    }
+
+    .moves > * {
+        display: block;
+        margin: 4px 0;
     }
 
 /* jQuery UI */
     .ui-autocomplete {
-        max-height: 370px;
+        max-height: 400px;
         overflow-y: scroll;
     }
 
-/* Form */
-    .form,
-    .result {
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0 30px;
-        padding: 10px;
-        overflow: scroll;
+@supports
+    (-webkit-backdrop-filter: var(--blur)) or
+    (-moz-backdrop-filter: var(--blur)) or
+    (backdrop-filter: var(--blur)) {
+    article.left,
+    article.right textarea {
+        -webkit-backdrop-filter: var(--blur);
+        -moz-backdrop-filter: var(--blur);
+        backdrop-filter: var(--blur);
+        background: rgba(255,255,255, 0.6);
     }
-    .result { width: 420px; }
-    .form {
-        width: 500px;    height: 500px;
-        border-radius: 5px;
-        background: #fff;
-        box-shadow: 0 5px 10px rgba(0,0,0, 0.3);
-        text-align: left;
-        transform: translateY(-9px);
-    }
-    .form.pk_edit > *:not(p) {
-        display: inline-block;
-        margin: 4px 0;
-    }
-
-/* Result */
-	textarea {
-		display: block;
-        position: relative;
-        border: none;
-        border-radius: 5px;
-        background: #eee;
-        box-shadow: 0 5px 10px rgba(0,0,0, 0.3);
-		padding: 10px;
-		width: 400px;	height: 500px;
-	}
-	#copy {
-		position: relative;
-		right: 0;    bottom: 25px;
-		transform: translateX(185px);
-		padding: 2px;
-	}
-
-    @supports
-        (-webkit-backdrop-filter: var(--ppar-blur)) or
-        (-moz-backdrop-filter: var(--ppar-blur)) or
-        (backdrop-filter: var(--ppar-blur)) {
-        .form {
-            -webkit-backdrop-filter: var(--ppar-blur);
-            -moz-backdrop-filter: var(--ppar-blur);
-            backdrop-filter: var(--ppar-blur);
-            background: rgba(0, 0, 0, 0);
-        }
-    }
+}
