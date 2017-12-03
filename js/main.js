@@ -342,7 +342,6 @@
 
 * **Meeting Info**: ${mtg_game} ¦ ${mtg_loc} ¦ ${mtg_date} ¦ Lv.${mtg_lv}
 * **PokéBall**: ${ball} Ball
-* **Ribbons**: ${ribbon}
 
 &nbsp;
 
@@ -365,6 +364,7 @@
 * **Gen 7 ID**: ${gen7id}
 * **TID**: ${tid}
 * **SID**: ${sid}
+* **Ribbons**: ${ribbon}
 &nbsp;
 
 ##GTS Deposit
