@@ -299,7 +299,7 @@
 			if (gts_ppa == undefined ||
 				gts_ppa == '0129s') gts_ppa = 'Egg'
 			$('#img_gts_pkmn').css({
-				'background-image': `url('h0o/PPAR/img/ppa/${gts_ppa}_PPA.png')`
+				'background-image': `url('https://nuotsu.github.io/PPAR/img/ppa/${gts_ppa}_PPA.png')`
 			})
 		gts_gender = $('#gts_gender').val()
 		gts_lv = $('#gts_lv').val()
