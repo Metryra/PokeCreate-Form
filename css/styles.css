@@ -115,7 +115,7 @@
         overflow: scroll;
     }
     article.left {
-        height: 570px;
+        height: calc(100vh - 160px);
         background: rgba(255,255,255, 0.9);
     }
     article.left,
@@ -126,7 +126,7 @@
     }
     article.right textarea {
         width: 400px;
-        height: 520px;
+        height: calc(100vh - 200px);
         background: rgba(255,255,255, 0.9);
     }
     article.right a {
