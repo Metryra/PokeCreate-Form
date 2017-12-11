@@ -178,7 +178,7 @@
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ppa/${ppa}_PPA.png')`
 			})
 		nn = ''
-            if ($('#nn').val() != '') nn = $('#nn').val() + ' '
+            if ($('#nn').val() != '') nn = $('#nn').val()
 		form = $('#form').val()
 			if (pkmn.indexOf('Alolan') == 0) {
 				$('#form').val('Alolan')
@@ -243,6 +243,11 @@
 			} else if (form == '') {
                 form = '--'
             }
+        nn_form = ''
+            if ($('#nn').val() != '' && $('#form').val() != '') nn_form = ` (${nn} - ${form}) `
+            if ($('#nn').val() != '' && $('#form').val() == '') nn_form = ` (${nn}) `
+            if ($('#nn').val() == '' && $('#form').val() != '') nn_form = ` (${form}) `
+            if ($('#nn').val() == '' && $('#form').val() == '') nn_form = ` `
         gender = $('#gender').val()
             if (pkmn != '') {
                 var genderAdj = genderList[pkmnList.indexOf(pkmn)]
@@ -320,19 +325,18 @@
         $('textarea').val(
 `[PokéRequest]
 
-Game Version:	${game_ver}
-PKHex File Link:    ${pkhex}
-Serebii Link:   ${serebii}
+Game Version: ${game_ver}
+PKHex File Link: ${pkhex}
+Serebii Link: ${serebii}
 
 > Pokémon Info
 
-${nn}(${pkmn} - ${form}) ${gender}@ ${item}
-Ball: ${ball} Ball
+${pkmn}${nn_form}${gender}@ ${item}
 Ability: ${ability}
-Level:  ${lv}
-Shiny:  ${shiny}
+Level: ${lv}
+Shiny: ${shiny}
 EVs: ${ev_h} HP / ${ev_a} Atk / ${ev_b} Def / ${ev_c} SpA / ${ev_d} SpD / ${ev_s} Spe
-Nature: ${nat}
+Nature ${nat}
 IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
 - ${move1}
 - ${move2}
@@ -341,23 +345,24 @@ IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s
 
 > Meeting Info
 
-Game:   ${mtg_game}
-Location:   ${mtg_loc}
-Date:   ${mtg_date}
-Level:  ${mtg_lv}
+Game: ${mtg_game}
+Location: ${mtg_loc}
+Date: ${mtg_date}
+Level: ${mtg_lv}
+Ball: ${ball} Ball
 
 > Trainer Info
 
 OT: ${ot} (${ot_gender})
-Gen 7 ID:   ${gen7id}
-TID:    ${tid}
-SID:    ${sid}
-Ribbons:    ${ribbon}
+Gen 7 ID: ${gen7id}
+TID: ${tid}
+SID: ${sid}
+Ribbons: ${ribbon}
 
 > GTS Deposit
 
-IGN:    ${ign}
+IGN: ${ign}
 FC: ${fc}
-Deposit:    ${gts_pkmn} ${gts_gender}Lv.${gts_lv} in ${gts_ball} Ball
-Message:    "${gts_msg}"
+Deposit: ${gts_pkmn} ${gts_gender}Lv.${gts_lv} in ${gts_ball} Ball
+Message: "${gts_msg}"
 `)}
