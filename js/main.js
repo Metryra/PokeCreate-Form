@@ -177,77 +177,10 @@
 			$('#img_pkmn').css({
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ppa/${ppa}_PPA.png')`
 			})
+            var pkmn_form = pkmn.replace(' (', '-').replace(')', '')
 		nn = ''
-            if ($('#nn').val() != '') nn = $('#nn').val()
-		form = $('#form').val()
-			if (pkmn.indexOf('Alolan') == 0) {
-				$('#form').val('Alolan')
-				form = 'Alolan'
-			} else if (pkmn.indexOf('Pikachu ') == 0) {
-				$('#form').val($('#pkmn').val().replace('Pikachu ', ''))
-				form = $('#pkmn').val().replace('Pikachu ', '')
-			} else if (pkmn.indexOf('Unown') == 0) {
-				$('#form').val($('#pkmn').val().replace('Unown ', ''))
-				form = $('#pkmn').val().replace('Unown ', '')
-			} else if (pkmn.indexOf('Deoxys') == 0) {
-				$('#form').val($('#pkmn').val().replace('Deoxys ', ''))
-				form = $('#pkmn').val().replace('Deoxys ', '')
-            } else if (pkmn.indexOf('Giratina') == 0) {
-				$('#form').val($('#pkmn').val().replace('Giratina ', ''))
-				form = $('#pkmn').val().replace('Deoxys ', '')
-			} else if (pkmn.indexOf('Deerling') == 0) {
-				$('#form').val($('#pkmn').val().replace('Deerling ', ''))
-				form = $('#pkmn').val().replace('Deerling ', '')
-			} else if (pkmn.indexOf('Sawsbuck') == 0) {
-				$('#form').val($('#pkmn').val().replace('Sawsbuck ', ''))
-				form = $('#pkmn').val().replace('Sawsbuck ', '')
-			} else if (pkmn.indexOf('Tornadus') == 0) {
-				$('#form').val($('#pkmn').val().replace('Tornadus ', ''))
-				form = $('#pkmn').val().replace('Tornadus ', '')
-			} else if (pkmn.indexOf('Thundurus') == 0) {
-				$('#form').val($('#pkmn').val().replace('Thundurus ', ''))
-				form = $('#pkmn').val().replace('Thundurus ', '')
-			} else if (pkmn.indexOf('Landorus') == 0) {
-				$('#form').val($('#pkmn').val().replace('Landorus ', ''))
-				form = $('#pkmn').val().replace('Landorus ', '')
-			} else if (pkmn.indexOf('Kyurem ') == 0) {
-				$('#form').val($('#pkmn').val().replace('Kyurem ', ''))
-				form = $('#pkmn').val().replace('Kyurem ', '')
-			} else if (pkmn.indexOf('Vivillon ') == 0) {
-				$('#form').val($('#pkmn').val().replace('Vivillon ', ''))
-				form = $('#pkmn').val().replace('Vivillon ', '')
-			} else if (pkmn.indexOf('Flabebe') == 0) {
-				$('#form').val($('#pkmn').val().replace('Flabebe ', ''))
-				form = $('#pkmn').val().replace('Flabebe ', '')
-			} else if (pkmn.indexOf('Floette') == 0) {
-				$('#form').val($('#pkmn').val().replace('Floette ', ''))
-				form = $('#pkmn').val().replace('Floette ', '')
-			} else if (pkmn.indexOf('Florges') == 0) {
-				$('#form').val($('#pkmn').val().replace('Florges ', ''))
-				form = $('#pkmn').val().replace('Florges ', '')
-			} else if (pkmn.indexOf('Furfrou ') == 0) {
-				$('#form').val($('#pkmn').val().replace('Furfrou ', ''))
-				form = $('#pkmn').val().replace('Furfrou ', '')
-			} else if (pkmn.indexOf('Zygarde') == 0) {
-				$('#form').val($('#pkmn').val().replace('Zygarde ', ''))
-				form = $('#pkmn').val().replace('Zygarde ', '')
-			} else if (pkmn.indexOf('Hoopa') == 0) {
-				$('#form').val($('#pkmn').val().replace('Hoopa ', ''))
-				form = $('#pkmn').val().replace('Hoopa ', '')
-			} else if (pkmn.indexOf('Lycanroc') == 0) {
-				$('#form').val($('#pkmn').val().replace('Lycanroc ', ''))
-				form = $('#pkmn').val().replace('Lycanroc ', '')
-			} else if (pkmn.indexOf('Minior') == 0) {
-				$('#form').val($('#pkmn').val().replace('Minior ', ''))
-				form = $('#pkmn').val().replace('Minior ', '')
-			} else if (form == '') {
-                form = '--'
-            }
-        nn_form = ''
-            if ($('#nn').val() != '' && $('#form').val() != '') nn_form = ` (${nn} - ${form}) `
-            if ($('#nn').val() != '' && $('#form').val() == '') nn_form = ` (${nn}) `
-            if ($('#nn').val() == '' && $('#form').val() != '') nn_form = ` (${form}) `
-            if ($('#nn').val() == '' && $('#form').val() == '') nn_form = ` `
+            if ($('#nn').val() != '') nn = ` (${$('#nn').val()}) `
+            else nn = ' '
         gender = $('#gender').val()
             if (pkmn != '') {
                 var genderAdj = genderList[pkmnList.indexOf(pkmn)]
@@ -331,7 +264,7 @@ Serebii Link: ${serebii}
 
 > Pokémon Info
 
-${pkmn}${nn_form}${gender}@ ${item}
+${pkmn_form}${nn}${gender}@ ${item}
 Ability: ${ability}
 Level: ${lv}
 Shiny: ${shiny}
