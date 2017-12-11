@@ -170,7 +170,7 @@
         document.execCommand('copy')
     })
 
-// Generate Form
+// Export
     $('input, select').on('change keyup', generate)
     function generate() {
         game_ver = $('#game_ver').val()
