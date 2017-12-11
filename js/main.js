@@ -17,35 +17,6 @@
     })
 
 // select > options
-    $('select.nature').each(function() {
-        $(this).html(`
-            <option value="Jolly">S↑　C↓　Jolly</option>
-            <option value="Timid">S↑　A↓　Timid</option>
-            <option value="Adamant">A↑　C↓　Adamant</option>
-            <option value="Modest">C↑　A↓　Modest</option>
-            <option value="Brave">A↑　S↓　Brave</option>
-            <option value="Quiet">C↑　S↓　Quiet</option>
-            <option value="Hasty">S↑　B↓　Hasty</option>
-            <option value="Naive">S↑　D↓　Naive</option>
-            <option value="Bold">B↑　A↓　Bold</option>
-            <option value="Impish">B↑　C↓　Impish</option>
-            <option value="Calm">D↑　A↓　Calm</option>
-            <option value="Careful">D↑　C↓　Careful</option>
-            <option value="Relaxed">B↑　S↓　Relaxed</option>
-            <option value="Sassy">D↑　S↓　Sassy</option>
-            <option value="Lonely">A↑　B↓　Lonely</option>
-            <option value="Naughty">A↑　D↓　Naughty</option>
-            <option value="Mild">C↑　B↓　Mild</option>
-            <option value="Rash">C↑　D↓　Rash</option>
-            <option value="Lax">B↑　D↓　Lax</option>
-            <option value="Gentle">D↑　B↓　Gentle</option>
-            <option value="Hardy">−↑　−↓　Hardy</option>
-            <option value="Hardy">−↑　−↓　Docile</option>
-            <option value="Hardy">−↑　−↓　Serious</option>
-            <option value="Hardy">−↑　−↓　Bashful</option>
-            <option value="Hardy">−↑　−↓　Quirky</option>
-        `)
-    })
     $('select.ball').each(function() {
         $(this).html(`
             <option value="Poke">Poké Ball</option>
