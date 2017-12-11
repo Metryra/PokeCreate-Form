@@ -286,13 +286,13 @@ ${nat} Nature
 
 IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
 
-\\- ${move1}
+- ${move1}
 
-\\- ${move2}
+- ${move2}
 
-\\- ${move3}
+- ${move3}
 
-\\- ${move4}
+- ${move4}
 
 
 #Misc Pokémon Info
