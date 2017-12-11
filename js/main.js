@@ -187,11 +187,20 @@
             if ($('#nn').val() != '') nn = ` (${$('#nn').val()}) `
             else nn = ' '
         gender = $('#gender').val()
-            if (pkmn != '') {
-                var genderAdj = genderList[pkmnList.indexOf(pkmn)]
-                if (genderAdj[0] == 'm') $('#gender option').eq(0).prop('selected', true)
-                if (genderAdj[0] == 'f') $('#gender option').eq(1).prop('selected', true)
-                if (genderAdj[0] == '-') $('#gender option').eq(2).prop('selected', true)
+            if ($('#pkmn').val() != '') {
+                var genderAdj = genderList[pkmnList.indexOf($('#pkmn').val())]
+                if (genderAdj[0] == 'm' && genderAdj[1] == undefined) {
+                    $('#gender').html(`<option value="(M) ">♂</option>`)
+                } else if (genderAdj[0] == 'f' && genderAdj[1] == undefined) {
+                    $('#gender').html(`<option value="(F) ">♀</option>`)
+                } else if (genderAdj[0] == '-') {
+                    $('#gender').html(`<option value="">-</option>`)
+                } else {
+                    $('#gender').html(`
+                        <option value="(M) ">♂</option>
+                        <option value="(F) ">♀</option>
+                    `)
+                }
             }
 		shiny = ''
 			if ( $('#shiny').prop('checked') ) shiny = 'Yes'
@@ -246,11 +255,20 @@
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ppa/${gts_ppa}_PPA.png')`
 			})
 		gts_gender = $('#gts_gender').val()
-            if (gts_pkmn != '') {
-                var gts_genderAdj = genderList[pkmnList.indexOf(gts_pkmn)]
-                if (gts_genderAdj[0] == 'm') $('#gts_gender option').eq(0).prop('selected', true)
-                if (gts_genderAdj[0] == 'f') $('#gts_gender option').eq(1).prop('selected', true)
-                if (gts_genderAdj[0] == '-') $('#gts_gender option').eq(2).prop('selected', true)
+            if ($('#gts_pkmn').val() != '') {
+                var gts_genderAdj = genderList[pkmnList.indexOf($('#gts_pkmn').val())]
+                if (gts_genderAdj[0] == 'm' && gts_genderAdj[1] == undefined) {
+                    $('#gts_gender').html(`<option value="(M) ">♂</option>`)
+                } else if (gts_genderAdj[0] == 'f' && gts_genderAdj[1] == undefined) {
+                    $('#gts_gender').html(`<option value="(F) ">♀</option>`)
+                } else if (gts_genderAdj[0] == '-') {
+                    $('#gts_gender').html(`<option value="">-</option>`)
+                } else {
+                    $('#gts_gender').html(`
+                        <option value="(M) ">♂</option>
+                        <option value="(F) ">♀</option>
+                    `)
+                }
             }
 		gts_lv = $('#gts_lv').val()
 		gts_ball = $('#gts_ball').val()
