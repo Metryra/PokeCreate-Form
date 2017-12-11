@@ -11,6 +11,11 @@
         .each(function() { tdMax.push($('td', this).length) })
         .find('th').attr('colspan', Math.max.apply(Math, tdMax))
 
+// "Leave blank if none"
+    $('#nn, #item, #ability').attr({
+        'placeholder': 'Leave blank if none'
+    })
+
 // select > options
     $('select.nature').each(function() {
         $(this).html(`
