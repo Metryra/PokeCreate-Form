@@ -135,10 +135,12 @@
 // Pokémon
 	var pkmnList = []
 	var ppaList = []
+    var genderList = []
 	$.getJSON('https://nuotsu.github.io/PPAR/js/ppa.json', function(ppaJSON) {
         for (var i in ppaJSON) {
-			pkmnList.push(ppaJSON[i].nameENG);
-			ppaList.push(ppaJSON[i].dex);
+			pkmnList.push(ppaJSON[i].nameENG)
+			ppaList.push(ppaJSON[i].dex)
+            genderList.push(ppaJSON[i].gender)
         }
 		return pkmnList
 	})
@@ -158,7 +160,7 @@
 	$('#mtg_date').val(timestamp)
 
 // Copy & Submit
-    $('button').click(function() {
+    $('#copy').click(function() {
         $('textarea').select()
         document.execCommand('copy')
     })
@@ -175,80 +177,79 @@
 			$('#img_pkmn').css({
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ppa/${ppa}_PPA.png')`
 			})
-		nn = $('#nn').val()
+		nn = ''
+            if ($('#nn').val() != '') nn = $('#nn').val() + ' '
 		form = $('#form').val()
-            // Forms
-				if (pkmn.indexOf('Alolan') == 0) {
-					$('#form').val('Alolan')
-					form = 'Alolan'
-				} else if (pkmn.indexOf('Pikachu ') == 0) {
-					$('#form').val($('#pkmn').val().replace('Pikachu ', ''))
-					form = $('#pkmn').val().replace('Pikachu ', '')
-				} else if (pkmn.indexOf('Unown') == 0) {
-					$('#form').val($('#pkmn').val().replace('Unown ', ''))
-					form = $('#pkmn').val().replace('Unown ', '')
-				} else if (pkmn.indexOf('Deoxys') == 0) {
-					$('#form').val($('#pkmn').val().replace('Deoxys ', ''))
-					form = $('#pkmn').val().replace('Deoxys ', '')
-                } else if (pkmn.indexOf('Giratina') == 0) {
-					$('#form').val($('#pkmn').val().replace('Giratina ', ''))
-					form = $('#pkmn').val().replace('Deoxys ', '')
-				} else if (pkmn.indexOf('Deerling') == 0) {
-					$('#form').val($('#pkmn').val().replace('Deerling ', ''))
-					form = $('#pkmn').val().replace('Deerling ', '')
-				} else if (pkmn.indexOf('Sawsbuck') == 0) {
-					$('#form').val($('#pkmn').val().replace('Sawsbuck ', ''))
-					form = $('#pkmn').val().replace('Sawsbuck ', '')
-				} else if (pkmn.indexOf('Tornadus') == 0) {
-					$('#form').val($('#pkmn').val().replace('Tornadus ', ''))
-					form = $('#pkmn').val().replace('Tornadus ', '')
-				} else if (pkmn.indexOf('Thundurus') == 0) {
-					$('#form').val($('#pkmn').val().replace('Thundurus ', ''))
-					form = $('#pkmn').val().replace('Thundurus ', '')
-				} else if (pkmn.indexOf('Landorus') == 0) {
-					$('#form').val($('#pkmn').val().replace('Landorus ', ''))
-					form = $('#pkmn').val().replace('Landorus ', '')
-				} else if (pkmn.indexOf('Kyurem ') == 0) {
-					$('#form').val($('#pkmn').val().replace('Kyurem ', ''))
-					form = $('#pkmn').val().replace('Kyurem ', '')
-				} else if (pkmn.indexOf('Vivillon ') == 0) {
-					$('#form').val($('#pkmn').val().replace('Vivillon ', ''))
-					form = $('#pkmn').val().replace('Vivillon ', '')
-				} else if (pkmn.indexOf('Flabebe') == 0) {
-					$('#form').val($('#pkmn').val().replace('Flabebe ', ''))
-					form = $('#pkmn').val().replace('Flabebe ', '')
-				} else if (pkmn.indexOf('Floette') == 0) {
-					$('#form').val($('#pkmn').val().replace('Floette ', ''))
-					form = $('#pkmn').val().replace('Floette ', '')
-				} else if (pkmn.indexOf('Florges') == 0) {
-					$('#form').val($('#pkmn').val().replace('Florges ', ''))
-					form = $('#pkmn').val().replace('Florges ', '')
-				} else if (pkmn.indexOf('Furfrou ') == 0) {
-					$('#form').val($('#pkmn').val().replace('Furfrou ', ''))
-					form = $('#pkmn').val().replace('Furfrou ', '')
-				} else if (pkmn.indexOf('Zygarde') == 0) {
-					$('#form').val($('#pkmn').val().replace('Zygarde ', ''))
-					form = $('#pkmn').val().replace('Zygarde ', '')
-				} else if (pkmn.indexOf('Hoopa') == 0) {
-					$('#form').val($('#pkmn').val().replace('Hoopa ', ''))
-					form = $('#pkmn').val().replace('Hoopa ', '')
-				} else if (pkmn.indexOf('Lycanroc') == 0) {
-					$('#form').val($('#pkmn').val().replace('Lycanroc ', ''))
-					form = $('#pkmn').val().replace('Lycanroc ', '')
-				} else if (pkmn.indexOf('Minior') == 0) {
-					$('#form').val($('#pkmn').val().replace('Minior ', ''))
-					form = $('#pkmn').val().replace('Minior ', '')
-				}
+			if (pkmn.indexOf('Alolan') == 0) {
+				$('#form').val('Alolan')
+				form = 'Alolan'
+			} else if (pkmn.indexOf('Pikachu ') == 0) {
+				$('#form').val($('#pkmn').val().replace('Pikachu ', ''))
+				form = $('#pkmn').val().replace('Pikachu ', '')
+			} else if (pkmn.indexOf('Unown') == 0) {
+				$('#form').val($('#pkmn').val().replace('Unown ', ''))
+				form = $('#pkmn').val().replace('Unown ', '')
+			} else if (pkmn.indexOf('Deoxys') == 0) {
+				$('#form').val($('#pkmn').val().replace('Deoxys ', ''))
+				form = $('#pkmn').val().replace('Deoxys ', '')
+            } else if (pkmn.indexOf('Giratina') == 0) {
+				$('#form').val($('#pkmn').val().replace('Giratina ', ''))
+				form = $('#pkmn').val().replace('Deoxys ', '')
+			} else if (pkmn.indexOf('Deerling') == 0) {
+				$('#form').val($('#pkmn').val().replace('Deerling ', ''))
+				form = $('#pkmn').val().replace('Deerling ', '')
+			} else if (pkmn.indexOf('Sawsbuck') == 0) {
+				$('#form').val($('#pkmn').val().replace('Sawsbuck ', ''))
+				form = $('#pkmn').val().replace('Sawsbuck ', '')
+			} else if (pkmn.indexOf('Tornadus') == 0) {
+				$('#form').val($('#pkmn').val().replace('Tornadus ', ''))
+				form = $('#pkmn').val().replace('Tornadus ', '')
+			} else if (pkmn.indexOf('Thundurus') == 0) {
+				$('#form').val($('#pkmn').val().replace('Thundurus ', ''))
+				form = $('#pkmn').val().replace('Thundurus ', '')
+			} else if (pkmn.indexOf('Landorus') == 0) {
+				$('#form').val($('#pkmn').val().replace('Landorus ', ''))
+				form = $('#pkmn').val().replace('Landorus ', '')
+			} else if (pkmn.indexOf('Kyurem ') == 0) {
+				$('#form').val($('#pkmn').val().replace('Kyurem ', ''))
+				form = $('#pkmn').val().replace('Kyurem ', '')
+			} else if (pkmn.indexOf('Vivillon ') == 0) {
+				$('#form').val($('#pkmn').val().replace('Vivillon ', ''))
+				form = $('#pkmn').val().replace('Vivillon ', '')
+			} else if (pkmn.indexOf('Flabebe') == 0) {
+				$('#form').val($('#pkmn').val().replace('Flabebe ', ''))
+				form = $('#pkmn').val().replace('Flabebe ', '')
+			} else if (pkmn.indexOf('Floette') == 0) {
+				$('#form').val($('#pkmn').val().replace('Floette ', ''))
+				form = $('#pkmn').val().replace('Floette ', '')
+			} else if (pkmn.indexOf('Florges') == 0) {
+				$('#form').val($('#pkmn').val().replace('Florges ', ''))
+				form = $('#pkmn').val().replace('Florges ', '')
+			} else if (pkmn.indexOf('Furfrou ') == 0) {
+				$('#form').val($('#pkmn').val().replace('Furfrou ', ''))
+				form = $('#pkmn').val().replace('Furfrou ', '')
+			} else if (pkmn.indexOf('Zygarde') == 0) {
+				$('#form').val($('#pkmn').val().replace('Zygarde ', ''))
+				form = $('#pkmn').val().replace('Zygarde ', '')
+			} else if (pkmn.indexOf('Hoopa') == 0) {
+				$('#form').val($('#pkmn').val().replace('Hoopa ', ''))
+				form = $('#pkmn').val().replace('Hoopa ', '')
+			} else if (pkmn.indexOf('Lycanroc') == 0) {
+				$('#form').val($('#pkmn').val().replace('Lycanroc ', ''))
+				form = $('#pkmn').val().replace('Lycanroc ', '')
+			} else if (pkmn.indexOf('Minior') == 0) {
+				$('#form').val($('#pkmn').val().replace('Minior ', ''))
+				form = $('#pkmn').val().replace('Minior ', '')
+			} else if (form == '') {
+                form = '--'
+            }
         gender = $('#gender').val()
-			if (pkmn.match(
-					/( Nidoran (F)|Nidorina|Nidoqueen|Chansey|Kangaskhan|Jynx|Smoochum|Miltank|Blissey|Illumise|Latias|Wormadam|Vespiqueen|Happiny|Froslass|Cresselia|Unfezant (F)|Petilil|Lilligant|Vullaby|Mandibuzz|Flabebe|Floette|Florges|Meowstic (F)|Salazzle|Bounsweet|Steenee|Tsareena)/
-				)) $('#gender').val('F')
-			else if (pkmn.match(
-					/( Nidoran (M)|Nidorino|Nidoking|Hitmonlee|Hitmonchan|Tauros|Tyrogue|Hitmontop|Volbeat|Latios|Mothim|Gallade|Unfezant (M)|Throh|Sawk|Rufflet|Braviary|Tornadus|Thundurus|Landorus|Meowstic (M))/
-				)) $('#gender').val('M')
-			else if (pkmn.match(
-					/(Magnemite|Magneton|Voltorb|Electrode|Staryu|Starmie|Ditto|Porygon|Articuno|Zapdos|Moltres|Mewtwo|Mew|Unown|Porygon2|Raikou|Entei|Suicune|Lugia|Ho-oh|Celebi|Shedinja|Lunatone|Solrock|Baltoy|Claydol|Beldum|Metang|Metagross|Regirock|Regice|Registeel|Kyogre|Groudon|Rayquaza|Jirachi|Deoxys|Bronzor|Bronzong|Magnezone|Porygon-Z|Rotom|Uxie|Mesprit|Azelf|Dialga|Palkia|Regigigas|Giratina|Phione|Manaphy|Darkrai|Shaymin|Arceus|Victini|Klink|Klang|Klinklang|Cyrogonal|Golett|Golurk|Cobalion|Terrakion|Virizion|Reshiram|Zekrom|Kyurem|Keldeo|Meloetta|Genesect|Carbink|Xerneas|Yveltal|Zygarde|Diancie|Hoopa|Volcanion|Type: Null|Silvally|Minior|Dhelmise|Tapu Koko|Tapu Bulu|Tapu Lele|Tapu Fini|Cosmog|Cosmoem|Solgaleo|Lunala|Nihilego|Buzzwole|Pheromosa|Xurkitree|Celesteela|Kartana|Guzzlord|Necrozma|Magearna|Marshadow)/
-				)) $('#gender').val('Genderless')
+            if (pkmn != '') {
+                var genderAdj = genderList[pkmnList.indexOf(pkmn)]
+                if (genderAdj[0] == 'm') $('#gender option').eq(0).prop('selected', true)
+                if (genderAdj[0] == 'f') $('#gender option').eq(1).prop('selected', true)
+                if (genderAdj[0] == '-') $('#gender option').eq(2).prop('selected', true)
+            }
 		shiny = ''
 			if ( $('#shiny').prop('checked') ) shiny = 'Yes'
 			else shiny = 'No'
@@ -302,6 +303,12 @@
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ppa/${gts_ppa}_PPA.png')`
 			})
 		gts_gender = $('#gts_gender').val()
+            if (gts_pkmn != '') {
+                var gts_genderAdj = genderList[pkmnList.indexOf(gts_pkmn)]
+                if (gts_genderAdj[0] == 'm') $('#gts_gender option').eq(0).prop('selected', true)
+                if (gts_genderAdj[0] == 'f') $('#gts_gender option').eq(1).prop('selected', true)
+                if (gts_genderAdj[0] == '-') $('#gts_gender option').eq(2).prop('selected', true)
+            }
 		gts_lv = $('#gts_lv').val()
 		gts_ball = $('#gts_ball').val()
 			$('#img_gts_ball').css({
@@ -313,66 +320,44 @@
         $('textarea').val(
 `[PokéRequest]
 
-#Pokémon Request
+Game Version:	${game_ver}
+PKHex File Link:    ${pkhex}
+Serebii Link:   ${serebii}
 
-* **Game Version**: ${game_ver}
-* **PKHeX File Link**: ${pkhex}
-* **Serebii Link**: ${serebii}
+> Pokémon Info
 
-&nbsp;
+${nn}(${pkmn} - ${form}) ${gender}@ ${item}
+Ball: ${ball} Ball
+Ability: ${ability}
+Level:  ${lv}
+Shiny:  ${shiny}
+EVs: ${ev_h} HP / ${ev_a} Atk / ${ev_b} Def / ${ev_c} SpA / ${ev_d} SpD / ${ev_s} Spe
+Nature: ${nat}
+IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
+- ${move1}
+- ${move2}
+- ${move3}
+- ${move4}
 
-##Pokémon Info
+> Meeting Info
 
-* **Pokémon**: ${pkmn}
-* **Nickname**: ${nn}
-* **Form**: ${form}
-* **Gender**: ${gender}
-* **Shiny**: ${shiny}
+Game:   ${mtg_game}
+Location:   ${mtg_loc}
+Date:   ${mtg_date}
+Level:  ${mtg_lv}
 
-&nbsp;
+> Trainer Info
 
-* **Level**: ${lv}
-* **Nature**: ${nat}
-* **Held Item**: ${item}
-* **Ability**: ${ability}
-* **Country**: ${country}
-* **Pokérus**: ${pkrs}
+OT: ${ot} (${ot_gender})
+Gen 7 ID:   ${gen7id}
+TID:    ${tid}
+SID:    ${sid}
+Ribbons:    ${ribbon}
 
-&nbsp;
+> GTS Deposit
 
-* **Meeting Info**: ${mtg_game} ¦ ${mtg_loc} ¦ ${mtg_date} ¦ Lv.${mtg_lv}
-* **PokéBall**: ${ball} Ball
-
-&nbsp;
-
-* **IV's**: ${iv_h}/${iv_a}/${iv_b}/${iv_c}/${iv_d}/${iv_s}
-* **EV's**: ${ev_h}/${ev_a}/${ev_b}/${ev_c}/${ev_d}/${ev_s}
-* **Hidden Power**: ${hp}
-
-&nbsp;
-
-* **Move 1**: ${move1}
-* **Move 2**: ${move2}
-* **Move 3**: ${move3}
-* **Move 4**: ${move4}
-
-&nbsp;
-
-##Trainer Info
-
-* **OT**: ${ot} ¦ ${ot_gender}
-* **Gen 7 ID**: ${gen7id}
-* **TID**: ${tid}
-* **SID**: ${sid}
-* **Ribbons**: ${ribbon}
-
-&nbsp;
-
-##GTS Deposit
-
-* **IGN**: ${ign}
-* **FC**: ${fc}
-* **Pokemon**: ${gts_pkmn} ¦ ${gts_gender} ¦ Lv.${gts_lv} ¦ ${gts_ball} Ball
-* **Message**: ${gts_msg}`
-        )
-    }
+IGN:    ${ign}
+FC: ${fc}
+Deposit:    ${gts_pkmn} ${gts_gender}Lv.${gts_lv} in ${gts_ball} Ball
+Message:    "${gts_msg}"
+`)}

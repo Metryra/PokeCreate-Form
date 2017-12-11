@@ -72,9 +72,9 @@
                 <tr>
                     <td><label for="gender">Gender:</label></td>
                     <td><select id="gender" class="gender">
-                        <option value="Male">♂</option>
-                        <option value="Female">♀</option>
-                        <option value="Genderless">-</option>
+                        <option value="(M) ">♂</option>
+                        <option value="(F) ">♀</option>
+                        <option value="">-</option>
                     </select></td>
                 </tr>
                 <tr>
@@ -291,9 +291,9 @@
                 <tr>
                     <td><label for="gts_gender">Gender:</label></td>
                     <td><select id="gts_gender" class="gender">
-                        <option value="Male">♂</option>
-                        <option value="Female">♀</option>
-                        <option value="Genderless">-</option>
+                        <option value="(M) ">♂</option>
+                        <option value="(F) ">♀</option>
+                        <option value="">-</option>
                     </select></td>
                 </tr>
                 <tr>
@@ -328,7 +328,9 @@
 
         <article class="right">
             <textarea placeholder="Simply type into the inputs to the left."></textarea>
-            <a href="https://www.reddit.com/r/PokemonCreate/" target="_blank"><button>Copy & Submit</button></a>
+            <div>
+                <button id="copy">Copy</button>
+            </div>
         </article>
     </main>
 

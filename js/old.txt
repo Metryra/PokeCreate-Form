@@ -1,0 +1,63 @@
+[PokeRequest]
+
+#Pokémon Request
+
+* **Game Version**: ${game_ver}
+* **PKHeX File Link**: ${pkhex}
+* **Serebii Link**: ${serebii}
+
+&nbsp;
+
+##Pokémon Info
+
+* **Pokémon**: ${pkmn}
+* **Nickname**: ${nn}
+* **Form**: ${form}
+* **Gender**: ${gender}
+* **Shiny**: ${shiny}
+
+&nbsp;
+
+* **Level**: ${lv}
+* **Nature**: ${nat}
+* **Held Item**: ${item}
+* **Ability**: ${ability}
+* **Country**: ${country}
+* **Pokérus**: ${pkrs}
+
+&nbsp;
+
+* **Meeting Info**: ${mtg_game} ¦ ${mtg_loc} ¦ ${mtg_date} ¦ Lv.${mtg_lv}
+* **PokéBall**: ${ball} Ball
+
+&nbsp;
+
+* **IV's**: ${iv_h}/${iv_a}/${iv_b}/${iv_c}/${iv_d}/${iv_s}
+* **EV's**: ${ev_h}/${ev_a}/${ev_b}/${ev_c}/${ev_d}/${ev_s}
+* **Hidden Power**: ${hp}
+
+&nbsp;
+
+* **Move 1**: ${move1}
+* **Move 2**: ${move2}
+* **Move 3**: ${move3}
+* **Move 4**: ${move4}
+
+&nbsp;
+
+##Trainer Info
+
+* **OT**: ${ot} ¦ ${ot_gender}
+* **Gen 7 ID**: ${gen7id}
+* **TID**: ${tid}
+* **SID**: ${sid}
+* **Ribbons**: ${ribbon}
+
+&nbsp;
+
+##GTS Deposit
+
+* **IGN**: ${ign}
+* **FC**: ${fc}
+* **Pokemon**: ${gts_pkmn} ¦ ${gts_gender} ¦ Lv.${gts_lv} ¦ ${gts_ball} Ball
+* **Message**: ${gts_msg}
