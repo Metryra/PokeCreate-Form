@@ -157,7 +157,7 @@
 	    dd = ''
 	        if (d < 10) dd = `0${dd}`
 	timestamp = `${mm}/${d}/${yyyy}`
-	$('#mtg_date').val(timestamp)
+	$('#met_date').val(timestamp)
 
 // Copy & Submit
     $('#copy').click(function() {
@@ -200,10 +200,10 @@
             $('#img_pkrs').attr({
                 'src': `img/pkrs_${pkrs.toLowerCase()}.png`
             })
-		mtg_game = $('#mtg_game').val()
-		mtg_loc = $('#mtg_loc').val()
-		mtg_date = $('#mtg_date').val()
-		mtg_lv = $('#mtg_lv').val()
+		met_game = $('#met_game').val()
+		met_loc = $('#met_loc').val()
+		met_date = $('#met_date').val()
+		met_lv = $('#met_lv').val()
 		ball = $('#ball').val()
 			$('#img_ball').css({
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ball/${ball}_ball.png')`
@@ -259,43 +259,80 @@
 `[PokéRequest]
 
 Game Version: ${game_ver}
+
 PKHex File Link: ${pkhex}
+
 Serebii Link: ${serebii}
 
-> Pokémon Info
+
+#Pokémon Info
 
 ${pkmn_form}${nn}${gender}@ ${item}
+
 Ability: ${ability}
+
 Level: ${lv}
+
 Shiny: ${shiny}
+
 EVs: ${ev_h} HP / ${ev_a} Atk / ${ev_b} Def / ${ev_c} SpA / ${ev_d} SpD / ${ev_s} Spe
+
 ${nat} Nature
+
 IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
-- ${move1}
-- ${move2}
-- ${move3}
-- ${move4}
 
-> Meeting Info
+\\- ${move1}
 
-Game: ${mtg_game}
-Location: ${mtg_loc}
-Date: ${mtg_date}
-Level: ${mtg_lv}
-Ball: ${ball} Ball
+\\- ${move2}
 
-> Trainer Info
+\\- ${move3}
+
+\\- ${move4}
+
+
+#Misc Pokémon Info
+
+Country: ${country}
+
+Pokérus: ${pkrs}
+
+Hidden Power: ${hp}
+
+
+#Meeting Info
+
+Game: ${met_game}
+
+Met Location: ${met_loc}
+
+Poké Ball: ${ball} Ball
+
+Met Level: ${met_lv}
+
+Met Date: ${met_date}
+
+
+#Trainer Info
 
 OT: ${ot} (${ot_gender})
+
 Gen 7 ID: ${gen7id}
+
 TID: ${tid}
+
 SID: ${sid}
+
 Ribbons: ${ribbon}
 
-> GTS Deposit
+
+#GTS Deposit
 
 IGN: ${ign}
+
 FC: ${fc}
+
 Deposit: ${gts_pkmn} ${gts_gender}Lv.${gts_lv} in ${gts_ball} Ball
+
 Message: "${gts_msg}"
+
 `)}
