@@ -336,7 +336,7 @@ Ability: ${ability}
 Level: ${lv}
 Shiny: ${shiny}
 EVs: ${ev_h} HP / ${ev_a} Atk / ${ev_b} Def / ${ev_c} SpA / ${ev_d} SpD / ${ev_s} Spe
-Nature ${nat}
+${nat} Nature
 IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
 - ${move1}
 - ${move2}
