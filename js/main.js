@@ -154,6 +154,8 @@
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ppa/${ppa}_PPA.png')`
 			})
             var pkmn_form = pkmn.replace(' (', '-').replace(')', '')
+                if ($('#pkmn').val().indexOf('Alolan ') >= 0)
+                    pkmn_form = pkmn_form.replace('Alolan ', '') + '-Alola'
 		nn = ''
             if ($('#nn').val() != '') nn = ` (${$('#nn').val()}) `
             else nn = ' '
