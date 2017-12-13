@@ -213,6 +213,8 @@
     		move2 = $('#move2').val()
     		move3 = $('#move3').val()
     		move4 = $('#move4').val()
+            if ($('#maxPP').prop('checked') == true) maxPP = 'Yes'
+            else maxPP = 'No'
 		ot = $('#ot').val()
 		ot_gender = $('#ot_gender').val()
 		gen7id = $('#gen7id').val()
@@ -293,6 +295,8 @@ Country: ${country}
 Pokérus: ${pkrs}
 
 Hidden Power: ${hp}
+
+Max PPs: ${maxPP}
 
 
 #Meeting Info
