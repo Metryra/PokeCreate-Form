@@ -110,14 +110,14 @@
         })
     })
     $('#lv').change(function() {
-        if ($(this).val() < 100)
-            $('.hyperTraining input')
-                .attr('disabled', true)
-                .prop('checked', false)
-        else
-            $('.hyperTraining input')
-                .attr('disabled', false)
-                .prop('checked', false)
+        // if ($(this).val() < 100)
+        //     $('.hyperTraining input')
+        //         .attr('disabled', true)
+        //         .prop('checked', false)
+        // else
+        //     $('.hyperTraining input')
+        //         .attr('disabled', false)
+        //         .prop('checked', false)
     })
     $('#gts_msg option').each(function() {
         $(this).html($(this).val())
