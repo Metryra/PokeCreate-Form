@@ -204,6 +204,16 @@
     .spreads input {
         width: calc(100% - 5px);
     }
+    .hyperTraining input {
+        pointer-events: none;
+        display: table;
+        margin: 4px auto;
+    }
+    .hyperTraining td {
+        width: 50px;
+        border-radius: 3px;
+        background: rgba(0,0,0, 0.05);
+    }
 
     .moves > * {
         display: block;

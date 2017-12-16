@@ -50,7 +50,7 @@
 			</optgroup>
         `)
     })
-    $('table.spreads').each(function() {
+    $('.spreads:not(#hyperTraining)').each(function() {
         $(this).html(`
             <tr>
                 <td><input
@@ -103,6 +103,11 @@
                 </td>
             </tr>
         `)
+    })
+    $('.hyperTraining td').each(function() {
+        $(this).click(function() {
+            $('input', this).click()
+        })
     })
     $('#gts_msg option').each(function() {
         $(this).html($(this).val())
@@ -208,6 +213,27 @@
             ev_c = $('#ev_c').val()
             ev_d = $('#ev_d').val()
             ev_s = $('#ev_s').val()
+        ht_h = ''
+            ht_a = ''
+            ht_b = ''
+            ht_c = ''
+            ht_d = ''
+            ht_s = ''
+            if ($('#ht_h').prop('checked') == true) ht_h = 'HP '
+                else ht_h = ''
+            if ($('#ht_a').prop('checked') == true) ht_a = 'Atk '
+                else ht_a = ''
+            if ($('#ht_b').prop('checked') == true) ht_b = 'Def '
+                else ht_b = ''
+            if ($('#ht_c').prop('checked') == true) ht_c = 'SpA '
+                else ht_c = ''
+            if ($('#ht_d').prop('checked') == true) ht_d = 'SpD '
+                else ht_d = ''
+            if ($('#ht_s').prop('checked') == true) ht_s = 'Spe '
+                else ht_s = ''
+        ht = `${ht_h}${ht_a}${ht_b}${ht_c}${ht_d}${ht_s}`
+            if (ht_h == '' && ht_a == '' && ht_b == '' &&
+                ht_c == '' && ht_d == '' && ht_s == '') ht = '--'
 		hp = $('#hp').val()
 		move1 = $('#move1').val()
     		move2 = $('#move2').val()
@@ -277,6 +303,7 @@
 * Pokérus: ${pkrs}
 * Hidden Power: ${hp}
 * Max PPs: ${maxPP}
+* Hyper Training: ${ht}
 
 # Meeting Info
 * Game: ${met_game}
