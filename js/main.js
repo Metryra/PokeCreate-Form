@@ -109,16 +109,21 @@
             $('input', this).click()
         })
     })
-    $('#lv').change(function() {
-        // if ($(this).val() < 100)
-        //     $('.hyperTraining input')
-        //         .attr('disabled', true)
-        //         .prop('checked', false)
-        // else
-        //     $('.hyperTraining input')
-        //         .attr('disabled', false)
-        //         .prop('checked', false)
-    })
+    ht_check()
+    $('#lv').change(ht_check)
+    function ht_check() {
+        if ($('#lv').val() < 100) {
+            $('.hyperTraining input')
+                .attr('disabled', true)
+                .prop('checked', false)
+            $('#ht_100').show()
+        } else {
+            $('.hyperTraining input')
+                .attr('disabled', false)
+                .prop('checked', false)
+            $('#ht_100').hide()
+        }
+    }
     $('#gts_msg option').each(function() {
         $(this).html($(this).val())
     })
