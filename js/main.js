@@ -254,85 +254,46 @@
 
 
         $('textarea').val(
-`[PokéRequest]
+`# [PokéRequest]
+* Game Version: ${game_ver}
+* PKHex File Link: ${pkhex}
+* Serebii Link: ${serebii}
 
-Game Version: ${game_ver}
+# Pokémon Info
+* ${pkmn_form}${nn}${gender}@ ${item}
+* Ability: ${ability}
+* Level: ${lv}
+* Shiny: ${shiny}
+* EVs: ${ev_h} HP / ${ev_a} Atk / ${ev_b} Def / ${ev_c} SpA / ${ev_d} SpD / ${ev_s} Spe
+* ${nat} Nature
+* IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
+* \\- ${move1}
+* \\- ${move2}
+* \\- ${move3}
+* \\- ${move4}
 
-PKHex File Link: ${pkhex}
+# Misc Pokémon Info
+* Country: ${country}
+* Pokérus: ${pkrs}
+* Hidden Power: ${hp}
+* Max PPs: ${maxPP}
 
-Serebii Link: ${serebii}
+# Meeting Info
+* Game: ${met_game}
+* Met Location: ${met_loc}
+* Poké Ball: ${ball} Ball
+* Met Level: ${met_lv}
+* Met Date: ${met_date}
 
+# Trainer Info
+* OT: ${ot} (${ot_gender})
+* Gen 7 ID: ${gen7id}
+* TID: ${tid}
+* SID: ${sid}
+* Ribbons: ${ribbon}
 
-#Pokémon Info
-
-${pkmn_form}${nn}${gender}@ ${item}
-
-Ability: ${ability}
-
-Level: ${lv}
-
-Shiny: ${shiny}
-
-EVs: ${ev_h} HP / ${ev_a} Atk / ${ev_b} Def / ${ev_c} SpA / ${ev_d} SpD / ${ev_s} Spe
-
-${nat} Nature
-
-IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
-
-- ${move1}
-
-- ${move2}
-
-- ${move3}
-
-- ${move4}
-
-
-#Misc Pokémon Info
-
-Country: ${country}
-
-Pokérus: ${pkrs}
-
-Hidden Power: ${hp}
-
-Max PPs: ${maxPP}
-
-
-#Meeting Info
-
-Game: ${met_game}
-
-Met Location: ${met_loc}
-
-Poké Ball: ${ball} Ball
-
-Met Level: ${met_lv}
-
-Met Date: ${met_date}
-
-
-#Trainer Info
-
-OT: ${ot} (${ot_gender})
-
-Gen 7 ID: ${gen7id}
-
-TID: ${tid}
-
-SID: ${sid}
-
-Ribbons: ${ribbon}
-
-
-#GTS Deposit
-
-IGN: ${ign}
-
-FC: ${fc}
-
-Deposit: ${gts_pkmn} ${gts_gender}Lv.${gts_lv} in ${gts_ball} Ball
-
-Message: "${gts_msg}"
-
-`)}
+# GTS Deposit
+* IGN: ${ign}
+* FC: ${fc}
+* Deposit: ${gts_pkmn} ${gts_gender}Lv.${gts_lv} in ${gts_ball} Ball
+* Message: "${gts_msg}"`)}
