@@ -11,9 +11,12 @@
         .each(function() { tdMax.push($('td', this).length) })
         .find('th').attr('colspan', Math.max.apply(Math, tdMax))
 
-// "Leave blank if none"
+// Placeholders
     $('#nn, #item, #ability').attr({
         'placeholder': 'Leave blank if none'
+    })
+    $('#pkhex, #tid, #sid').attr({
+        'placeholder': 'Optional'
     })
 
 // select > options
@@ -308,10 +311,10 @@
 * EVs: ${ev_h} HP / ${ev_a} Atk / ${ev_b} Def / ${ev_c} SpA / ${ev_d} SpD / ${ev_s} Spe
 * ${nat} Nature
 * IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
-* \\- ${move1}
-* \\- ${move2}
-* \\- ${move3}
-* \\- ${move4}
+ * \\- ${move1}
+ * \\- ${move2}
+ * \\- ${move3}
+ * \\- ${move4}
 
 # Misc Pokémon Info
 * Country: ${country}
