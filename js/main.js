@@ -261,7 +261,7 @@
             else maxPP = 'No'
 		ot = $('#ot').val()
 		ot_gender = $('#ot_gender').val()
-		gen7id = $('#gen7id').val()
+		ppid = $('#ppid').val()
 		tid = $('#tid').val()
 		sid = $('#sid').val()
 		ign = $('#ign').val()
@@ -332,7 +332,7 @@
 
 # Trainer Info
 * OT: ${ot} (${ot_gender})
-* Gen 7 ID: ${gen7id}
+* Gen 7 ID: ${ppid}
 * TID: ${tid}
 * SID: ${sid}
 * Ribbons: ${ribbon}
