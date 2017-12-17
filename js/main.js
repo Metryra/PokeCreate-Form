@@ -332,7 +332,7 @@
 
 # Trainer Info
 * OT: ${ot} (${ot_gender})
-* Gen 7 ID: ${ppid}
+* Passport ID: ${ppid}
 * TID: ${tid}
 * SID: ${sid}
 * Ribbons: ${ribbon}
