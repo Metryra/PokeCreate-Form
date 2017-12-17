@@ -262,6 +262,7 @@
 		ot = $('#ot').val()
 		ot_gender = $('#ot_gender').val()
 		ppid = $('#ppid').val()
+            if ($('#ppid').val() == '') ppid = 'null'
 		tid = $('#tid').val()
 		sid = $('#sid').val()
 		ign = $('#ign').val()
