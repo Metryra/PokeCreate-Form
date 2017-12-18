@@ -137,7 +137,7 @@
     })
 
 // Capitalize input values
-    $('#pkmn, .moves input').keyup(function(e){
+    $('#pkmn, .moves input').change(function(e){
         txt = $(this).val()
         $(this).val(txt.replace(/^(.)|\s(.)/g, ($1) => $1.toUpperCase()))
     });
