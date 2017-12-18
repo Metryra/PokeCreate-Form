@@ -136,6 +136,12 @@
         $(this).html($(this).val())
     })
 
+// Capitalize input values
+    $('#pkmn, .moves input').keyup(function(e){
+        txt = $(this).val()
+        $(this).val(txt.replace(/^(.)|\s(.)/g, ($1) => $1.toUpperCase()))
+    });
+
 // Pokémon
 	var pkmnList = []
 	var ppaList = []
@@ -175,7 +181,7 @@
         game_ver = $('#game_ver').val()
 		pkhex = $('#pkhex').val()
 		serebii = $('#serebii').val()
-		pkmn = $('#pkmn').val();
+		pkmn = $('#pkmn').val()
 			var ppa = ppaList[pkmnList.indexOf(pkmn)]
 			if (ppa == undefined || ppa == '0025Co') ppa = 'Egg'
 			$('#img_pkmn').css({
