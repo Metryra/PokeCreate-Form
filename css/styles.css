@@ -182,6 +182,7 @@
         margin: 0 auto;
     }
     article.right button {
+        pointer-events: auto;
         margin: 10px 0;
     }
 
