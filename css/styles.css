@@ -42,8 +42,12 @@
         border-bottom: 2px solid rgba(0,0,0, 0.5);
     }
     input::placeholder {
-        opacity: 0.5;
+        opacity: 0.4;
         font-style: italic;
+    }
+    input.boldPlaceholder::placeholder {
+        opacity: 0.8;
+        font-weight: bold;
     }
     button {
         display: inline-block;

@@ -12,10 +12,15 @@
         .find('th').attr('colspan', Math.max.apply(Math, tdMax))
 
 // Placeholders
+    $('#pkmn, #met_loc, #ot, #ppid, #ign, #fc')
+        .attr({
+            'placeholder': 'Required'
+        })
+        .addClass('boldPlaceholder')
     $('#nn, #item, #ability').attr({
         'placeholder': 'Leave blank if none'
     })
-    $('#pkhex, #tid, #sid').attr({
+    $('#pkhex, #serebii, #tid, #sid, #ribbon').attr({
         'placeholder': 'Optional'
     })
 
