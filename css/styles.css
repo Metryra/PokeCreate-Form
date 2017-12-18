@@ -263,6 +263,11 @@
         opacity: 0.2;
     }
 
+    .hp_valid {
+        font-size: 10px;
+        opacity: 0.2;
+    }
+
     .moves > * {
         display: block;
         margin: 4px 0;
