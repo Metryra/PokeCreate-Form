@@ -222,7 +222,6 @@
 		item = $('#item').val()
 		ability = $('#ability').val()
 		lang = $('#lang').val()
-        country = $('#country').val()
 		pkrs = $('#pkrs').val()
             $('#img_pkrs').attr({
                 'src': `img/pkrs_${pkrs.toLowerCase()}.png`
@@ -336,7 +335,6 @@
 
 # Misc Pokémon Info
 * Language: ${lang}
-* Country: ${country}
 * Pokérus: ${pkrs}
 * Hidden Power: ${hp}
 * Max PPs: ${maxPP}
