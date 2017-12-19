@@ -154,9 +154,11 @@
         }
 		return pkmnList
 	})
-	$("#pkmn, #gts_pkmn").autocomplete({
-	  source: pkmnList
-	})
+    $(document).ready(function() {
+        $("#pkmn").select2({
+          data: pkmnList
+        })
+    })
 
 // Meeting Date: Today
 	now = new Date()

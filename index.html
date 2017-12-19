@@ -8,7 +8,7 @@
     <title>PokémonCreate | Request Form</title>
 
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css">
 </head>
 
 <body>
@@ -50,7 +50,9 @@
                 <tr>
                     <td><label for="pkmn">Pokémon:</label></td>
                     <td>
-                        <input id="pkmn" placeholder="Pokémon" type="text">
+                        <select id="pkmn">
+                            <option disabled>Pokémon</option>
+                        </select>
                         <span id="img_pkmn"></span>
                     </td>
                 </tr>
@@ -323,7 +325,6 @@
                 <tr>
                     <td><label for="gts_pkmn">Pokémon:</label></td>
                     <td>
-                        <!-- <input id="gts_pkmn" placeholder="Pokémon" type="text"> -->
                         <select id="gts_pkmn">
                             <option value="Psyduck">Psyduck</option>
                             <option value="Smeargle">Smeargle</option>
@@ -398,7 +399,7 @@
 
     <!-- .js -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
         <script src="js/main.js"></script>
 </body>
 

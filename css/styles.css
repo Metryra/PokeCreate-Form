@@ -274,10 +274,9 @@
         margin: 4px 0;
     }
 
-/* jQuery UI */
-    .ui-autocomplete {
-        max-height: 400px;
-        overflow-y: scroll;
+/* php pot */
+    .select2-dropdown {
+        font-family: 'SFPD';
     }
 
 @media (max-width: 375px) {
