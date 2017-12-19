@@ -183,20 +183,23 @@
         game_ver = $('#game_ver').val()
 		pkhex = $('#pkhex').val()
 		serebii = $('#serebii').val()
-		pkmn = $('#pkmn').val()
+		pkmn = ''
+            if ($('#pkmn').val() != undefined) pkmn = $('#pkmn').val()
+            else pkmn = ''
 			var ppa = ppaList[pkmnList.indexOf(pkmn)]
 			if (ppa == undefined || ppa == '0025Co') ppa = 'Egg'
 			$('#img_pkmn').css({
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ppa/${ppa}_PPA.png')`
 			})
             var pkmn_form = pkmn.replace(' (', '-').replace(')', '')
-                if ($('#pkmn').val().indexOf('Alolan ') >= 0)
+                if (pkmn.indexOf('Alolan ') >= 0)
                     pkmn_form = pkmn_form.replace('Alolan ', '') + '-Alola'
 		nn = ''
             if ($('#nn').val() != '') nn = ` (${$('#nn').val()}) `
             else nn = ' '
         gender = $('#gender').val()
-            if ($('#pkmn').val() != '') {
+            if (gender == null) gender = ''
+            if ($('#pkmn').val() != undefined) {
                 var genderAdj = genderList[pkmnList.indexOf($('#pkmn').val())]
                 if (genderAdj[0] == 'm' && genderAdj[1] == undefined) {
                     $('#gender').html(`<option value="(M) ">♂</option>`)
@@ -219,6 +222,7 @@
 		item = $('#item').val()
 		ability = $('#ability').val()
 		lang = $('#lang').val()
+        country = $('#country').val()
 		pkrs = $('#pkrs').val()
             $('#img_pkrs').attr({
                 'src': `img/pkrs_${pkrs.toLowerCase()}.png`
@@ -332,6 +336,7 @@
 
 # Misc Pokémon Info
 * Language: ${lang}
+* Country: ${country}
 * Pokérus: ${pkrs}
 * Hidden Power: ${hp}
 * Max PPs: ${maxPP}
