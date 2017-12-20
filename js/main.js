@@ -155,9 +155,11 @@
 		return pkmnList
 	})
     $(document).ready(function() {
-        $("#pkmn").select2({
-          data: pkmnList
-        })
+        setTimeout(function() {
+            $("#pkmn").select2({
+              data: pkmnList
+            })
+        }, 100)
     })
 
 // Meeting Date: Today
@@ -179,6 +181,38 @@
 
 // Export
     $('input, select').on('change keyup', generate)
+    $('#pkmn, #gts_pkmn').on('change', function() {
+        if ($('#pkmn').val() != undefined) {
+            var genderAdj = genderList[pkmnList.indexOf($('#pkmn').val())]
+            if (genderAdj[0] == 'm' && genderAdj[1] == undefined) {
+                $('#gender').html(`<option value="(M) ">♂</option>`)
+            } else if (genderAdj[0] == 'f' && genderAdj[1] == undefined) {
+                $('#gender').html(`<option value="(F) ">♀</option>`)
+            } else if (genderAdj[0] == '-') {
+                $('#gender').html(`<option value="">-</option>`)
+            } else {
+                $('#gender').html(`
+                    <option value="(M) ">♂</option>
+                    <option value="(F) ">♀</option>
+                `)
+            }
+        }
+        if ($('#gts_pkmn').val() != undefined) {
+            var genderAdj = genderList[pkmnList.indexOf($('#gts_pkmn').val())]
+            if (genderAdj[0] == 'm' && genderAdj[1] == undefined) {
+                $('#gts_gender').html(`<option value="(M) ">♂</option>`)
+            } else if (genderAdj[0] == 'f' && genderAdj[1] == undefined) {
+                $('#gts_gender').html(`<option value="(F) ">♀</option>`)
+            } else if (genderAdj[0] == '-') {
+                $('#gts_gender').html(`<option value="">-</option>`)
+            } else {
+                $('#gts_gender').html(`
+                    <option value="(M) ">♂</option>
+                    <option value="(F) ">♀</option>
+                `)
+            }
+        }
+    })
     function generate() {
         game_ver = $('#game_ver').val()
 		pkhex = $('#pkhex').val()
@@ -199,21 +233,6 @@
             else nn = ' '
         gender = $('#gender').val()
             if (gender == null) gender = ''
-            if ($('#pkmn').val() != undefined) {
-                var genderAdj = genderList[pkmnList.indexOf($('#pkmn').val())]
-                if (genderAdj[0] == 'm' && genderAdj[1] == undefined) {
-                    $('#gender').html(`<option value="(M) ">♂</option>`)
-                } else if (genderAdj[0] == 'f' && genderAdj[1] == undefined) {
-                    $('#gender').html(`<option value="(F) ">♀</option>`)
-                } else if (genderAdj[0] == '-') {
-                    $('#gender').html(`<option value="">-</option>`)
-                } else {
-                    $('#gender').html(`
-                        <option value="(M) ">♂</option>
-                        <option value="(F) ">♀</option>
-                    `)
-                }
-            }
 		shiny = ''
 			if ( $('#shiny').prop('checked') ) shiny = 'Yes'
 			else shiny = 'No'
@@ -291,28 +310,13 @@
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ppa/${gts_ppa}_PPA.png')`
 			})
 		gts_gender = $('#gts_gender').val()
-            if ($('#gts_pkmn').val() != '') {
-                var gts_genderAdj = genderList[pkmnList.indexOf($('#gts_pkmn').val())]
-                if (gts_genderAdj[0] == 'm' && gts_genderAdj[1] == undefined) {
-                    $('#gts_gender').html(`<option value="(M) ">♂</option>`)
-                } else if (gts_genderAdj[0] == 'f' && gts_genderAdj[1] == undefined) {
-                    $('#gts_gender').html(`<option value="(F) ">♀</option>`)
-                } else if (gts_genderAdj[0] == '-') {
-                    $('#gts_gender').html(`<option value="">-</option>`)
-                } else {
-                    $('#gts_gender').html(`
-                        <option value="(M) ">♂</option>
-                        <option value="(F) ">♀</option>
-                    `)
-                }
-            }
+            if (gts_gender == null) gts_gender = ''
 		gts_lv = $('#gts_lv').val()
 		gts_ball = $('#gts_ball').val()
 			$('#img_gts_ball').css({
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ball/${gts_ball}_ball.png')`
 			})
 		gts_msg = $('#gts_msg').val()
-
 
         $('textarea').val(
 `# [PokéRequest]
