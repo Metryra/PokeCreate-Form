@@ -112,14 +112,14 @@
             </tr>
         `)
     })
-    $('.hyperTraining td').each(function() {
-        $(this).click(function() {
-            $('input', this).click()
+        $('.hyperTraining td').each(function() {
+            $(this).click(function() {
+                $('input', this).click()
+            })
         })
-    })
-    ht_check()
-    $('#lv').change(ht_check)
-    function ht_check() {
+        ht_check()
+        $('#lv').change(ht_check)
+        function ht_check() {
         if ($('#lv').val() < 100) {
             $('.hyperTraining input')
                 .attr('disabled', true)
@@ -135,6 +135,22 @@
     $('#gts_msg option').each(function() {
         $(this).html($(this).val())
     })
+    var items = []
+        $.ajax({
+            url: 'js/items.csv',
+            async: false,
+            success: function(data) {
+                var items = data.split(/\r\n|\n/)
+
+                $(document).ready(function() {
+                    setTimeout(function() {
+                        $("#item").select2({
+                          data: items
+                        })
+                    }, 100)
+                })
+            }
+        })
 
 // Capitalize input values
     $('#pkmn, .moves input').change(function(e){
@@ -154,13 +170,13 @@
         }
 		return pkmnList
 	})
-    $(document).ready(function() {
-        setTimeout(function() {
-            $("#pkmn").select2({
-              data: pkmnList
-            })
-        }, 100)
-    })
+        $(document).ready(function() {
+            setTimeout(function() {
+                $("#pkmn").select2({
+                  data: pkmnList
+                })
+            }, 100)
+        })
 
 // Meeting Date: Today
 	now = new Date()
@@ -229,8 +245,10 @@
                 if (pkmn.indexOf('Alolan ') >= 0)
                     pkmn_form = pkmn_form.replace('Alolan ', '') + '-Alola'
 		nn = ''
-            if ($('#nn').val() != '') nn = ` (${$('#nn').val()}) `
-            else nn = ' '
+            if ($('#nn').val() != '') {
+                nn = `${$('#nn').val()} `
+                pkmn_form = `(${pkmn_form})`
+            }
         gender = $('#gender').val()
             if (gender == null) gender = ''
 		shiny = ''
@@ -238,7 +256,10 @@
 			else shiny = 'No'
         lv = $('#lv').val()
         nat = $('#nat').val()
-		item = $('#item').val()
+		item = ''
+            if ($('#item').val() != '' ||
+                $('#item').val() != 'None') item = ` @ ${$('#item').val()}`
+            if ($('#item').val() == 'None') item = ''
 		ability = $('#ability').val()
 		lang = $('#lang').val()
 		pkrs = $('#pkrs').val()
@@ -325,7 +346,7 @@
 * Serebii Link: ${serebii}
 
 # Pokémon Info
-* ${pkmn_form}${nn}${gender}@ ${item}
+* ${nn}${pkmn_form} ${gender}${item}
 * Ability: ${ability}
 * Level: ${lv}
 * Shiny: ${shiny}
