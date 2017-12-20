@@ -17,7 +17,7 @@
             'placeholder': 'Required'
         })
         .addClass('boldPlaceholder')
-    $('#nn, #item, #ability').attr({
+    $('#nn, #item').attr({
         'placeholder': 'Leave blank if none'
     })
     $('#pkhex, #serebii, #tid, #sid, #ribbon').attr({
@@ -112,26 +112,26 @@
             </tr>
         `)
     })
-        $('.hyperTraining td').each(function() {
-            $(this).click(function() {
-                $('input', this).click()
-            })
+    $('.hyperTraining td').each(function() {
+        $(this).click(function() {
+            $('input', this).click()
         })
-        ht_check()
-        $('#lv').change(ht_check)
-        function ht_check() {
-        if ($('#lv').val() < 100) {
-            $('.hyperTraining input')
-                .attr('disabled', true)
-                .prop('checked', false)
-            $('#ht_100').show()
-        } else {
-            $('.hyperTraining input')
-                .attr('disabled', false)
-                .prop('checked', false)
-            $('#ht_100').hide()
+    })
+    ht_check()
+    $('#lv').change(ht_check)
+    function ht_check() {
+            if ($('#lv').val() < 100) {
+                $('.hyperTraining input')
+                    .attr('disabled', true)
+                    .prop('checked', false)
+                $('#ht_100').show()
+            } else {
+                $('.hyperTraining input')
+                    .attr('disabled', false)
+                    .prop('checked', false)
+                $('#ht_100').hide()
+            }
         }
-    }
     $('#gts_msg option').each(function() {
         $(this).html($(this).val())
     })
@@ -147,7 +147,7 @@
                         $("#item").select2({
                           data: items
                         })
-                    }, 100)
+                    }, 500)
                 })
             }
         })
@@ -162,21 +162,23 @@
 	var pkmnList = []
 	var ppaList = []
     var genderList = []
+    var abilityList = []
 	$.getJSON('https://nuotsu.github.io/PPAR/js/ppa.json', function(ppaJSON) {
         for (var i in ppaJSON) {
 			pkmnList.push(ppaJSON[i].nameENG)
 			ppaList.push(ppaJSON[i].dex)
             genderList.push(ppaJSON[i].gender)
+            abilityList.push(ppaJSON[i].abilityENG)
         }
 		return pkmnList
 	})
-        $(document).ready(function() {
-            setTimeout(function() {
-                $("#pkmn").select2({
-                  data: pkmnList
-                })
-            }, 100)
-        })
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#pkmn").select2({
+              data: pkmnList
+            })
+        }, 500)
+    })
 
 // Meeting Date: Today
 	now = new Date()
@@ -197,7 +199,7 @@
 
 // Export
     $('input, select').on('change keyup', generate)
-    $('#pkmn, #gts_pkmn').on('change', function() {
+    $('#pkmn').on('change', function() {
         if ($('#pkmn').val() != undefined) {
             var genderAdj = genderList[pkmnList.indexOf($('#pkmn').val())]
             if (genderAdj[0] == 'm' && genderAdj[1] == undefined) {
@@ -212,7 +214,14 @@
                     <option value="(F) ">♀</option>
                 `)
             }
+
+            var abilityAdj = abilityList[pkmnList.indexOf($('#pkmn').val())]
+            $('#ability').html('')
+            for (var i in abilityAdj)
+                $('#ability').append(`<option value="${abilityAdj[i]}">${abilityAdj[i]}</option>`)
         }
+    })
+    $('#gts_pkmn').on('change', function() {
         if ($('#gts_pkmn').val() != undefined) {
             var genderAdj = genderList[pkmnList.indexOf($('#gts_pkmn').val())]
             if (genderAdj[0] == 'm' && genderAdj[1] == undefined) {
@@ -340,7 +349,7 @@
 		gts_msg = $('#gts_msg').val()
 
         $('textarea').val(
-`# [PokéRequest]
+`# File Information
 * Game Version: ${game_ver}
 * PKHex File Link: ${pkhex}
 * Serebii Link: ${serebii}
