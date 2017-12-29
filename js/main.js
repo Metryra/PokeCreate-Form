@@ -333,9 +333,17 @@
                 ht_c == '' && ht_d == '' && ht_s == '') ht = '--'
 		hp = $('#hp').val()
 		move1 = $('#move1').val()
+                if ($('#move1').val() == '(None)' ||
+                    $('#move1').val() == null) move1 = ''
     		move2 = $('#move2').val()
+                if ($('#move2').val() == '(None)' ||
+                    $('#move2').val() == null) move2 = ''
     		move3 = $('#move3').val()
+                if ($('#move3').val() == '(None)' ||
+                    $('#move3').val() == null) move3 = ''
     		move4 = $('#move4').val()
+                if ($('#move4').val() == '(None)' ||
+                    $('#move4').val() == null) move4 = ''
             if ($('#maxPP').prop('checked') == true) maxPP = 'Yes'
             else maxPP = 'No'
 		ot = $('#ot').val()
