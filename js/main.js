@@ -138,14 +138,28 @@
     var items = []
         $.ajax({
             url: 'js/items.csv',
-            async: false,
             success: function(data) {
-                var items = data.split(/\r\n|\n/)
+                items = data.split(/\r\n|\n/)
 
                 $(document).ready(function() {
                     setTimeout(function() {
                         $("#item").select2({
-                          data: items
+                            data: items
+                        })
+                    }, 500)
+                })
+            }
+        })
+    var moves = []
+        $.ajax({
+            url: 'js/moves.csv',
+            success: function(data) {
+                moves = data.split(/\r\n|\n/)
+
+                $(document).ready(function() {
+                    setTimeout(function() {
+                        $('#move1, #move2, #move3, #move4').select2({
+                            data: moves
                         })
                     }, 500)
                 })
