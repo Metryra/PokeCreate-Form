@@ -177,6 +177,7 @@
 	var ppaList = []
     var genderList = []
     var abilityList = []
+    var abilityAdj = []
 	$.getJSON('https://nuotsu.github.io/PPAR/js/ppa.json', function(ppaJSON) {
         for (var i in ppaJSON) {
 			pkmnList.push(ppaJSON[i].nameENG)
@@ -229,7 +230,7 @@
                 `)
             }
 
-            var abilityAdj = abilityList[pkmnList.indexOf($('#pkmn').val())]
+            abilityAdj = abilityList[pkmnList.indexOf($('#pkmn').val())]
             $('#ability').html('')
             for (var i in abilityAdj)
                 $('#ability').append(`<option value="${abilityAdj[i]}">${abilityAdj[i]}</option>`)
@@ -284,6 +285,7 @@
                 $('#item').val() != 'None') item = ` @ ${$('#item').val()}`
             if ($('#item').val() == 'None') item = ''
 		ability = $('#ability').val()
+            if (ability = 'null') ability = ''
 		lang = $('#lang').val()
 		pkrs = $('#pkrs').val()
             $('#img_pkrs').attr({
