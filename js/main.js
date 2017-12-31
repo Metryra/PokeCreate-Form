@@ -285,7 +285,6 @@
                 $('#item').val() != 'None') item = ` @ ${$('#item').val()}`
             if ($('#item').val() == 'None') item = ''
 		ability = $('#ability').val()
-            if (ability = 'null') ability = ''
 		lang = $('#lang').val()
 		pkrs = $('#pkrs').val()
             $('#img_pkrs').attr({
