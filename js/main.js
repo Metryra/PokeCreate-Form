@@ -213,7 +213,6 @@
     })
 
 // Export
-    $('input, select').on('change keyup', generate)
     $('#pkmn').on('change', function() {
         if ($('#pkmn').val() != undefined) {
             var genderAdj = genderList[pkmnList.indexOf($('#pkmn').val())]
@@ -253,6 +252,7 @@
             }
         }
     })
+    $('input, select').on('change keyup', generate)
     function generate() {
         game_ver = $('#game_ver').val()
 		pkhex = $('#pkhex').val()
@@ -350,7 +350,7 @@
 		ot = $('#ot').val()
 		ot_gender = $('#ot_gender').val()
 		ppid = $('#ppid').val()
-            if ($('#ppid').val() == '') ppid = 'null'
+            if ($('#ppid').val() == null) ppid = ''
 		tid = $('#tid').val()
 		sid = $('#sid').val()
 		ign = $('#ign').val()
