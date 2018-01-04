@@ -332,7 +332,6 @@
         ht = `${ht_h}${ht_a}${ht_b}${ht_c}${ht_d}${ht_s}`
             if (ht_h == '' && ht_a == '' && ht_b == '' &&
                 ht_c == '' && ht_d == '' && ht_s == '') ht = '--'
-		hp = $('#hp').val()
 		move1 = $('#move1').val()
                 if ($('#move1').val() == '(None)' ||
                     $('#move1').val() == null) move1 = ''
@@ -393,7 +392,6 @@
 # Misc Pokémon Info
 * Language: ${lang}
 * Pokérus: ${pkrs}
-* Hidden Power: ${hp}
 * Max PPs: ${maxPP}
 * Hyper Training: ${ht}
 
