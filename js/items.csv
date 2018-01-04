@@ -42,15 +42,15 @@ Max Elixir
 Lava Cookie
 Berry Juice
 Sacred Ash
-Hp Up
+HP Up
 Protein
 Iron
 Carbos
 Calcium
 Rare Candy
-Pp Up
+PP Up
 Zinc
-Pp Max
+PP Max
 Old Gateau
 Guard Spec
 Dire Hit
@@ -524,14 +524,11 @@ Tropic Mail
 Dream Mail
 Fab Mail
 Retro Mail
-Mach Bike
-Acro Bike
 Wailmer Pail
 Devon Goods
 Soot Sack
 Pokeblock Case
 Letter
-Eon Ticket
 Scanner
 Go Goggles
 Meteorite
@@ -549,12 +546,12 @@ Silph Scope
 Fame Checker
 Tm Case
 Berry Pouch
-Teachy Tv
+Teachy TV
 Tri Pass
 Rainbow Pass
 Tea
-Mysticticket
-Auroraticket
+Mystic Ticket
+Aurorat Ticket
 Powder Jar
 Ruby
 Sapphire
@@ -656,9 +653,9 @@ Reset Urge
 Dire Hit 3
 Light Stone
 Dark Stone
-Tm93
-Tm94
-Tm95
+TM93
+TM94
+TM95
 Xtransceiver
 God Stone
 Gram 1
@@ -689,34 +686,6 @@ Rich Mulch
 Surprise Mulch
 Boost Mulch
 Amaze Mulch
-Gengarite
-Gardevoirite
-Ampharosite
-Venusaurite
-Charizardite X
-Blastoisinite
-Mewtwonite X
-Mewtwonite Y
-Blazikenite
-Medichamite
-Houndoominite
-Aggronite
-Banettite
-Tyranitarite
-Scizorite
-Pinsirite
-Aerodactylite
-Lucarionite
-Abomasite
-Kangaskhanite
-Gyaradosite
-Absolite
-Charizardite Y
-Alakazite
-Heracronite
-Mawilite
-Manectite
-Garchompite
 Roseli Berry
 Kee Berry
 Maranga Berry
@@ -727,110 +696,28 @@ Jaw Fossil
 Sail Fossil
 Fairy Gem
 Adventure Rules
-Elevator Key
-Holo Caster
 Honor Of Kalos
 Intriguing Stone
-Lens Case
-Looker Ticket
-Mega Ring
 Power Plant Pass
 Profs Letter
 Roller Skates
 Sprinklotad
-TMV Pass
 TM96
 TM97
 TM98
 TM99
 TM100
-Latiasite
-Latiosite
 Common Stone
-Makeup Bag
 Travel Trunk
 Shalour Sable
-Mega Charm
-Mega Glove
-Devon Parts
-Pokeblock Kit
-Key To Room 1
-Key To Room 2
-Key To Room 4
-Key To Room 6
-Devon Scuba Gear
-Contest Costume
-Magma Suit
-Aqua Suit
 Pair Of Tickets
-Mega Bracelet
-Mega Pendant
-Mega Glasses
-Mega Anchor
-Mega Stickpin
-Mega Tiara
-Mega Anklet
-Swampertite
-Sceptilite
-Sablenite
-Altarianite
-Galladite
-Audinite
-Metagrossite
-Sharpedonite
-Slowbronite
-Steelixite
-Pidgeotite
-Glalitite
-Diancite
 Prison Bottle
-Mega Cuff
-Cameruptite
-Lopunnite
-Salamencite
-Beedrillite
-Key Stone
 Meteorite Shard
-Eon Flute
-Normalium Z
-Firium Z
-Waterium Z
-Electrium Z
-Grassium Z
-Icium Z
-Fightinium Z
-Poisonium Z
-Groundium Z
-Flyinium Z
-Psychium Z
-Buginium Z
-Rockium Z
-Ghostium Z
-Dragonium Z
-Darkinium Z
-Steelium Z
-Fairium Z
-Pikanium Z
 Bottle Cap
 Gold Bottle Cap
-Z Ring
-Decidium Z
-Incinium Z
-Primarium Z
-Tapunium Z
-Marshadium Z
-Aloraichium Z
-Snorlium Z
-Eevium Z
-Mewnium Z
-Pikashunium Z
-Forage Bag
-Fishing Rod
-Professors Mask
 Festival Ticket
 Sparkling Stone
 Adrenaline Orb
-Zygarde Cube
 Ice Stone
 Ride Pager
 Beast Ball
@@ -940,7 +827,7 @@ Roto Exp Points
 Roto Friendship
 Roto Encounter
 Roto Stealth
-Roto Hp Restore
-Roto Pp Restore
+Roto HP Restore
+Roto PP Restore
 Roto Boost
-Roto Catc
+Roto Catch
