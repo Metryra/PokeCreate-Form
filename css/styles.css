@@ -258,10 +258,13 @@
         border-radius: 3px;
         background: rgba(0,0,0, 0.05);
     }
-    #ht_100 {
-        display: none;
+    #ht_100,
+    .supplemental {
         font-size: 10px;
         opacity: 0.2;
+    }
+    #ht_100 {
+        display: none;
     }
 
     .hp_valid {
