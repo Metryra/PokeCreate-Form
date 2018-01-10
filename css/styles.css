@@ -57,6 +57,7 @@
 /* Nav */
     nav {
         position: fixed;
+        z-index: 1;
         width: 100vw;
         height: 100px;
         text-align: center;
@@ -76,6 +77,7 @@
         position: fixed;
         right: 0;
         top: 0;
+        z-index: 1;
         border-radius: 0 0 0 8px;
         background: rgba(81,175,221, 0.2);
         transition: var(--transition);
@@ -282,6 +284,34 @@
         font-family: 'SFPD';
     }
 
+/* Disable Mobile */
+    #mobile {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        background: rgba(255,255,255, 0.8);
+        font-family: 'SFPD Bold';
+        font-style: italic;
+    }
+    #mobile h1 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 24px;
+    }
+
+@media (max-width: 599px) {
+    #mobile {
+        display: inline-block;
+    }
+}
+
 @media (max-width: 375px) {
     header {
         transform:
@@ -305,5 +335,11 @@
         -moz-backdrop-filter: var(--blur);
         backdrop-filter: var(--blur);
         background: rgba(255,255,255, 0.6);
+    }
+    #mobile {
+        -webkit-backdrop-filter: var(--blur);
+        -moz-backdrop-filter: var(--blur);
+        backdrop-filter: var(--blur);
+        background: rgba(255,255,255, 0.3);
     }
 }
