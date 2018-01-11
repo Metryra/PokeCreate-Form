@@ -43,7 +43,7 @@
 			<option value="Heal">Heal Ball</option>
 			<option value="Quick">Quick Ball</option>
 			<option value="Dusk">Dusk Ball</option>
-			<option value="Cherish">Cherish Ball</option>
+			<!-- <option value="Cherish">Cherish Ball</option> -->
 			<option value="Park">Park Ball</option>
 			<option value="Dream">Dream Ball</option>
 			<option value="Beast">Beast Ball</option>
