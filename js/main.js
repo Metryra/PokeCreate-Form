@@ -12,7 +12,7 @@
         .find('th').attr('colspan', Math.max.apply(Math, tdMax))
 
 // Placeholders
-    $('#pkmn, #ot, #ppid, #ign, #fc')
+    $('#pkmn, #met_loc, #ot, #ppid, #ign, #fc')
         .attr({
             'placeholder': 'Required'
         })
@@ -195,17 +195,6 @@
         }, 500)
     })
 
-// Meeting Date: Today
-	now = new Date()
-	    yyyy = now.getFullYear()
-	    mm = now.getMonth()+1
-	        if (mm < 10) mm = `0${mm}`
-	    d = now.getDate()
-	    dd = ''
-	        if (d < 10) dd = `0${dd}`
-	timestamp = `${mm}/${d}/${yyyy}`
-	$('#met_date').val(timestamp)
-
 // Copy & Submit
     $('#copy').click(function() {
         $('textarea').select()
@@ -291,7 +280,7 @@
                 'src': `img/pkrs_${pkrs.toLowerCase()}.png`
             })
 		met_game = $('#met_game').val()
-		met_date = $('#met_date').val()
+		met_loc = $('#met_loc').val()
 		met_lv = $('#met_lv').val()
 		ball = $('#ball').val()
 			$('#img_ball').css({
@@ -396,9 +385,9 @@
 
 # Meeting Info
 * Game: ${met_game}
+* Met Location: ${met_loc}
 * Poké Ball: ${ball} Ball
 * Met Level: ${met_lv}
-* Met Date: ${met_date}
 
 # Trainer Info
 * OT: ${ot} (${ot_gender})
