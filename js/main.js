@@ -12,7 +12,7 @@
         .find('th').attr('colspan', Math.max.apply(Math, tdMax))
 
 // Placeholders
-    $('#pkmn, #met_loc, #ot, #ppid, #ign, #fc')
+    $('#pkmn, #ot, #ppid, #ign, #fc')
         .attr({
             'placeholder': 'Required'
         })
@@ -291,7 +291,6 @@
                 'src': `img/pkrs_${pkrs.toLowerCase()}.png`
             })
 		met_game = $('#met_game').val()
-		met_loc = $('#met_loc').val()
 		met_date = $('#met_date').val()
 		met_lv = $('#met_lv').val()
 		ball = $('#ball').val()
@@ -397,7 +396,6 @@
 
 # Meeting Info
 * Game: ${met_game}
-* Met Location: ${met_loc}
 * Poké Ball: ${ball} Ball
 * Met Level: ${met_lv}
 * Met Date: ${met_date}
