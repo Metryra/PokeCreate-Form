@@ -20,7 +20,7 @@
     $('#nn, #item').attr({
         'placeholder': 'Leave blank if none'
     })
-    $('#pkhex, #serebii, #tid, #sid, #ribbon').attr({
+    $('#pkhex, #tid, #sid, #ribbon').attr({
         'placeholder': 'Optional'
     })
 
@@ -245,7 +245,6 @@
     function generate() {
         game_ver = $('#game_ver').val()
 		pkhex = $('#pkhex').val()
-		serebii = $('#serebii').val()
 		pkmn = ''
             if ($('#pkmn').val() != undefined) pkmn = $('#pkmn').val()
             else pkmn = ''
@@ -362,7 +361,6 @@
 `# File Information
 * Game Version: ${game_ver}
 * PKHex File Link: ${pkhex}
-* Serebii Link: ${serebii}
 
 # Pokémon Info
 * ${nn}${pkmn_form} ${gender}${item}
