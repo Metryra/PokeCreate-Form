@@ -261,18 +261,33 @@
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ball/${ball}_ball.png')`
 			})
 		ribbon = $('#ribbon').val()
-        iv_h = $('#iv_h').val()
-            iv_a = $('#iv_a').val()
-            iv_b = $('#iv_b').val()
-            iv_c = $('#iv_c').val()
-            iv_d = $('#iv_d').val()
-            iv_s = $('#iv_s').val()
         ev_h = $('#ev_h').val()
             ev_a = $('#ev_a').val()
             ev_b = $('#ev_b').val()
             ev_c = $('#ev_c').val()
             ev_d = $('#ev_d').val()
             ev_s = $('#ev_s').val()
+            if ($('#ev_h').val() != 0) ev_h = ` ${ev_h} HP /`
+                else ev_h = ''
+            if ($('#ev_a').val() != 0) ev_a = ` ${ev_a} Atk /`
+                else ev_a = ''
+            if ($('#ev_b').val() != 0) ev_b = ` ${ev_b} Def /`
+                else ev_b = ''
+            if ($('#ev_c').val() != 0) ev_c = ` ${ev_c} SpA /`
+                else ev_c = ''
+            if ($('#ev_d').val() != 0) ev_d = ` ${ev_d} SpD /`
+                else ev_d = ''
+            if ($('#ev_s').val() != 0) ev_s = ` ${ev_s} Spe`
+                else ev_s = ''
+        ev = `${ev_h}${ev_a}${ev_b}${ev_c}${ev_d}${ev_s}`
+            if (ev_h == '' && ev_a == '' && ev_b == '' &&
+                ev_c == '' && ev_d == '' && ev_s == '') ev = '0'
+        iv_h = $('#iv_h').val()
+            iv_a = $('#iv_a').val()
+            iv_b = $('#iv_b').val()
+            iv_c = $('#iv_c').val()
+            iv_d = $('#iv_d').val()
+            iv_s = $('#iv_s').val()
         ht_h = ''
             ht_a = ''
             ht_b = ''
@@ -342,7 +357,7 @@
 * Ability: ${ability}
 * Level: ${lv}
 * Shiny: ${shiny}
-* EVs: ${ev_h} HP / ${ev_a} Atk / ${ev_b} Def / ${ev_c} SpA / ${ev_d} SpD / ${ev_s} Spe
+* EVs: ${ev}
 * ${nat} Nature
 * IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
  * \\- ${move1}
