@@ -1,61 +1,40 @@
-// PPAR BG
-    $('#ppar').hover(function() {
-        $('.bg').addClass('show')
-    }, function() {
-        $('.bg').removeClass('show')
+// <select>, <input>
+    $('input').attr('placeholder', 'Required') // Required Inputs (all)
+    $('input[optional]').attr('placeholder', 'Optional') // Optional Inputs
+    $('option', '#met_game, #ot_gender, #gts_msg').each(function() {
+        $(this).html($(this).val())
     })
-
-// <th colspan="$">
-    tdMax = []
-    $('table tr')
-        .each(function() { tdMax.push($('td', this).length) })
-        .find('th').attr('colspan', Math.max.apply(Math, tdMax))
-
-// Placeholders
-    $('#pkmn, #met_loc, #ot, #ppid, #ign, #fc')
-        .attr({
-            'placeholder': 'Required'
-        })
-        .addClass('boldPlaceholder')
-    $('#nn, #item').attr({
-        'placeholder': 'Leave blank if none'
-    })
-    $('#pkhex, #tid, #sid, #ribbon').attr({
-        'placeholder': 'Optional'
-    })
-
-// select > options
     $('select.ball').each(function() {
         $(this).html(`
             <option value="Poke">Poké Ball</option>
-			<option value="Great">Great Ball</option>
-			<option value="Ultra">Ultra Ball</option>
-			<option value="Master">Master Ball</option>
-			<option value="Safari">Safari Ball</option>
-			<option value="Sport">Sport Ball</option>
-			<option value="Premier">Premier Ball</option>
-			<option value="Repeat">Repeat Ball</option>
-			<option value="Timer">Timer Ball</option>
-			<option value="Nest">Nest Ball</option>
-			<option value="Net">Net Ball</option>
-			<option value="Dive">Dive Ball</option>
-			<option value="Luxury">Luxury Ball</option>
-			<option value="Heal">Heal Ball</option>
-			<option value="Quick">Quick Ball</option>
-			<option value="Dusk">Dusk Ball</option>
-			<!-- <option value="Cherish">Cherish Ball</option> -->
-			<option value="Park">Park Ball</option>
-			<option value="Dream">Dream Ball</option>
-			<option value="Beast">Beast Ball</option>
-			<optgroup label="- Apricorn Balls -">
-			<option value="Level">Level Ball</option>
-			<option value="Lure">Lure Ball</option>
-			<option value="Moon">Moon Ball</option>
-			<option value="Friend">Friend Ball</option>
-			<option value="Love">Love Ball</option>
-			<option value="Heavy">Heavy Ball</option>
-			<option value="Fast">Fast Ball</option>
-			</optgroup>
+    		<option value="Great">Great Ball</option>
+    		<option value="Ultra">Ultra Ball</option>
+    		<option value="Master">Master Ball</option>
+    		<option value="Safari">Safari Ball</option>
+    		<option value="Sport">Sport Ball</option>
+    		<option value="Premier">Premier Ball</option>
+    		<option value="Repeat">Repeat Ball</option>
+    		<option value="Timer">Timer Ball</option>
+    		<option value="Nest">Nest Ball</option>
+    		<option value="Net">Net Ball</option>
+    		<option value="Dive">Dive Ball</option>
+    		<option value="Luxury">Luxury Ball</option>
+    		<option value="Heal">Heal Ball</option>
+    		<option value="Quick">Quick Ball</option>
+    		<option value="Dusk">Dusk Ball</option>
+    		<!-- <option value="Cherish">Cherish Ball</option> -->
+    		<option value="Park">Park Ball</option>
+    		<option value="Dream">Dream Ball</option>
+    		<option value="Beast">Beast Ball</option>
+    		<optgroup label="- Apricorn Balls -">
+    		<option value="Level">Level Ball</option>
+    		<option value="Lure">Lure Ball</option>
+    		<option value="Moon">Moon Ball</option>
+    		<option value="Friend">Friend Ball</option>
+    		<option value="Love">Love Ball</option>
+    		<option value="Heavy">Heavy Ball</option>
+    		<option value="Fast">Fast Ball</option>
+    		</optgroup>
         `)
     })
     $('.spreads:not(#hyperTraining)').each(function() {
@@ -132,9 +111,6 @@
                 $('#ht_100').hide()
             }
         }
-    $('#gts_msg option').each(function() {
-        $(this).html($(this).val())
-    })
     var items = []
         $.ajax({
             url: 'js/items.csv',
@@ -146,7 +122,7 @@
                         $("#item").select2({
                             data: items
                         })
-                    }, 500)
+                    }, 250)
                 })
             }
         })
@@ -161,16 +137,15 @@
                         $('#move1, #move2, #move3, #move4').select2({
                             data: moves
                         })
-                    }, 500)
+                    }, 250)
                 })
             }
         })
 
-// Capitalize input values
-    $('#pkmn, .moves input').change(function(e){
-        txt = $(this).val()
-        $(this).val(txt.replace(/^(.)|\s(.)/g, ($1) => $1.toUpperCase()))
-    });
+// <details> Close Button
+    $('details summary').each(function() {
+        $(this).append(`<img class="close" src="img/close.png">`)
+    })
 
 // Pokémon
 	var pkmnList = []
@@ -178,7 +153,7 @@
     var genderList = []
     var abilityList = []
     var abilityAdj = []
-	$.getJSON('https://nuotsu.github.io/PPAR/js/ppa.json', function(ppaJSON) {
+	$.getJSON('js/ppa.json', function(ppaJSON) {
         for (var i in ppaJSON) {
 			pkmnList.push(ppaJSON[i].nameENG)
 			ppaList.push(ppaJSON[i].dex)
@@ -192,7 +167,7 @@
             $("#pkmn").select2({
               data: pkmnList
             })
-        }, 500)
+        }, 250)
     })
 
 // Copy & Submit

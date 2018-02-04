@@ -2,34 +2,29 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <title>PokémonCreate Request Form</title>
+    <!-- <link rel="icon" href="img/favicon.png"> -->
 
-    <link rel="icon" href="https://archives.bulbagarden.net/media/upload/c/c5/774Minior_Dream.png">
-    <title>PokémonCreate | Request Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
-    <div id="mobile">
-        <h1>Not compatible with mobile devices...</h1>
-    </div>
-
     <nav>
-        <a id="logo" href="https://www.reddit.com/r/PokemonCreate/" target="_blank">
-            <img src="https://a.thumbs.redditmedia.com/drDfKwI_nqzuSujZBQ9nK3TaVssaJzPRx1RAOMEQB40.png">
+        <span class="bg"></span>
+        <a href="https://www.reddit.com/r/PokemonCreate/" target="_blank">
+            <img id="logo" src="img/logo.png">
         </a>
     </nav>
 
-    <main>
-        <article class="left">
-            <table id="request">
-                <!-- Pokémon Request --><tr>
-                    <th>Pokémon Request</th>
-                </tr>
+    <main id="inputs">
+        <details open><summary>File Info</summary>
+            <table>
                 <tr>
-                    <td><label for="game_ver">Game Version:</label></td>
+                    <td>Game Version:</td>
                     <td><select id="game_ver">
                         <option value="Ultra Sun">Ultra Sun</option>
                         <option value="Ultra Moon">Ultra Moon</option>
@@ -38,17 +33,15 @@
                     </select></td>
                 </tr>
                 <tr>
-                    <td><label for="pkhex">PKHex File Link:</label></td>
-                    <td><input id="pkhex" type="text"></td>
+                    <td>PKHeX File Link:</td>
+                    <td><input id="pkhex" type="text" optional></td>
                 </tr>
-
-                <tr class="break"></tr>
-
-                <!-- Pokémon Info --><tr>
-                    <th>Pokémon Info</th>
-                </tr>
+            </table>
+        </details>
+        <details open><summary>Pokémon Info</summary>
+            <table>
                 <tr>
-                    <td><label for="pkmn">Pokémon:</label></td>
+                    <td>Species:</td>
                     <td>
                         <select id="pkmn">
                             <option disabled>Pokémon</option>
@@ -57,33 +50,30 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="nn">Nickname:</label></td>
-                    <td><input id="nn" placeholder="Nickname" type="text"></td>
+                    <td>Nickname:</td>
+                    <td><input id="nn"maxlength="12" type="text" optional></td>
                 </tr>
                 <tr>
-                    <td><label for="ball">Ball:</label></td>
+                    <td>Ball:</td>
                     <td>
                         <select id="ball" class="ball"></select>
                         <span id="img_ball"></span>
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="gender">Gender:</label></td>
+                    <td>Gender:</td>
                     <td><select id="gender"></select></td>
                 </tr>
                 <tr>
                     <td><label for="shiny">Shiny:</label></td>
                     <td><input id="shiny" type="checkbox"></td>
                 </tr>
-
-                <tr class="break"></tr>
-
                 <tr>
-                    <td><label for="lv">Lv.</label></td>
+                    <td>Lv.</td>
                     <td><input id="lv" type="number" min="1" max="100" value="50"></td>
                 </tr>
                 <tr>
-                    <td><label for="nat">Nature:</label></td>
+                    <td>Nature:</td>
                     <td><select id="nat" class="nature">
                         <option value="Jolly">Spe↑　SpA↓　Jolly</option>
                         <option value="Timid">Spe↑　Atk↓　Timid</option>
@@ -113,18 +103,17 @@
                     </select></td>
                 </tr>
                 <tr>
-                    <td><label for="item">Item:</label></td>
+                    <td>Item:</td>
                     <td><select id="item">
-                        <option disabled>Items</option>
-                        <option value="None">None</option>
+                        <option value="None">(None)</option>
                     </select></td>
                 </tr>
                 <tr>
-                    <td><label for="ability">Ability:</label></td>
+                    <td>Ability:</td>
                     <td><select id="ability"></select></td>
                 </tr>
                 <tr>
-                    <td><label for="lang">Language:</label></td>
+                    <td>Language:</td>
                     <td><select id="lang">
         				<option value="ENG">ENG</option>
         				<option value="FRE">FRE</option>
@@ -138,19 +127,13 @@
                     </select></td>
                 </tr>
                 <tr>
-                    <td><label for="pkrs">Pokérus:</label></td>
-                    <td>
-                        <select id="pkrs">
-                            <option value="Cured">Cured</option>
-                            <option value="Infected">Infected</option>
-                            <option value="Uninfected">Uninfected</option>
-                        </select>
-                        <img id="img_pkrs" src="img/pkrs_cured.png">
-                    </td>
+                    <td>Pokérus:</td>
+                    <td><select id="pkrs">
+                        <option value="Cured">Cured</option>
+                        <option value="Infected">Infected</option>
+                        <option value="Uninfected">Uninfected</option>
+                    </select></td>
                 </tr>
-
-                <tr class="break"></tr>
-
                 <tr>
                     <td></td>
                     <td><table class="ivev">
@@ -183,23 +166,20 @@
                         <td><input id="ht_s" type="checkbox"></td>
                     </tr></table></td>
                 </tr>
-
-                <tr class="break"></tr>
-
                 <tr>
                     <td>Moves:</td>
-                    <td class="moves">
+                    <td>
                         <select id="move1">
-                            <option disabled>Move 1</option>
-                        </select>
+                            <option value="None">(None)</option>
+                        </select><br>
                         <select id="move2">
-                            <option disabled>Move 2</option>
-                        </select>
+                            <option value="None">(None)</option>
+                        </select><br>
                         <select id="move3">
-                            <option disabled>Move 3</option>
-                        </select>
+                            <option value="None">(None)</option>
+                        </select><br>
                         <select id="move4">
-                            <option disabled>Move 4</option>
+                            <option value="None">(None)</option>
                         </select>
                     </td>
                 </tr>
@@ -207,108 +187,97 @@
                     <td><label for="maxPP">Max PPs:</label></td>
                     <td><input id="maxPP" type="checkbox" checked></td>
                 </tr>
-
-                <tr class="break"></tr>
-
-                <!-- Meeting Info --><tr>
-                    <th>Meeting Info</th>
-                </tr>
+            </table>
+        </details>
+        <details open><summary>Meeting Info</summary>
+            <table>
                 <tr>
-                    <td><label for="met_game">Game Version:</label></td>
+                    <td>Game Version:</td>
                     <td><select id="met_game">
-        				<option value="Ultra Sun">Ultra Sun</option>
-        				<option value="Ultra Moon">Ultra Moon</option>
-        				<option value="Sun">Sun</option>
-        				<option value="Moon">Moon</option>
-        				<option value="Omega Ruby">Omega Ruby</option>
-        				<option value="Alpha Sapphire">Alpha Sapphire</option>
-        				<option value="X">X</option>
-        				<option value="Y">Y</option>
-        				<option value="Black 2">Black 2</option>
-        				<option value="White 2">White 2</option>
-        				<option value="Black">Black</option>
-        				<option value="White">White</option>
-        				<option value="Platinum">Platinum</option>
-        				<option value="Heart Gold">Heart Gold</option>
-        				<option value="Soul Silver">Soul Silver</option>
-        				<option value="Diamond">Diamond</option>
-        				<option value="Pearl">Pearl</option>
-                        <option value="Emerald">Emerald</option>
-                        <option value="Fire Red">Fire Red</option>
-                        <option value="Leaf Green">Leaf Green</option>
-                        <option value="Ruby">Ruby</option>
-                        <option value="Sapphire">Sapphire</option>
-                        <option value="Crystal">Crystal</option>
-                        <option value="Gold">Gold</option>
-                        <option value="Silver">Silver</option>
-                        <option value="Yellow">Yellow</option>
-                        <option value="Blue">Blue</option>
-                        <option value="Red">Red</option>
+        				<option value="Ultra Sun"></option>
+        				<option value="Ultra Moon"></option>
+        				<option value="Sun"></option>
+        				<option value="Moon"></option>
+        				<option value="Omega Ruby"></option>
+        				<option value="Alpha Sapphire"></option>
+        				<option value="X"></option>
+        				<option value="Y"></option>
+        				<option value="Black 2"></option>
+        				<option value="White 2"></option>
+        				<option value="Black"></option>
+        				<option value="White"></option>
+        				<option value="Platinum"></option>
+        				<option value="Heart Gold"></option>
+        				<option value="Soul Silver"></option>
+        				<option value="Diamond"></option>
+        				<option value="Pearl"></option>
+                        <option value="Emerald"></option>
+                        <option value="Fire Red"></option>
+                        <option value="Leaf Green"></option>
+                        <option value="Ruby"></option>
+                        <option value="Sapphire"></option>
+                        <option value="Crystal"></option>
+                        <option value="Gold"></option>
+                        <option value="Silver"></option>
+                        <option value="Yellow"></option>
+                        <option value="Blue"></option>
+                        <option value="Red"></option>
                     </select></td>
+                </tr></td>
                 </tr>
                 <tr>
-                    <td><label for="met_loc">Met Location:</label></td>
-                    <td><input id="met_loc" placeholder="Location" type="text"></td>
+                    <td>Met Location:</td>
+                    <td><input id="met_loc" stype="text" required></td>
                 </tr>
                 <tr>
-                    <td><label for="met_lv">Met Lv:</label></td>
-                    <td><input id="met_lv" type="number" min="1" max="100" value="1"></td>
+                    <td>Met Lv.</td>
+                    <td><input id="met_lv" type="number" min="1" max="100" value="50"></td>
                 </tr>
-
-                <tr class="break"></tr>
-
-                <!-- Trainer Info --><tr>
-                    <th>Trainer Info</th>
+            </table>
+        </details>
+        <details open><summary>Trainer Info</summary>
+            <table>
+                <tr>
+                    <td>OT:</td>
+                    <td><input id="ot" type="text" required></td>
                 </tr>
                 <tr>
-                    <td><label for="ot">OT:</label></td>
-                    <td><input id="ot" placeholder="OT" type="text"></td>
-                </tr>
-                <tr>
-                    <td><label for="ot_gender">Gender:</label></td>
+                    <td>Gender:</td>
                     <td><select id="ot_gender">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                        <option value="Male"></option>
+                        <option value="Female"></option>
                     </select></td>
                 </tr>
                 <tr>
-                    <td>
-                        <label for="ppid">Passport ID:</label>
-                        <p class="supplemental">Also known as Gen 7 ID</p>
-                    </td>
-                    <td><input id="ppid" type="text" placeholder="Passport ID" maxlength="6"></td>
+                    <td>Passport ID:</td>
+                    <td><input id="ppid" maxlength="6" type="text" required></td>
                 </tr>
                 <tr>
-                    <td><label for="tid">TID:</label></td>
-                    <td><input id="tid" type="text" maxlength="5"></td>
+                    <td>TID:</td>
+                    <td><input id="tid" type="text" maxlength="5" optional></td>
                 </tr>
                 <tr>
-                    <td><label for="sid">SID:</label></td>
-                    <td><input id="sid" type="text" maxlength="5"></td>
+                    <td>SID:</td>
+                    <td><input id="sid" type="text" maxlength="5" optional></td>
                 </tr>
                 <tr>
-                    <td><label for="ribbon">Ribbons:</label></td>
-                    <td><input id="ribbon" placeholder="Ribbons" type="text"></td>
+                    <td>Ribbons:</td>
+                    <td><input id="ribbon" type="text"optional></td>
                 </tr>
-
-                <tr class="break"></tr>
-
-                <!-- GTS Deposit --><tr>
-                    <th>GTS Deposit</th>
+            </table>
+        </details>
+        <details open><summary>GTS Deposit</summary>
+            <table>
+                <tr>
+                    <td>IGN:</td>
+                    <td><input id="ign" type="text"></td>
                 </tr>
                 <tr>
-                    <td><label for="ign">IGN:</label></td>
-                    <td><input id="ign" placeholder="IGN" type="text"></td>
+                    <td>FC:</td>
+                    <td><input id="fc" type="text"></td>
                 </tr>
                 <tr>
-                    <td><label for="fc">FC:</label></td>
-                    <td><input id="fc" placeholder="FC" type="text"></td>
-                </tr>
-
-                <tr class="break"></tr>
-
-                <tr>
-                    <td><label for="gts_pkmn">Pokémon:</label></td>
+                    <td>Pokémon:</td>
                     <td>
                         <select id="gts_pkmn">
                             <option value="Psyduck">Psyduck</option>
@@ -319,25 +288,25 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="gts_gender">Gender:</label></td>
+                    <td>Gender:</td>
                     <td><select id="gts_gender">
                         <option value="(M) ">♂</option>
                         <option value="(F) ">♀</option>
                     </select></td>
                 </tr>
                 <tr>
-                    <td><label for="gts_lv">Lv.</label></td>
-                    <td><input id="gts_lv" type="number" min="1" max="100" value="1"></td>
+                    <td>Lv.</td>
+                    <td><input id="gts_lv" type="number" min="1" max="100" value="50"></td>
                 </tr>
                 <tr>
-                    <td><label for="gts_ball">Ball:</label></td>
+                    <td>Ball:</td>
                     <td>
                         <select id="gts_ball" class="ball"></select>
                         <span id="img_gts_ball"></span>
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="gts_msg">Message:</label></td>
+                    <td>Message:</td>
                     <td><select id="gts_msg">
             			<option value="Please trade Pokémon with me. Thanks in advance."></option>
             			<option value="I want to trade for a Pokémon that will help me with my adventure."></option>
@@ -353,37 +322,19 @@
                     </select></td>
                 </tr>
             </table>
-        </article>
-
-        <article class="right">
-            <textarea placeholder="Simply add information into the inputs to the left."></textarea>
-            <div>
-                <button id="copy">Copy</button>
-            </div>
-        </article>
+        </details>
     </main>
 
-    <header>
-        <a href="https://paypal.me/nuotsu" target="_blank">
-            <table>
-                <tr>
-                    <td><img src="img/paypal.png"></td>
-                    <td style="text-align: center;">
-                        Support<br>
-                        the<br>
-                        Creator!
-                    </td>
-                </tr>
-            </table>
-        </a>
-    </header>
+    <article id="output">
+        <textarea placeholder="Simply type the inputs!"></textarea>
+        <button id="copy">Copy</button>
+    </article>
 
     <footer>
-        <span>&copy; <a href="https://github.com/nuotsu/" target="_blank">Nuotsu</a> 2018</span> |
-        <span id="ppar">Background generated with <a href="https://nuotsu.github.io/PPAR/index.html?lang=ENG" target="_blank">PPAR</a>.</span>
+        <span>
+            &copy; <a href="https://github.com/nuotsu" target="_blank">Nuotsu</a> 2018
+        </span>
     </footer>
-
-    <span class="bg"></span>
 
     <!-- .js -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
