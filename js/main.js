@@ -308,17 +308,17 @@
         ht = `${ht_h}${ht_a}${ht_b}${ht_c}${ht_d}${ht_s}`
             if (ht_h == '' && ht_a == '' && ht_b == '' &&
                 ht_c == '' && ht_d == '' && ht_s == '') ht = '--'
-		move1 = $('#move1').val()
-                if ($('#move1').val() == '(None)' ||
+		move1 = `\n * \\- ${$('#move1').val()}`
+                if ($('#move1').val() == 'None' ||
                     $('#move1').val() == null) move1 = ''
-    		move2 = $('#move2').val()
-                if ($('#move2').val() == '(None)' ||
+    		move2 = `\n * \\- ${$('#move2').val()}`
+                if ($('#move2').val() == 'None' ||
                     $('#move2').val() == null) move2 = ''
-    		move3 = $('#move3').val()
-                if ($('#move3').val() == '(None)' ||
+    		move3 = `\n * \\- ${$('#move3').val()}`
+                if ($('#move3').val() == 'None' ||
                     $('#move3').val() == null) move3 = ''
-    		move4 = $('#move4').val()
-                if ($('#move4').val() == '(None)' ||
+    		move4 = `\n * \\- ${$('#move4').val()}`
+                if ($('#move4').val() == 'None' ||
                     $('#move4').val() == null) move4 = ''
             if ($('#maxPP').prop('checked') == true) maxPP = 'Yes'
             else maxPP = 'No'
@@ -358,11 +358,7 @@
 * Shiny: ${shiny}
 * EVs: ${ev}
 * ${nat} Nature
-* IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe
- * \\- ${move1}
- * \\- ${move2}
- * \\- ${move3}
- * \\- ${move4}
+* IVs: ${iv_h} HP / ${iv_a} Atk / ${iv_b} Def / ${iv_c} SpA / ${iv_d} SpD / ${iv_s} Spe${move1}${move2}${move3}${move4}
 
 # Misc Pokémon Info
 * Language: ${lang}
