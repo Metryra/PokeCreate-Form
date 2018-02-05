@@ -260,7 +260,6 @@
 			$('#img_ball').css({
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ball/${ball}_ball.png')`
 			})
-		ribbon = $('#ribbon').val()
         ev_h = $('#ev_h').val()
             ev_a = $('#ev_a').val()
             ev_b = $('#ev_b').val()
@@ -382,7 +381,6 @@
 * Passport ID: ${ppid}
 * TID: ${tid}
 * SID: ${sid}
-* Ribbons: ${ribbon}
 
 # GTS Deposit
 * IGN: ${ign}
