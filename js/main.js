@@ -266,21 +266,21 @@
             ev_c = $('#ev_c').val()
             ev_d = $('#ev_d').val()
             ev_s = $('#ev_s').val()
-            if ($('#ev_h').val() != 0) ev_h = ` ${ev_h} HP /`
+            if (ev_h != 0) ev_h = ` ${ev_h} HP /`
                 else ev_h = ''
-            if ($('#ev_a').val() != 0) ev_a = ` ${ev_a} Atk /`
+            if (ev_a != 0) ev_a = ` ${ev_a} Atk /`
                 else ev_a = ''
-            if ($('#ev_b').val() != 0) ev_b = ` ${ev_b} Def /`
+            if (ev_b != 0) ev_b = ` ${ev_b} Def /`
                 else ev_b = ''
-            if ($('#ev_c').val() != 0) ev_c = ` ${ev_c} SpA /`
+            if (ev_c != 0) ev_c = ` ${ev_c} SpA /`
                 else ev_c = ''
-            if ($('#ev_d').val() != 0) ev_d = ` ${ev_d} SpD /`
+            if (ev_d != 0) ev_d = ` ${ev_d} SpD /`
                 else ev_d = ''
-            if ($('#ev_s').val() != 0) ev_s = ` ${ev_s} Spe`
+            if (ev_s != 0) ev_s = ` ${ev_s} Spe`
                 else ev_s = ''
         ev = `${ev_h}${ev_a}${ev_b}${ev_c}${ev_d}${ev_s}`
             if (ev_h == '' && ev_a == '' && ev_b == '' &&
-                ev_c == '' && ev_d == '' && ev_s == '') ev = '0'
+                ev_c == '' && ev_d == '' && ev_s == '') ev = '0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe'
         iv_h = $('#iv_h').val()
             iv_a = $('#iv_a').val()
             iv_b = $('#iv_b').val()
