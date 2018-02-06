@@ -266,19 +266,14 @@
             ev_c = $('#ev_c').val()
             ev_d = $('#ev_d').val()
             ev_s = $('#ev_s').val()
-            if (ev_h != 0) ev_h = ` ${ev_h} HP /`
-                else ev_h = ''
-            if (ev_a != 0) ev_a = ` ${ev_a} Atk /`
-                else ev_a = ''
-            if (ev_b != 0) ev_b = ` ${ev_b} Def /`
-                else ev_b = ''
-            if (ev_c != 0) ev_c = ` ${ev_c} SpA /`
-                else ev_c = ''
-            if (ev_d != 0) ev_d = ` ${ev_d} SpD /`
-                else ev_d = ''
-            if (ev_s != 0) ev_s = ` ${ev_s} Spe`
-                else ev_s = ''
+            if (ev_h != 0) ev_h = `${ev_h} HP / `; else ev_h = ''
+            if (ev_a != 0) ev_a = `${ev_a} Atk / `; else ev_a = ''
+            if (ev_b != 0) ev_b = `${ev_b} Def / `; else ev_b = ''
+            if (ev_c != 0) ev_c = `${ev_c} SpA / `; else ev_c = ''
+            if (ev_d != 0) ev_d = `${ev_d} SpD / `; else ev_d = ''
+            if (ev_s != 0) ev_s = `${ev_s} Spe`; else ev_s = ''
         ev = `${ev_h}${ev_a}${ev_b}${ev_c}${ev_d}${ev_s}`
+            if (ev.slice(-3) == ' / ') ev = ev.slice(0, -3)
             if (ev_h == '' && ev_a == '' && ev_b == '' &&
                 ev_c == '' && ev_d == '' && ev_s == '') ev = '0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe'
         iv_h = $('#iv_h').val()
@@ -293,18 +288,12 @@
             ht_c = ''
             ht_d = ''
             ht_s = ''
-            if ($('#ht_h').prop('checked') == true) ht_h = 'HP '
-                else ht_h = ''
-            if ($('#ht_a').prop('checked') == true) ht_a = 'Atk '
-                else ht_a = ''
-            if ($('#ht_b').prop('checked') == true) ht_b = 'Def '
-                else ht_b = ''
-            if ($('#ht_c').prop('checked') == true) ht_c = 'SpA '
-                else ht_c = ''
-            if ($('#ht_d').prop('checked') == true) ht_d = 'SpD '
-                else ht_d = ''
-            if ($('#ht_s').prop('checked') == true) ht_s = 'Spe '
-                else ht_s = ''
+            if ($('#ht_h').prop('checked') == true) ht_h = 'HP '; else ht_h = ''
+            if ($('#ht_a').prop('checked') == true) ht_a = 'Atk '; else ht_a = ''
+            if ($('#ht_b').prop('checked') == true) ht_b = 'Def '; else ht_b = ''
+            if ($('#ht_c').prop('checked') == true) ht_c = 'SpA '; else ht_c = ''
+            if ($('#ht_d').prop('checked') == true) ht_d = 'SpD '; else ht_d = ''
+            if ($('#ht_s').prop('checked') == true) ht_s = 'Spe '; else ht_s = ''
         ht = `${ht_h}${ht_a}${ht_b}${ht_c}${ht_d}${ht_s}`
             if (ht_h == '' && ht_a == '' && ht_b == '' &&
                 ht_c == '' && ht_d == '' && ht_s == '') ht = '--'
