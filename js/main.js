@@ -1,6 +1,6 @@
 // <select>, <input>
     $('input').attr('placeholder', 'Required') // Required Inputs (all)
-    $('input[optional]').attr('placeholder', 'Optional') // Optional Inputs
+    $('[optional]').attr('placeholder', 'Optional') // Optional Inputs
     $('option', '#met_game, #ot_gender, #gts_msg').each(function() {
         $(this).html($(this).val())
     })
@@ -172,7 +172,7 @@
 
 // Copy & Submit
     $('#copy').click(function() {
-        $('textarea').select()
+        $('#output textarea').select()
         document.execCommand('copy')
     })
 
@@ -216,7 +216,7 @@
             }
         }
     })
-    $('input, select').on('change keyup', generate)
+    $('input, #notes, select').on('change keyup', generate)
     function generate() {
         game_ver = $('#game_ver').val()
 		pkhex = $('#pkhex').val()
@@ -334,8 +334,9 @@
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ball/${gts_ball}_ball.png')`
 			})
 		gts_msg = $('#gts_msg').val()
+        notes = $('#notes').val()
 
-        $('textarea').val(
+        $('#output textarea').val(
 `# File Information
 * Game Version: ${game_ver}
 * PKHex File Link: ${pkhex}
@@ -371,4 +372,6 @@
 * IGN: ${ign}
 * FC: ${fc}
 * Deposit: ${gts_pkmn} ${gts_gender}Lv.${gts_lv} in ${gts_ball} Ball
-* Message: "${gts_msg}"`)}
+* Message: "${gts_msg}"
+
+* Additional Notes: ${notes}`)}

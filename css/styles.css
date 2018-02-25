@@ -18,16 +18,21 @@
         width: 100vw;
         height: 100vh;
     }
-    input {
+    input,
+    #notes {
+        height: 20px;
         text-align: center;
         border: 2px solid rgba(0,0,0, 0);
         border-radius: 3px;
         background: rgba(0,0,0, 0.05);
         outline: none;
-        transition: var(--transition);
     }
-    input:focus {
+    input:focus,
+    #notes:focus {
         border-bottom: 2px solid rgba(0,0,0, 0.5);
+    }
+    input {
+        transition: var(--transition);
     }
     input::placeholder {
         font-weight: bold;
