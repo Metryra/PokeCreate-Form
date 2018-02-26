@@ -339,7 +339,7 @@
         $('#output textarea').val(
 `# File Information
 * Game Version: ${game_ver}
-* PKHex File Link: ${pkhex}
+* PKHex File Link: ${qrcode}
 
 # Pokémon Info
 * ${nn}${pkmn_form} ${gender}${item}
