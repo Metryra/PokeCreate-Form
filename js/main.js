@@ -219,7 +219,7 @@
     $('input, #notes, select').on('change keyup', generate)
     function generate() {
         game_ver = $('#game_ver').val()
-		pkhex = $('#pkhex').val()
+		qrcode = $('#qrcode').val()
 		pkmn = ''
             if ($('#pkmn').val() != undefined) pkmn = $('#pkmn').val()
             else pkmn = ''
