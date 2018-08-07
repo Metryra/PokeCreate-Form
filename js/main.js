@@ -364,7 +364,7 @@
 
 # Trainer Info
 * OT: ${ot} (${ot_gender})
-* (${nsid}).${ppid}
+* ID: (${nsid}).${ppid}
 
 # GTS Deposit
 * IGN: ${ign}
