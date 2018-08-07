@@ -315,8 +315,8 @@
 		ot_gender = $('#ot_gender').val()
 		ppid = $('#ppid').val()
             if ($('#ppid').val() == null) ppid = ''
-		tid = $('#tid').val()
-		sid = $('#sid').val()
+		nsid = $('#nsid').val()
+            if (nsid == '') nsid = '---'
 		ign = $('#ign').val()
 		fc = $('#fc').val()
 		gts_pkmn = $('#gts_pkmn').val()
@@ -364,9 +364,7 @@
 
 # Trainer Info
 * OT: ${ot} (${ot_gender})
-* Passport ID: ${ppid}
-* TID: ${tid}
-* SID: ${sid}
+* (${nsid}).${ppid}
 
 # GTS Deposit
 * IGN: ${ign}
