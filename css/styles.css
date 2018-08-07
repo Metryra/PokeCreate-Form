@@ -230,6 +230,14 @@
     #ht_100 {
         display: none;
     }
+    .nsid_supplemental {
+        opacity: 0.2;
+    }
+    .nsid_supplemental,
+    .nsid_supplemental a,
+    .nsid_supplemental sup {
+        font-size: 10px;
+    }
 
 /* Output */
     #output {
