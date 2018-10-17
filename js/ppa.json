@@ -11116,7 +11116,7 @@
 		"nameJPN": "ルナアーラ",
 		"nameENG": "Lunala",
 		"type": ["psychic", "ghost"],
-		"gender": ["m", "f"],
+		"gender": ["-"],
 		"stats": [137, 113, 89, 137, 107, 97],
 		"abilityJPN": ["ファントムガード"],
 		"abilityENG": ["Shadow Shield"],
