@@ -23,7 +23,6 @@
     		<option value="Quick">Quick Ball</option>
     		<option value="Dusk">Dusk Ball</option>
     		<!-- <option value="Cherish">Cherish Ball</option> -->
-    		<option value="Park">Park Ball</option>
     		<option value="Dream">Dream Ball</option>
     		<option value="Beast">Beast Ball</option>
     		<optgroup label="- Apricorn Balls -">
@@ -238,9 +237,10 @@
             }
         gender = $('#gender').val()
             if (gender == null) gender = ''
+
 		shiny = ''
 			if ( $('#shiny').prop('checked') ) shiny = 'Yes'
-			else shiny = 'No'
+            else shiny = 'No'
         lv = $('#lv').val()
         nat = $('#nat').val()
 		item = ''
@@ -253,14 +253,15 @@
             $('#img_pkrs').attr({
                 'src': `img/pkrs_${pkrs.toLowerCase()}.png`
             })
-		met_game = $('#met_game').val()
+
+        met_game = $('#met_game').val()
 		met_loc = $('#met_loc').val()
 		met_lv = $('#met_lv').val()
 		ball = $('#ball').val()
 			$('#img_ball').css({
 				'background-image': `url('https://nuotsu.github.io/PPAR/img/ball/${ball}_ball.png')`
 			})
-        ev_h = $('#ev_h').val()
+            ev_h = $('#ev_h').val()
             ev_a = $('#ev_a').val()
             ev_b = $('#ev_b').val()
             ev_c = $('#ev_c').val()
@@ -276,13 +277,15 @@
             if (ev.slice(-3) == ' / ') ev = ev.slice(0, -3)
             if (ev_h == '' && ev_a == '' && ev_b == '' &&
                 ev_c == '' && ev_d == '' && ev_s == '') ev = '0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe'
-        iv_h = $('#iv_h').val()
+
+            iv_h = $('#iv_h').val()
             iv_a = $('#iv_a').val()
             iv_b = $('#iv_b').val()
             iv_c = $('#iv_c').val()
             iv_d = $('#iv_d').val()
             iv_s = $('#iv_s').val()
-        ht_h = ''
+            
+            ht_h = ''
             ht_a = ''
             ht_b = ''
             ht_c = ''
@@ -297,7 +300,8 @@
         ht = `${ht_h}${ht_a}${ht_b}${ht_c}${ht_d}${ht_s}`
             if (ht_h == '' && ht_a == '' && ht_b == '' &&
                 ht_c == '' && ht_d == '' && ht_s == '') ht = '--'
-		move1 = `\n * \\- ${$('#move1').val()}`
+
+		    move1 = `\n * \\- ${$('#move1').val()}`
                 if ($('#move1').val() == 'None' ||
                     $('#move1').val() == null) move1 = ''
     		move2 = `\n * \\- ${$('#move2').val()}`
@@ -312,11 +316,14 @@
             if ($('#maxPP').prop('checked') == true) maxPP = 'Yes'
             else maxPP = 'No'
 		ot = $('#ot').val()
-		ot_gender = $('#ot_gender').val()
+        ot_gender = $('#ot_gender').val()
+        
 		ppid = $('#ppid').val()
             if ($('#ppid').val() == null) ppid = ''
+
 		nsid = $('#nsid').val()
             if (nsid == '') nsid = '---'
+            
 		ign = $('#ign').val()
 		fc = $('#fc').val()
 		gts_pkmn = $('#gts_pkmn').val()

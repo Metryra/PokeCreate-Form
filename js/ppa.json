@@ -5822,7 +5822,7 @@
 	{
 		"dex": "0422",
 		"nameJPN": "カラナクシ (にしのうみ)",
-		"nameENG": "Shellos (West Sea)",
+		"nameENG": "Shellos-West",
 		"type": ["water", "ground"],
 		"gender": ["m", "f"],
 		"stats": [76, 48, 48, 57, 62, 34],
@@ -5834,7 +5834,7 @@
 	{
 		"dex": "0422E",
 		"nameJPN": "カラナクシ (ひがしのうみ)",
-		"nameENG": "Shellos (East Sea)",
+		"nameENG": "Shellos-East",
 		"type": ["water", "ground"],
 		"gender": ["m", "f"],
 		"stats": [76, 48, 48, 57, 62, 34],
@@ -5846,7 +5846,7 @@
 	{
 		"dex": "0423",
 		"nameJPN": "トリトドン (にしのうみ)",
-		"nameENG": "Gastrodon (West Sea)",
+		"nameENG": "Gastrodon-West",
 		"type": ["water", "ground"],
 		"gender": ["m", "f"],
 		"stats": [111, 83, 68, 92, 82, 39],
@@ -5858,7 +5858,7 @@
 	{
 		"dex": "0423E",
 		"nameJPN": "トリトドン (ひがしのうみ)",
-		"nameENG": "Gastrodon (East Sea)",
+		"nameENG": "Gastrodon-East",
 		"type": ["water", "ground"],
 		"gender": ["m", "f"],
 		"stats": [111, 83, 68, 92, 82, 39],
@@ -8820,18 +8820,6 @@
 		"collection": ["starter"]
 	},
 	{
-		"dex": "0658A",
-		"nameJPN": "サトシゲッコウガ",
-		"nameENG": "Ash Greninja",
-		"type": ["water", "dark"],
-		"gender": ["m"],
-		"stats": [72, 145, 67, 153, 71, 132],
-		"abilityJPN": ["きずなへんげ"],
-		"abilityENG": ["Battle Bond"],
-		"region": "Kalos",
-		"collection": ["starter"]
-	},
-	{
 		"dex": "0659",
 		"nameJPN": "ホルビー",
 		"nameENG": "Bunnelby",
@@ -9132,30 +9120,6 @@
 		"collection": []
 	},
 	{
-		"dex": "0666Pok",
-		"nameJPN": "ビビヨン (ボール)",
-		"nameENG": "Vivillon (Poké Ball)",
-		"type": ["bug", "flying"],
-		"gender": ["m", "f"],
-		"stats": [80, 52, 50, 90, 50, 89],
-		"abilityJPN": ["りんぷん", "ふくがん", "フレンドガード"],
-		"abilityENG": ["Shield Dust", "Compound Eyes", "Friend Guard"],
-		"region": "Kalos",
-		"collection": []
-	},
-	{
-		"dex": "0666Fan",
-		"nameJPN": "ビビヨン (ファンシー)",
-		"nameENG": "Vivillon (Fancy)",
-		"type": ["bug", "flying"],
-		"gender": ["m", "f"],
-		"stats": [80, 52, 50, 90, 50, 89],
-		"abilityJPN": ["りんぷん", "ふくがん", "フレンドガード"],
-		"abilityENG": ["Shield Dust", "Compound Eyes", "Friend Guard"],
-		"region": "Kalos",
-		"collection": []
-	},
-	{
 		"dex": "0667",
 		"nameJPN": "シシコ",
 		"nameENG": "Litleo",
@@ -9306,18 +9270,6 @@
 		"type": ["fairy"],
 		"gender": ["f"],
 		"stats": [54, 45, 47, 75, 98, 52],
-		"abilityJPN": ["フラワーベール", "きょうせい"],
-		"abilityENG": ["Flower Veil", "Symbiosis"],
-		"region": "Kalos",
-		"collection": []
-	},
-	{
-		"dex": "0670E",
-		"nameJPN": "フラエッテ (AZ)",
-		"nameENG": "AZ's Floette",
-		"type": ["fairy"],
-		"gender": ["f"],
-		"stats": [74, 65, 67, 125, 128, 92],
 		"abilityJPN": ["フラワーベール", "きょうせい"],
 		"abilityENG": ["Flower Veil", "Symbiosis"],
 		"region": "Kalos",
@@ -9984,12 +9936,84 @@
 		"collection": []
 	},
 	{
+		"dex": "0710-S",
+		"nameJPN": "バケッチャ",
+		"nameENG": "Pumpkaboo-Small",
+		"type": ["ghost", "grass"],
+		"gender": ["m", "f"],
+		"stats": [44, 66, 70, 44, 55, 56],
+		"abilityJPN": ["ものひろい", "おみとおし", "ふみん"],
+		"abilityENG": ["Pickup", "Frisk"],
+		"region": "Kalos",
+		"collection": []
+	},
+	{
+		"dex": "0710-L",
+		"nameJPN": "バケッチャ",
+		"nameENG": "Pumpkaboo-Large",
+		"type": ["ghost", "grass"],
+		"gender": ["m", "f"],
+		"stats": [54, 66, 70, 44, 55, 46],
+		"abilityJPN": ["ものひろい", "おみとおし", "ふみん"],
+		"abilityENG": ["Pickup", "Frisk"],
+		"region": "Kalos",
+		"collection": []
+	},
+	{
+		"dex": "0710-XL",
+		"nameJPN": "バケッチャ",
+		"nameENG": "Pumpkaboo-Super",
+		"type": ["ghost", "grass"],
+		"gender": ["m", "f"],
+		"stats": [59, 66, 70, 44, 55, 41],
+		"abilityJPN": ["ものひろい", "おみとおし", "ふみん"],
+		"abilityENG": ["Pickup", "Frisk", "Insomnia"],
+		"region": "Kalos",
+		"collection": []
+	},
+	{
 		"dex": "0711",
 		"nameJPN": "パンプジン",
 		"nameENG": "Gourgeist",
 		"type": ["ghost", "grass"],
 		"gender": ["m", "f"],
 		"stats": [65, 90, 122, 58, 75, 84],
+		"abilityJPN": ["ものひろい", "おみとおし", "ふみん"],
+		"abilityENG": ["Pickup", "Frisk", "Insomnia"],
+		"region": "Kalos",
+		"collection": []
+	},
+	{
+		"dex": "0711-S",
+		"nameJPN": "パンプジン",
+		"nameENG": "Gourgeist-Small",
+		"type": ["ghost", "grass"],
+		"gender": ["m", "f"],
+		"stats": [55, 85, 122, 58, 75, 99],
+		"abilityJPN": ["ものひろい", "おみとおし", "ふみん"],
+		"abilityENG": ["Pickup", "Frisk"],
+		"region": "Kalos",
+		"collection": []
+	},
+	{
+		"dex": "0711-L",
+		"nameJPN": "パンプジン",
+		"nameENG": "Gourgeist-Large",
+		"type": ["ghost", "grass"],
+		"gender": ["m", "f"],
+		"stats": [75, 95, 122, 58, 75, 69],
+		"abilityJPN": ["ものひろい", "おみとおし", "ふみん"],
+		"abilityENG": ["Pickup", "Frisk"],
+		"region": "Kalos",
+		"collection": []
+	},
+	{
+		"dex": "0711-XL",
+		"nameJPN": "パンプジン",
+		"nameENG": "Gourgeist-Super",
+		"type": ["ghost", "grass"],
+		"gender": ["m", "f"],
+		"stats": [85, 100, 122, 58, 75, 54],
 		"abilityJPN": ["ものひろい", "おみとおし", "ふみん"],
 		"abilityENG": ["Pickup", "Frisk", "Insomnia"],
 		"region": "Kalos",
@@ -10044,21 +10068,9 @@
 		"collection": []
 	},
 	{
-		"dex": "0716N",
+		"dex": "0716",
 		"nameJPN": "ゼルネアス (リラックス)",
 		"nameENG": "Xerneas (Neutral)",
-		"type": ["fairy"],
-		"gender": ["-"],
-		"stats": [126, 131, 95, 131, 98, 99],
-		"abilityJPN": ["フェアリーオーラ"],
-		"abilityENG": ["Fairy Aura"],
-		"region": "Kalos",
-		"collection": []
-	},
-	{
-		"dex": "0716",
-		"nameJPN": "ゼルネアス (アクティブ)",
-		"nameENG": "Xerneas (Active)",
 		"type": ["fairy"],
 		"gender": ["-"],
 		"stats": [126, 131, 95, 131, 98, 99],
