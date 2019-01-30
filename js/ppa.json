@@ -9523,7 +9523,7 @@
 		"gender": ["m"],
 		"stats": [74, 48, 76, 83, 81, 104],
 		"abilityJPN": ["するどいめ", "すりぬけ", "マイペース"],
-		"abilityENG": ["Keen Eye", "Infiltrator", "Own Tempo"],
+		"abilityENG": ["Keen Eye", "Infiltrator", "Prankster"],
 		"region": "Kalos",
 		"collection": []
 	},
@@ -9535,7 +9535,7 @@
 		"gender": ["f"],
 		"stats": [74, 48, 76, 83, 81, 104],
 		"abilityJPN": ["するどいめ", "すりぬけ", "いたずらごころ"],
-		"abilityENG": ["Keen Eye", "Infiltrator", "Prankster"],
+		"abilityENG": ["Keen Eye", "Infiltrator", "Competitive"],
 		"region": "Kalos",
 		"collection": []
 	},
