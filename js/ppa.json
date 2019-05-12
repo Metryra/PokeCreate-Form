@@ -5284,24 +5284,24 @@
 		"nameJPN": "ラティアス",
 		"nameENG": "Latias",
 		"type": ["dragon", "psychic"],
-		"gender": ["-"],
+		"gender": ["f"],
 		"stats": [80, 80, 90, 110, 130, 110],
 		"abilityJPN": ["ふゆう"],
 		"abilityENG": ["Levitate"],
 		"region": "Hoenn",
-		"collection": []
+		"collection": [legendary]
 	},
 	{
 		"dex": "0381",
 		"nameJPN": "ラティオス",
 		"nameENG": "Latios",
 		"type": ["dragon", "psychic"],
-		"gender": ["-"],
+		"gender": ["m"],
 		"stats": [80, 90, 80, 130, 110, 110],
 		"abilityJPN": ["ふゆう"],
 		"abilityENG": ["Levitate"],
 		"region": "Hoenn",
-		"collection": []
+		"collection": [legendary]
 	},
 	{
 		"dex": "0382",
