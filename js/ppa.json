@@ -11232,6 +11232,18 @@
 		"collection": ["legendary"]
 	},
 	{
+		"dex": "0800U",
+		"nameJPN": "ウルトラネクロズマ",
+		"nameENG": "Ultra Necrozma",
+		"type": ["psychic", "dragon"],
+		"gender": ["-"],
+		"stats": [97, 167, 97, 167, 97, 129],
+		"abilityJPN": ["ブレインフォース"],
+		"abilityENG": ["Neuroforce"],
+		"region": "Alola",
+		"collection": ["legendary"]
+	},
+	{
 		"dex": "0803",
 		"nameJPN": "ベベノム",
 		"nameENG": "Poipole",
