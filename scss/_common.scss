@@ -1,0 +1,15 @@
+// mixins
+$pc:	 'screen and (min-width: 769px)';
+$mobile: 'screen and (max-width: 768px)';
+$smp:	 'screen and (max-width: 414px)';
+@mixin responsive($media) {
+	@if $media == 'pc' 			{ @media #{$pc} 	{ @content; } }
+	@else if $media == 'mobile' { @media #{$mobile} { @content; } }
+	@else if $media == 'smp' 	{ @media #{$smp} 	{ @content; } }
+	@else						{ @media #{$media} 	{ @content; } }
+}
+
+// css variables
+:root {
+	--results-offsetHeight: 0px;
+}

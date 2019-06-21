@@ -1,0 +1,34 @@
+.stat_spread {
+	thead {
+		text-align: center;
+	}
+	input {
+		width: 3em;
+	}
+
+	.hyper-training {
+		td {
+			text-align: center;
+		}
+	}
+	.ev_info {
+		text-align: right;
+		span {
+			display: inline-block;
+			width: 2em;
+		}
+	}
+}
+
+.move_set {
+	display: inline-block;
+	vertical-align: middle;
+
+	select {
+		display: block;
+	}
+}
+
+#i_gts-message {
+	max-width: 250px;
+}
