@@ -8,10 +8,16 @@
 
 	<title>PokéCreate Form for /r/PokemonCreate</title>
 	<meta name="description" content="Form used at /r/PokemonCreate to request trades.">
+	<meta name="author" content="nuotsu">
 
+	<link rel="stylesheet" href="css/slimselect.min.css">
+	<!-- end vendor -->
 	<link rel="stylesheet" href="css/styles.css">
 
+	<script src="js/slimselect.min.js"></script>
+	<!-- end vendor -->
 	<script src="js/index.js" defer></script>
+	<script src="js/pokeapi.js" defer></script>
 	<script src="js/generate-results.js" defer></script>
 </head>
 
@@ -23,7 +29,7 @@
 
 	<main>
 		<article class="Inputs">
-			<h2>Inputs</h2>
+			<h2>Inputs <small id="formProgress"></small></h2>
 
 			<form id="inputsForm" action="">
 				<section class="InputGroup"><h3>General Information</h3>
@@ -31,7 +37,7 @@
 						<tr>
 							<th><label for="i_game">Game Version:</label></th>
 							<td>
-								<select id="i_game">
+								<select id="i_game" data-required>
 									<option value="Ultra Sun">Ultra Sun</option>
 									<option value="Ultra Moon">Ultra Moon</option>
 									<option value="Sun">Sun</option>
@@ -51,18 +57,16 @@
 					<table class="InputGroup__Content">
 						<tr>
 							<th><label for="i_species">Pokémon Species:</label></th>
-							<td>
-								<select id="i_species"></select>
-
-								<label for="i_ability">Ability:</label>
-								<select id="i_ability"></select>
-							</td>
+							<td><select id="i_species" data-required></select></td>
+						</tr><tr>
+							<th><label for="i_ability">Ability:</label></th>
+							<td><select id="i_ability" data-required></select></td>
 						</tr><tr>
 							<th><label for="i_nickname">Nickname:</label></th>
 							<td><input id="i_nickname" type="text" maxlength="12" optional></td>
 						</tr><tr>
 							<th><label for="i_gender">Gender:</label></th>
-							<td><select id="i_gender"></select></td>
+							<td><select id="i_gender" data-required></select></td>
 						</tr><tr>
 							<th><label for="i_shiny">Shiny:</label></th>
 							<td>
@@ -77,60 +81,64 @@
 							</td>
 						</tr><tr>
 							<th><label for="i_lv">Lv.</label></th>
-							<td><input id="i_lv" type="number" min="1" max="100" value="50"></td>
+							<td><input id="i_lv" type="number" min="1" max="100" value="50" data-required></td>
 						</tr><tr>
 							<th><label for="i_nature">Nature:</label></th>
 							<td>
-								<select id="i_nature">
-									<option value="Jolly" selected>Jolly</option>
-									<option value="Timid">Timid</option>
-									<option value="Adamant">Adamant</option>
-									<option value="Modest">Modest</option>
-									<option value="Brave">Brave</option>
-									<option value="Quiet">Quiet</option>
-									<option value="Hasty">Hasty</option>
-									<option value="Naive">Naive</option>
-									<option value="Bold">Bold</option>
-									<option value="Impish">Impish</option>
-									<option value="Calm">Calm</option>
-									<option value="Careful">Careful</option>
-									<option value="Relaxed">Relaxed</option>
-									<option value="Sassy">Sassy</option>
-									<option value="Lonely">Lonely</option>
-									<option value="Naughty">Naughty</option>
-									<option value="Mild">Mild</option>
-									<option value="Rash">Rash</option>
-									<option value="Lax">Lax</option>
-									<option value="Gentle">Gentle</option>
-									<option value="Hardy">Hardy</option>
-									<option value="Hardy">Docile</option>
-									<option value="Hardy">Serious</option>
-									<option value="Hardy">Bashful</option>
-									<option value="Hardy">Quirky</option>
+								<select id="i_nature" data-required>
+									<option value="jolly" selected>Jolly</option>
+									<option value="timid">Timid</option>
+									<option value="adamant">Adamant</option>
+									<option value="modest">Modest</option>
+									<option value="brave">Brave</option>
+									<option value="quiet">Quiet</option>
+									<option value="hasty">Hasty</option>
+									<option value="naive">Naive</option>
+									<option value="bold">Bold</option>
+									<option value="impish">Impish</option>
+									<option value="calm">Calm</option>
+									<option value="careful">Careful</option>
+									<option value="relaxed">Relaxed</option>
+									<option value="sassy">Sassy</option>
+									<option value="lonely">Lonely</option>
+									<option value="naughty">Naughty</option>
+									<option value="mild">Mild</option>
+									<option value="rash">Rash</option>
+									<option value="lax">Lax</option>
+									<option value="gentle">Gentle</option>
+									<optgroup label="No stat change">
+										<option value="hardy">Hardy</option>
+										<option value="docile">Docile</option>
+										<option value="serious">Serious</option>
+										<option value="bashful">Bashful</option>
+										<option value="quirky">Quirky</option>
+									</optgroup>
 								</select>
 
 								<label for="i_nature-inc">↑</label>
 								<select id="i_nature-inc">
-									<option value="Atk">Atk</option>
-									<option value="Def">Def</option>
-									<option value="SpA">SpA</option>
-									<option value="SpD">SpD</option>
-									<option value="Spe" selected>Spe</option>
+									<option value="null">--</option>
+									<option value="attack">Atk</option>
+									<option value="defense">Def</option>
+									<option value="special-attack">SpA</option>
+									<option value="special-defense">SpD</option>
+									<option value="speed" selected>Spe</option>
 								</select>
 
 								<label for="i_nature-inc">↓</label>
 								<select id="i_nature-dec">
-									<option value="Atk">Atk</option>
-									<option value="Def">Def</option>
-									<option value="SpA" selected>SpA</option>
-									<option value="SpD">SpD</option>
-									<option value="Spe">Spe</option>
+									<option value="null">--</option>
+									<option value="attack">Atk</option>
+									<option value="defense">Def</option>
+									<option value="special-attack" selected>SpA</option>
+									<option value="special-defense">SpD</option>
+									<option value="speed">Spe</option>
 								</select>
 							</td>
 						</tr><tr>
 							<th><label for="i_ball">Ball:</label></th>
 							<td>
-								<select id="i_ball">
+								<select id="i_ball" data-required>
 									<option value="Poke">Poké Ball</option>
 									<option value="Great">Great Ball</option>
 									<option value="Ultra">Ultra Ball</option>
@@ -163,7 +171,7 @@
 							</td>
 						</tr><tr>
 							<th><label for="i_item">Held item:</label></th>
-							<td><select id="i_item"></select></td>
+							<td><select id="i_item" data-required></select></td>
 						</tr><tr>
 							<td colspan="2">
 								<table class="stat_spread">
@@ -195,18 +203,18 @@
 											<td><input id="i_ev-D" type="number" min="0" max="252" step="4" value="0"></td>
 											<td><input id="i_ev-S" type="number" min="0" max="252" step="4" value="252"></td>
 										</tr><tr class="hyper-training">
-											<th>Hyper Training:</th>
-											<td><input id="i_hyp-H" type="checkbox"></td>
-											<td><input id="i_hyp-A" type="checkbox"></td>
-											<td><input id="i_hyp-B" type="checkbox"></td>
-											<td><input id="i_hyp-C" type="checkbox"></td>
-											<td><input id="i_hyp-D" type="checkbox"></td>
-											<td><input id="i_hyp-S" type="checkbox"></td>
+											<th>Hyper Training: <small>*Only at Lv.100</small></th>
+											<td><input id="i_hyp-H" type="checkbox" disabled></td>
+											<td><input id="i_hyp-A" type="checkbox" disabled></td>
+											<td><input id="i_hyp-B" type="checkbox" disabled></td>
+											<td><input id="i_hyp-C" type="checkbox" disabled></td>
+											<td><input id="i_hyp-D" type="checkbox" disabled></td>
+											<td><input id="i_hyp-S" type="checkbox" disabled></td>
 										</tr><tr>
 											<th></th>
 											<td colspan="6" class="ev_info">
-												<p>Total EVs: <span id="ev_max">508</span></p>
-												<p>Remaining: <span id="ev_rem">2</span></p>
+												<p>Total EVs: <span id="ev_total">0</span></p>
+												<p>Remaining: <span id="ev_rem">0</span></p>
 											</td>
 										</tr>
 									</tbody>
@@ -216,10 +224,13 @@
 							<th>Move Set:</th>
 							<td>
 								<div class="move_set">
-									<select id="i_move1"></select>
-									<select id="i_move1"></select>
-									<select id="i_move1"></select>
-									<select id="i_move1"></select>
+									<div>
+										<select id="i_move1" class="i_moves" data-required></select>
+										<select id="i_move2" class="i_moves"></select>
+									</div><div>
+										<select id="i_move3" class="i_moves"></select>
+										<select id="i_move4" class="i_moves"></select>
+									</div>
 								</div>
 								
 								<label for="i_maxpp">Max PPs:</label>
@@ -228,7 +239,7 @@
 						</tr><tr>
 								<th><label for="i_language">Language:</label></th>
 								<td>
-									<select id="i_language">
+									<select id="i_language" data-required>
 										<option value="ENG">ENG</option>
 										<option value="FRE">FRE</option>
 										<option value="GER">GER</option>
@@ -252,7 +263,7 @@
 						<tr>
 							<th><label for="i_met-game">Met Game Version:</label></th>
 							<td>
-								<select id="i_met-game">
+								<select id="i_met-game" data-required>
 									<optgroup label="Gen 7">
 										<option value="Ultra Sun">Ultra Sun</option>
 										<option value="Ultra Moon">Ultra Moon</option>
@@ -300,10 +311,10 @@
 							</td>
 						</tr><tr>
 							<th><label for="i_met-location">Met Location:</label></th>
-							<td><input id="i_met-location" type="text" required></td>
+							<td><select id="i_met-location" data-required></td>
 						</tr><tr>
 							<th><label for="i_met-lv">Met Lv.</label></th>
-							<td><input id="i_met-lv" type="number" min="1" max="100" value="50"></td>
+							<td><input id="i_met-lv" type="number" min="1" max="100" value="50" data-required></td>
 						</tr>
 					</table>
 				</section>
@@ -312,11 +323,11 @@
 					<table class="InputGroup__Content">
 						<tr>
 							<th><label for="i_ot">OT:</label></th>
-							<td><input id="i_ot" type="text" maxlength="12" required></td>
+							<td><input id="i_ot" type="text" maxlength="12" data-required></td>
 						</tr><tr>
 							<th><label for="i_ot-gender">OT Gender:</label></th>
 							<td>
-								<select id="i_ot-gender">
+								<select id="i_ot-gender" data-required>
 									<option value="Male">Male</option>
 									<option value="Female">Female</option>
 								</select>
@@ -329,7 +340,7 @@
 							</td>
 						</tr><tr>
 							<th><label for="i_pid">Passport ID:</label></th>
-							<td><input id="i_pid" type="text" maxlength="6" required></td>
+							<td><input id="i_pid" type="text" maxlength="6" data-required></td>
 						</tr>
 					</table>
 				</section>
@@ -338,14 +349,17 @@
 					<table class="InputGroup__Content">
 						<tr>
 							<th><label for="i_ign">IGN:</label></th>
-							<td><input id="i_ign" type="text" required></td>
+							<td><input id="i_ign" type="text" data-required></td>
 						</tr><tr>
 							<th><label for="i_fc">FC:</label></th>
-							<td><input id="i_fc" type="text" placeholder="0000-0000-0000"></td>
-						</tr><tr>
-							<th><label for="i_gts-pokemon">Depositing Pokémon:</label></th>
 							<td>
-								<select id="i_gts-pokemon">
+								<input id="i_fc" type="text" optional>
+								<small>*0000-0000-0000</small>
+							</td>
+						</tr><tr>
+							<th><label for="i_gts-species">Depositing Pokémon:</label></th>
+							<td>
+								<select id="i_gts-species" data-required>
 									<option value="Mudbray">No.749　Mudbray</option>
 									<option value="Wishiwashi">No.746　Wishiwashi</option>
 									<option value="Cutiefly">No.742　Cutiefly</option>
@@ -367,17 +381,17 @@
 							</td>
 						</tr><tr>
 							<th><label for="i_gts-gender">Gender:</label></th>
-							<td><select id="i_gts-gender">
+							<td><select id="i_gts-gender" data-required>
 								<option value="(M) ">♂</option>
 								<option value="(F) ">♀</option>
 							</select></td>
 						</tr><tr>
 							<th><label for="i_gts-lv">Lv.</label></th>
-							<td><input id="i_gts-lv" type="number" min="1" max="100" value="50"></td>
+							<td><input id="i_gts-lv" type="number" min="1" max="100" value="50" data-required></td>
 						</tr><tr>
 							<th><label for="i_gts-ball">Ball:</label></th>
 							<td>
-								<select id="i_gts-ball">
+								<select id="i_gts-ball" data-required>
 									<option value="Poke">Poké Ball</option>
 									<option value="Great">Great Ball</option>
 									<option value="Ultra">Ultra Ball</option>
@@ -411,7 +425,7 @@
 						</tr><tr>
 							<th><label for="i_gts-message">Message:</label></th>
 							<td>
-								<select id="i_gts-message">
+								<select id="i_gts-message" data-required>
 									<option value="Please trade Pokémon with me. Thanks in advance."></option>
 									<option value="I want to trade for a Pokémon that will help me with my adventure."></option>
 									<option value="I want to trade for a Pokémon that is strong in battles."></option>

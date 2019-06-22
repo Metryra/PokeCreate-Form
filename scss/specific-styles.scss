@@ -16,6 +16,7 @@
 		span {
 			display: inline-block;
 			width: 2em;
+			&.over-limit { color: red; }
 		}
 	}
 }
@@ -27,8 +28,4 @@
 	select {
 		display: block;
 	}
-}
-
-#i_gts-message {
-	max-width: 250px;
 }

@@ -13,3 +13,14 @@ $smp:	 'screen and (max-width: 414px)';
 :root {
 	--results-offsetHeight: 0px;
 }
+
+// common
+* {
+	margin: 0;
+	padding: 0;
+}
+
+small {
+	display: inline-block;
+	font-size: 0.7em;
+}
