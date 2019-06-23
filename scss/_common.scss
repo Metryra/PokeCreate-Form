@@ -1,26 +1,44 @@
+// variables
+$box-shadow: 0 2px 10px rgba(#000, .1);
+$background-color: #f1f1f1;
+
+$color-H: #4cb050; .color-H { background-color: $color-H; } .bg-color-H { background-color: rgba($color-H, .1); color: $color-H; }
+$color-A: #ff9800; .color-A { background-color: $color-A; } .bg-color-A { background-color: rgba($color-A, .1); color: $color-A; }
+$color-B: #f54337; .color-B { background-color: $color-B; } .bg-color-B { background-color: rgba($color-B, .1); color: $color-B; }
+$color-C: #03a9f5; .color-C { background-color: $color-C; } .bg-color-C { background-color: rgba($color-C, .1); color: $color-C; }
+$color-D: #3f51b5; .color-D { background-color: $color-D; } .bg-color-D { background-color: rgba($color-D, .1); color: $color-D; }
+$color-S: #9c28b1; .color-S { background-color: $color-S; } .bg-color-S { background-color: rgba($color-S, .1); color: $color-S; }
+
 // mixins
-$pc:	 'screen and (min-width: 769px)';
 $mobile: 'screen and (max-width: 768px)';
 $smp:	 'screen and (max-width: 414px)';
 @mixin responsive($media) {
-	@if $media == 'pc' 			{ @media #{$pc} 	{ @content; } }
-	@else if $media == 'mobile' { @media #{$mobile} { @content; } }
-	@else if $media == 'smp' 	{ @media #{$smp} 	{ @content; } }
-	@else						{ @media #{$media} 	{ @content; } }
+	@if $media == 'mobile' { @media #{ $mobile } { @content; } }
+	@else if $media == 'smp' 	{ @media #{ $smp } 	{ @content; } }
+	@else						{ @media screen and (max-width: #{ $media }) { @content; } }
 }
 
 // css variables
 :root {
-	--results-offsetHeight: 0px;
+	--output-offsetHeight: 0px;
 }
 
 // common
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+}
+a[href] {
+	color: currentColor;
+	transition: color .15s ease-in-out;
+	&:hover {
+		color: $color-C;
+	}
 }
 
 small {
-	display: inline-block;
+	color: lighten(#000, 75%);
+	font-weight: normal;
 	font-size: 0.7em;
 }

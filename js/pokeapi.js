@@ -56,7 +56,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 			.then(results => {
 				for (i in results.pokemon_species_details) {
 					if (i_species.value == results.pokemon_species_details[i].pokemon_species.name) {
-						i_gender.insertAdjacentHTML('beforeend', '<option value="Male">♂ Male</option>');
+						i_gender.insertAdjacentHTML('beforeend', '<option value=" (M)">♂ Male</option>');
 					}
 				}
 			});
@@ -65,7 +65,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 			.then(results => {
 				for (i in results.pokemon_species_details) {
 					if (i_species.value == results.pokemon_species_details[i].pokemon_species.name) {
-						i_gender.insertAdjacentHTML('beforeend', '<option value="Female">♀ Female</option>');
+						i_gender.insertAdjacentHTML('beforeend', '<option value=" (F)">♀ Female</option>');
 					}
 				}
 			});
@@ -74,7 +74,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 			.then(results => {
 				for (i in results.pokemon_species_details) {
 					if (i_species.value == results.pokemon_species_details[i].pokemon_species.name) {
-						i_gender.insertAdjacentHTML('beforeend', '<option value="Genderless">Genderless</option>');
+						i_gender.insertAdjacentHTML('beforeend', '<option value="">Genderless</option>');
 					}
 				}
 			});

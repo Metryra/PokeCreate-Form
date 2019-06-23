@@ -1,22 +1,46 @@
+@import '_common';
+
 .stat_spread {
+	border-collapse: collapse;
 	thead {
 		text-align: center;
+
+		[class^="color-"] {
+			padding: 2px 0;
+			color: #fff;
+		}
+		.color-H { border-top-left-radius: 6px; }
+		.color-S { border-top-right-radius: 6px; }
 	}
+	td { text-align: center; }
 	input {
-		width: 3em;
+		cursor: pointer;
+		width: 4em;
+		margin: 4px 4px 0;
+		padding: 5px 0;
+		border: none;
+		border-bottom: 2px solid transparent;
+		border-radius: 4px 4px 0 0;
+		background-color: transparent;
+		text-align: center;
+		color: currentColor;
+		&:hover, &:focus {
+			background-color: rgba(#000, .05);
+			border-bottom: 2px solid currentColor;
+		}
 	}
 
 	.hyper-training {
-		td {
-			text-align: center;
-		}
+		input { margin: 0; }
+		.bg-color-H { border-bottom-left-radius: 6px; }
+		.bg-color-S { border-bottom-right-radius: 6px; }
 	}
 	.ev_info {
 		text-align: right;
 		span {
 			display: inline-block;
 			width: 2em;
-			&.over-limit { color: red; }
+			&.over-limit { color: $color-B; }
 		}
 	}
 }

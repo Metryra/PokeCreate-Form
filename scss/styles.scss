@@ -5,12 +5,15 @@
 // styles
 body {
 	display: grid;
-	grid-template-areas: 'header' 'main' 'footer';
-	grid-template-columns: 100%;
-	grid-template-rows: 100px calc(100vh - 100px - 60px) 60px;
+	grid-template-areas: 'header header' 'inputs output' 'inputs footer';
+	grid-template-columns: auto 400px;
+	grid-template-rows: 100px calc(100vh - 100px - 50px) 50px;
 	width: 100vw; height: 100vh;
+	overflow-x: hidden;
 	@include responsive('mobile') {
-		grid-template-rows: 100px auto 60px;
+		grid-template-areas: 'header' 'inputs' 'output' 'footer';
+		grid-template-columns: auto;
+		grid-template-rows: repeat(4, max-content);
 	}
 
 	header { grid-area: header; }
@@ -19,79 +22,201 @@ body {
 }
 
 header {
+	align-self: center;
+	position: relative;
 	padding: 0 20px;
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 50%; top: 50%; z-index: -1;
+		transform: translate(-50%, -50%);
+		display: inline-block;
+		width: calc(100% + 20px); height: calc(100% + 20px);
+		background:
+			url('../img/pokemon-create-logo.png')
+			center/contain no-repeat;
+		opacity: 0.5;
+
+		@include responsive('mobile') {
+			position: static;
+			transform: none;
+			width: 100%; height: 75px;
+		}
+	}
 }
 
-main {
-	display: grid;
-	grid-template-areas: 'inputs results';
-	grid-template-columns: auto 400px;
-	@include responsive('mobile') {
-		grid-template-areas: 'inputs' 'results';
-		grid-template-columns: 100%;
+.Inputs, .Output {
+	h2 {
+		position: sticky;
+		top: 0; z-index: 1;
+		padding: 10px 0;
+		background: #fff;
 	}
+}
 
-	.Inputs, .Results {
-		padding: 20px;
+.Inputs {
+	grid-area: inputs;
+	counter-reset: groupNum;
+	padding: 0 0 20px 0;
+	@include responsive('mobile') { padding-right: 5px; }
+	overflow-x: hidden;
+	overflow-y: scroll;
 
-		h2 {
+	h2 { padding-left: 20px; }
+	
+	.InputGroup {
+		counter-increment: groupNum;
+		h3 {
 			position: sticky;
-			top: 0; z-index: 1;
-			background: #fff;
+			left: 0;
+			margin-right: 20px;
+			padding: 10px 20px;
+			border-radius: 0 99px 99px 0;
+			background: $background-color;
+			@include responsive('mobile') { margin-right: 0; }
+			
+			&::before { content: counter(groupNum)'. '; }
+			
+			.pokeball {
+				cursor: pointer;
+				position: absolute;
+				right: 5px; top: 50%;
+				transform: translateY(-50%);
+				display: inline-block;
+				width: 30px; height: 30px;
+				background:
+					url('../img/pokeball-icon.png')
+					center/contain no-repeat;
+
+				&.hovered { animation: hovered .4s ease-in-out; }
+				&.clicked { animation: clicked .6s ease-in-out; }
+				@keyframes hovered {
+					0%, 100% { transform: translateY(-50%) rotate(0deg); }
+					25% { transform: translateY(-50%) rotate(45deg); }
+					50% { transform: translateY(-50%) rotate(-30deg); }
+					75% { transform: translateY(-50%) rotate(15deg); }
+					
+				}
+				@keyframes clicked {
+					from { transform: translateY(-50%) rotate(0deg); }
+					to { transform: translateY(-50%) rotate(720deg); }
+				}
+			}
+		}
+
+		.InputGroup__Content {
+			padding: 20px;
+			@include responsive('mobile') { padding: 20px 20px 20px 5px; }
+
+			th {
+				text-align: right;
+				width: 200px;
+				@include responsive('smp') { width: 120px; }
+			}
+			label {
+				font-weight: bold;
+			}
+
+			select, .ss-main { max-width: 250px; }
+		}
+	}
+}
+
+.Output {
+	grid-area: output;
+	display: grid;
+	grid-template-areas: 'output--header' 'warnings' 'output--textarea' 'output--footer';
+	grid-template-rows: max-content max-content auto max-content;
+
+	grid-area: output;
+	min-height: 250px;
+	margin: 0 0 10px 10px;
+	padding: 0 20px 20px;
+	border-radius: 8px 0 0 8px;
+	background-color: $background-color;
+	@include responsive('mobile') {
+		margin: 10px;
+		border-radius: 8px;
+	}
+
+	.Output__header {
+		grid-area: output--header;
+		background: transparent;
+	}
+
+	#warnings {
+		grid-area: warnings;
+		display: none;
+		list-style-type: none;
+		width: 100%;
+		margin: 0 auto 10px;
+		padding: 15px;
+		border: 1px dashed $color-B;
+		border-radius: 8px;
+		background: rgba(red, .05);
+		color: $color-B;
+
+		li {
+			position: relative;
+			padding-left: 1.5em;
+			&::before {
+				content: '\f06a';
+				font-family: "Font Awesome 5 Free";
+				font-weight: 900;
+
+				position: absolute;
+				left: 0;
+			}
+
+			& + li { margin-top: 5px; }
 		}
 	}
 
-	.Inputs {
-		grid-area: inputs;
-		counter-reset: groupNum;
-		padding-top: 0;
-		overflow-x: hidden;
-		overflow-y: scroll;
-		
-		.InputGroup {
-			counter-increment: groupNum;
-			h3 {
-				&::before { content: counter(groupNum)'. '; }
-			}
-
-			.InputGroup__Content {
-				th {
-					text-align: right;
-					width: 120px;
-				}
-				label {
-					font-weight: bold;
-				}
-
-				select,
-				.ss-main {
-					max-width: 250px;
-				}
-			}
-		}
-	}
-
-	.Results {
-		grid-area: results;
-		min-height: 250px;
-		margin: 0 0 10px 10px;
-		border-radius: 8px 0 0 8px;
-		background: #f1f1f1;
+	#output {
+		grid-area: output--textarea;
+		resize: none;
+		padding: 15px;
+		border: none;
+		border-radius: 8px;
+		background:
+			#fff
+			url('../img/pokeball_bg.png')
+			160% 125%/75% no-repeat;
 		@include responsive('mobile') {
-			margin: 10px;
-			border-radius: 8px;
+			background-position: 75% -25%;
+			background-size: 50%;
 		}
+	}
 
-		h2 {
-			background: transparent;
-		}
+	.Output__footer {
+		grid-area: output--footer;
+	}
 
-		textarea#results {
-			width: calc(100% - 30px);
-			height: calc(100% - var(--results-offsetHeight) - 15px);
-			padding: 15px;
-			border: none;
-			border-radius: 8px;
+	#copied {
+		position: fixed;
+		top: 0; right: 200px; z-index: 1;
+		transform: translate(50%, -100%);
+		padding: 10px 15px;
+		box-shadow: none;
+		border-radius: 0 0 8px 8px;
+		background: #fff;
+		visibility: hidden;
+		@include responsive('mobile') { right: 50%; }
+		
+		&.is-visible {
+			visibility: visible;
+			animation: slidedown 3s ease-in-out; // animation-duration used in generate-output.js
+			@keyframes slidedown {
+				0%, 100% {
+					transform: translate(50%, -100%);
+					box-shadow: none;
+				}
+				25%, 75% {
+					transform: translate(50%, 0);
+					box-shadow: $box-shadow;
+				}
+			}
 		}
 	}
 }
