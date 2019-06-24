@@ -11,7 +11,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 		.then(results => {
 			results.results.forEach(result => {
 				i_species.insertAdjacentHTML('beforeend',
-					`<option value="${ result.name }">${ result.name.toUpperCase() }</option>`
+					`<option value="${ result.name }">${ result.name }</option>`
 				);
 			});
 			i_species.insertAdjacentHTML('afterbegin',
@@ -37,7 +37,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 				// abilities
 				results.abilities.forEach(ability => {
 					i_ability.insertAdjacentHTML('beforeend',
-						`<option value="${ ability.ability.name }">${ ability.ability.name.toUpperCase() }</option>`
+						`<option value="${ ability.ability.name }">${ ability.ability.name }</option>`
 					)
 				});
 
@@ -45,7 +45,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 				i_moves.forEach(i_move => {
 					results.moves.forEach(move => {
 						i_move.insertAdjacentHTML('beforeend',
-							`<option value="${ move.move.name }">${ move.move.name.toUpperCase() }</option>`
+							`<option value="${ move.move.name }">${ move.move.name }</option>`
 						)
 					});
 				});
@@ -141,7 +141,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 		.then(results => {
 			results.results.forEach(result => {
 				i_item.insertAdjacentHTML('beforeend',
-					`<option value="${ result.name }">${ result.name.toUpperCase() }</option>`
+					`<option value="${ result.name }">${ result.name }</option>`
 				)
 			});
 		});
@@ -153,7 +153,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 		.then(results => {
 			results.results.forEach(result => {
 				i_metLocation.insertAdjacentHTML('beforeend',
-					`<option value="${ result.name }">${ result.name.toUpperCase() }</option>`
+					`<option value="${ result.name }">${ result.name }</option>`
 				)
 			});
 		});

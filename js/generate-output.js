@@ -97,6 +97,54 @@
 			warningExists = true;
 		}
 
+		// check species
+		let speciesWarning = document.querySelector('#speciesWarning');
+		let speciesValue = document.querySelector('#i_species').value;
+		function getExcludedspecies() {
+			return fetch('../data/excluded-species.csv')
+				.then(csv => csv.text())
+				.then(results => {
+					results = results.split(',\n');
+					return results;
+				});
+		};
+		getExcludedspecies().then(exludedSpecies => {
+			for (var i in exludedSpecies) {
+				if (speciesValue === exludedSpecies[i]) {
+					speciesWarning.innerHTML = `${ speciesValue.toUpperCase() } can't be requested. Please choose another species.`;
+					speciesWarning.style.display = 'block';
+					warningExists = true;
+					return;
+				}
+			}
+			speciesWarning.style.display = 'none';
+			speciesWarning.innerHTML = '';
+		});
+
+		// check item
+		let itemWarning = document.querySelector('#itemWarning');
+		let itemValue = document.querySelector('#i_item').value;
+		function getExcludedItems() {
+			return fetch('../data/excluded-items.csv')
+				.then(csv => csv.text())
+				.then(results => {
+					results = results.split(',\n');
+					return results;
+				});
+		};
+		getExcludedItems().then(exludedItems => {
+			for (var i in exludedItems) {
+				if (itemValue === exludedItems[i]) {
+					itemWarning.innerHTML = `${ itemValue.toUpperCase() } can't be requested. Please choose another item.`;
+					itemWarning.style.display = 'block';
+					warningExists = true;
+					return;
+				}
+			}
+			itemWarning.style.display = 'none';
+			itemWarning.innerHTML = '';
+		});
+
 		// check EVs
 		let EVsWarning = document.querySelector('#EVsWarning');
 		if (EVsAreValid)
@@ -111,7 +159,7 @@
 			if (warnings.children[i].innerHTML == '')
 				warnings.children[i].style.display = 'none';
 			else
-			warnings.children[i].style.display = 'block';
+				warnings.children[i].style.display = 'block';
 		}
 
 		// hide warnings when blank

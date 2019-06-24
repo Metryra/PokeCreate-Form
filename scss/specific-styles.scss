@@ -1,7 +1,15 @@
 @import '_common';
 
+label[for^="i_nature-"] {
+	padding-left: 10px;
+
+	&[for="i_nature-inc"] { color: $color-B; }
+	&[for="i_nature-dec"] { color: $color-C; }
+}
+
 .stat_spread {
 	border-collapse: collapse;
+
 	thead {
 		text-align: center;
 
@@ -24,8 +32,13 @@
 		background-color: transparent;
 		text-align: center;
 		color: currentColor;
-		&:hover, &:focus {
-			background-color: rgba(#000, .05);
+
+		&:hover {
+			background-color: rgba(#fff, .3);
+			border-bottom: 2px solid currentColor;
+		}
+		&:focus {
+			background-color: #fff;
 			border-bottom: 2px solid currentColor;
 		}
 	}

@@ -106,7 +106,27 @@
 	let inputsForm = document.querySelector('#inputsForm');
 	inputsForm.reset(); // default to [selected] for Firefox
 
-// animations
+/*
+	styles & animations
+*/
+
+// .Inputs h2 dropshadow
+	let InputsTitle = document.querySelector('.Inputs h2');
+	let firstInputGroup = document.querySelectorAll('.InputGroup h3')[0];
+	let observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (!entry.isIntersecting) {
+				InputsTitle.classList.add('has-dropshadow');
+			} else {
+				InputsTitle.classList.remove('has-dropshadow');
+			}
+		});
+	});
+	observer.observe(firstInputGroup, {
+		root: document.querySelector('.Inputs')
+	});
+
+// pokeball
 	let InputGroupH3 = document.querySelectorAll('.InputGroup h3');
 		InputGroupH3.forEach(elem => {
 			elem.insertAdjacentHTML('beforeend', '<span class="pokeball"></span>')

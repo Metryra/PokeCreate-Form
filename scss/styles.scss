@@ -7,7 +7,7 @@ body {
 	display: grid;
 	grid-template-areas: 'header header' 'inputs output' 'inputs footer';
 	grid-template-columns: auto 400px;
-	grid-template-rows: 100px calc(100vh - 100px - 50px) 50px;
+	grid-template-rows: 100px calc(100vh - 100px - 60px) 60px;
 	width: 100vw; height: 100vh;
 	overflow-x: hidden;
 	@include responsive('mobile') {
@@ -58,15 +58,29 @@ header {
 .Inputs {
 	grid-area: inputs;
 	counter-reset: groupNum;
-	padding: 0 0 20px 0;
+	padding: 0 0 20px;
 	@include responsive('mobile') { padding-right: 5px; }
 	overflow-x: hidden;
 	overflow-y: scroll;
 
-	h2 { padding-left: 20px; }
+	h2 {
+		padding-left: 20px;
+		transition: box-shadow .2s ease-in-out;
+		&.has-dropshadow {
+			@include responsive('pc') {
+				box-shadow: 0 2px 10px rgba(#000, .1);
+			}
+		}
+	}
+
+	.scrollable {
+		overflow: scroll;
+	}
 	
 	.InputGroup {
 		counter-increment: groupNum;
+		margin-bottom: 40px;
+
 		h3 {
 			position: sticky;
 			left: 0;
@@ -106,8 +120,29 @@ header {
 		}
 
 		.InputGroup__Content {
+			border-collapse: collapse;
+			width: 650px;
+			max-width: 100%;
+			margin: 10px auto;
 			padding: 20px;
 			@include responsive('mobile') { padding: 20px 20px 20px 5px; }
+
+			& > tbody > tr {
+				border-radius: 8px;
+				overflow: hidden;
+
+				&:hover > th,
+				&:hover > td { background-color: rgba($color-H, .1); }
+
+				& > th { border-radius: 8px 0 0 8px;}
+				& > td:last-child { border-radius: 0 8px 8px 0;}
+				& > td[colspan="2"] { border-radius: 8px; }
+
+				@include responsive('mobile') {
+					// no bdrs lefts
+				}
+			}
+			th, td { padding: 4px; }
 
 			th {
 				text-align: right;
@@ -119,6 +154,8 @@ header {
 			}
 
 			select, .ss-main { max-width: 250px; }
+
+			.ss-content.ss-open { box-shadow: $box-shadow; }
 		}
 	}
 }
@@ -132,7 +169,7 @@ header {
 	grid-area: output;
 	min-height: 250px;
 	margin: 0 0 10px 10px;
-	padding: 0 20px 20px;
+	padding: 0 20px 0;
 	border-radius: 8px 0 0 8px;
 	background-color: $background-color;
 	@include responsive('mobile') {
@@ -150,6 +187,8 @@ header {
 		display: none;
 		list-style-type: none;
 		width: 100%;
+		max-height: 200px;
+		overflow-y: scroll;
 		margin: 0 auto 10px;
 		padding: 15px;
 		border: 1px dashed $color-B;
@@ -177,7 +216,7 @@ header {
 		grid-area: output--textarea;
 		resize: none;
 		padding: 15px;
-		border: none;
+		border: 2px solid transparent;
 		border-radius: 8px;
 		background:
 			#fff
@@ -187,26 +226,50 @@ header {
 			background-position: 75% -25%;
 			background-size: 50%;
 		}
+		font-family: $monospace;
+		transition: border-color .2s ease-in-out;
+		&:focus { border: 2px solid $color-B; }
+		&::selection {
+			background-color: $color-B;
+			color: #fff;
+		}
 	}
 
 	.Output__footer {
 		grid-area: output--footer;
+		text-align: center;
+
+		#copyOutput {
+			cursor: pointer;
+			margin: 10px auto;
+			padding: 4px 8px;
+			border: none;
+			border-radius: 4px;
+			box-shadow: $box-shadow;
+			background: $color-H;
+			color: #fff;
+			transition: box-shadow .1s ease-in-out;
+			&:active {
+				box-shadow: 0 1px 2px rgba($color-H, .1);
+			}
+		}
 	}
 
 	#copied {
+		visibility: hidden;
 		position: fixed;
 		top: 0; right: 200px; z-index: 1;
 		transform: translate(50%, -100%);
+		@include responsive('mobile') { right: 50%; }
 		padding: 10px 15px;
 		box-shadow: none;
 		border-radius: 0 0 8px 8px;
-		background: #fff;
-		visibility: hidden;
-		@include responsive('mobile') { right: 50%; }
+		background: $color-H;
+		color: #fff;
 		
 		&.is-visible {
 			visibility: visible;
-			animation: slidedown 3s ease-in-out; // animation-duration used in generate-output.js
+			animation: slidedown 3s ease-in-out;
 			@keyframes slidedown {
 				0%, 100% {
 					transform: translate(50%, -100%);
@@ -214,7 +277,7 @@ header {
 				}
 				25%, 75% {
 					transform: translate(50%, 0);
-					box-shadow: $box-shadow;
+					box-shadow: 0 2px 10px rgba($color-H, .1);
 				}
 			}
 		}
@@ -222,8 +285,10 @@ header {
 }
 
 footer {
+	align-self: center;
 	padding: 0 20px;
 	text-align: center;
+	font-size: 0.8em;
 }
 
 @import 'specific-styles';
