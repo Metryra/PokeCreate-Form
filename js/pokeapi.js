@@ -173,7 +173,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 				let dexNum = results.species.url.split('https://pokeapi.co/api/v2/pokemon-species/')[1].split('/')[0].padStart(3, .0);
 				p_species.src =
 					`https://www.serebii.net/pokedex-sm/icon/${ dexNum }.png`;
-				document.querySelector('#p_dex').innerHTML = `#${ dexNum }`;
+				document.querySelector('#p_dex').innerHTML = `No. ${ dexNum }`;
 
 				preview.classList.add('is-visible');
 			});
