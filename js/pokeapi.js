@@ -45,7 +45,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 				i_moves.forEach(i_move => {
 					results.moves.forEach(move => {
 						i_move.insertAdjacentHTML('beforeend',
-							`<option value="${ move.move.name }">${ move.move.name }</option>`
+							`<option value="${ move.move.name }">${ move.move.name.replace('-', ' ') }</option>`
 						)
 					});
 				});
@@ -141,7 +141,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 		.then(results => {
 			results.results.forEach(result => {
 				i_item.insertAdjacentHTML('beforeend',
-					`<option value="${ result.name }">${ result.name }</option>`
+					`<option value="${ result.name }">${ result.name.replace('-', ' ') }</option>`
 				)
 			});
 		});
@@ -156,4 +156,44 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 					`<option value="${ result.name }">${ result.name }</option>`
 				)
 			});
+		});
+
+// #preview
+	let pokeAPI_sprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/';
+	let preview = document.querySelector('#preview');
+	let previewTrigger = document.querySelector('#previewTrigger');
+		previewTrigger.addEventListener('click', () => {
+			preview.classList.toggle('is-visible');
+		});
+
+	i_species.addEventListener('change', () => {
+		fetch(pokeAPI + `pokemon/${ i_species.value }`)
+			.then(json => json.json())
+			.then(results => {
+				let dexNum = results.species.url.split('https://pokeapi.co/api/v2/pokemon-species/')[1].split('/')[0].padStart(3, .0);
+				p_species.src =
+					`https://www.serebii.net/pokedex-sm/icon/${ dexNum }.png`;
+				document.querySelector('#p_dex').innerHTML = `#${ dexNum }`;
+
+				preview.classList.add('is-visible');
+			});
+	});
+
+	let i_ball = document.querySelector('#i_ball');
+		i_ball.addEventListener('change', () => {
+			document.querySelector('#p_ball').src =
+				`${ pokeAPI_sprite }items/${ i_ball.value.toLowerCase() }-ball.png`;
+		});
+	
+	i_item.addEventListener('change', () => {
+		document.querySelector('#p_item').src =
+			`${ pokeAPI_sprite }items/${ i_item.value.toLowerCase() }.png`;
+	});
+
+	let i_shiny = document.querySelector('#i_shiny');
+		i_shiny.addEventListener('change', () => {
+			if (i_shiny.checked)
+				document.querySelector('#p_shiny').style.display = 'block';
+			else
+				document.querySelector('#p_shiny').style.display = 'none';
 		});

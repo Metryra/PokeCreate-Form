@@ -3,4 +3,4 @@ Form used at [/r/PokemonCreate](https://www.reddit.com/r/PokemonCreate/) to requ
 
 ---
 
-@nuotsu. All Rights Reserved. | [Support the developer](https://paypal.me/nuotsu)!
+@nuotsu. All Rights Reserved. | [Support the developer!](https://paypal.me/nuotsu)

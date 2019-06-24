@@ -1,5 +1,10 @@
 @import '_common';
 
+#i_ot, #i_ot-gender, #i_nsid, #i_pid,
+#i_ign, #i_fc,
+#i_gts-species, #i_gts-gender, #i_gts-message,
+[id^="i_nature-"] { text-transform: initial !important; }
+
 label[for^="i_nature-"] {
 	padding-left: 10px;
 
@@ -16,12 +21,13 @@ label[for^="i_nature-"] {
 		[class^="color-"] {
 			padding: 2px 0;
 			color: #fff;
+			font-weight: bold;
 		}
 		.color-H { border-top-left-radius: 6px; }
 		.color-S { border-top-right-radius: 6px; }
 	}
 	td { text-align: center; }
-	input {
+	input:not([type="checkbox"]) {
 		cursor: pointer;
 		width: 4em;
 		margin: 4px 4px 0;
@@ -45,6 +51,7 @@ label[for^="i_nature-"] {
 
 	.hyper-training {
 		input { margin: 0; }
+
 		.bg-color-H { border-bottom-left-radius: 6px; }
 		.bg-color-S { border-bottom-right-radius: 6px; }
 	}

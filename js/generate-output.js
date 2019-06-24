@@ -54,7 +54,7 @@
 					document.getElementById('i_move3').value,
 					document.getElementById('i_move4').value
 				],
-				maxpp: document.getElementById('i_maxpp').value,
+				maxpp: document.getElementById('i_maxpp').checked,
 				language: document.getElementById('i_language').value
 			},
 			met: {
@@ -95,7 +95,8 @@
 		if (emptyRequiredInputs > 0) {
 			requiredInputsWarning.innerHTML = `${ emptyRequiredInputs } more required input(s) left.`;
 			warningExists = true;
-		}
+		} else
+			requiredInputsWarning.innerHTML = '';
 
 		// check species
 		let speciesWarning = document.querySelector('#speciesWarning');
@@ -111,7 +112,7 @@
 		getExcludedspecies().then(exludedSpecies => {
 			for (var i in exludedSpecies) {
 				if (speciesValue === exludedSpecies[i]) {
-					speciesWarning.innerHTML = `${ speciesValue.toUpperCase() } can't be requested. Please choose another species.`;
+					speciesWarning.innerHTML = `<em>${ speciesValue.toUpperCase() }</em> can't be requested. Please choose another species.`;
 					speciesWarning.style.display = 'block';
 					warningExists = true;
 					return;
@@ -135,7 +136,7 @@
 		getExcludedItems().then(exludedItems => {
 			for (var i in exludedItems) {
 				if (itemValue === exludedItems[i]) {
-					itemWarning.innerHTML = `${ itemValue.toUpperCase() } can't be requested. Please choose another item.`;
+					itemWarning.innerHTML = `<em>${ itemValue.toUpperCase() }</em> can't be requested. Please choose another item.`;
 					itemWarning.style.display = 'block';
 					warningExists = true;
 					return;
@@ -180,7 +181,6 @@
 	}
 	allInputs.forEach(elem => {
 		elem.addEventListener('change', generateOutput);
-		elem.addEventListener('keyup', generateOutput);
 	});
 
 	function writeToTextarea(inputs) {
@@ -208,7 +208,7 @@
 				`* PKHex File Link: ${ _.file.pkhex }\n\n` +
 
 			`# Pokémon Info\n` +
-				`* ${ pkmn }${ _.pokemon.gender } @ ${ _.pokemon.item }\n` +
+				`* ${ pkmn }${ _.pokemon.gender } @ ${ _.pokemon.item.replace('-', ' ').toUpperCase() }\n` +
 				`* Ability: ${ _.pokemon.ability.toUpperCase() }\n` +
 				`* Level: ${ _.pokemon.lv }\n` +
 				`* Shiny: ${ shiny }\n` +
@@ -227,10 +227,10 @@
 					`${ _.pokemon.iv.C } SpA / ` +
 					`${ _.pokemon.iv.D } SpD / ` +
 					`${ _.pokemon.iv.S } Spe\n` +
-				`* - ${ _.pokemon.moveset[0] }\n` +
-				`* - ${ _.pokemon.moveset[1] }\n` +
-				`* - ${ _.pokemon.moveset[2] }\n` +
-				`* - ${ _.pokemon.moveset[3] }\n\n` +
+				`* - ${ _.pokemon.moveset[0].replace('-', ' ').toUpperCase() }\n` +
+				`* - ${ _.pokemon.moveset[1].replace('-', ' ').toUpperCase() }\n` +
+				`* - ${ _.pokemon.moveset[2].replace('-', ' ').toUpperCase() }\n` +
+				`* - ${ _.pokemon.moveset[3].replace('-', ' ').toUpperCase() }\n\n` +
 
 			`# Misc Pokémon Info\n` +
 				`* Language: ${ _.pokemon.language }\n` +

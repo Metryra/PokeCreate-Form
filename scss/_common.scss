@@ -30,6 +30,12 @@ $smp:	 'screen and (max-width: 414px)';
 	}
 }
 
+@mixin pixelize() {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: pixelated;
+}
+
 // common
 * {
 	margin: 0;

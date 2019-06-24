@@ -67,7 +67,7 @@
 		totalEvsNum = 0;
 		allEvs.forEach(elem => { totalEvsNum += parseInt(elem.value); });
 		ev_total.innerHTML = totalEvsNum;
-		if (totalEvsNum > 510 || totalEvsNum < 0) {
+		if (totalEvsNum > 510 || totalEvsNum < 0 || isNaN(totalEvsNum)) {
 			ev_total.classList.add('over-limit');
 			EVsAreValid = false;
 		} else {
@@ -77,7 +77,7 @@
 
 		remainingEvs = 510 - totalEvsNum;
 		ev_rem.innerHTML = remainingEvs;
-		if (remainingEvs < 0 ||  remainingEvs > 510) {
+		if (remainingEvs < 0 ||  remainingEvs > 510 || isNaN(remainingEvs)) {
 			ev_rem.classList.add('over-limit');
 			EVsAreValid = false;
 		} else {
@@ -125,6 +125,13 @@
 	observer.observe(firstInputGroup, {
 		root: document.querySelector('.Inputs')
 	});
+
+// preview
+	let p_species = document.querySelector('#p_species');
+		p_species.addEventListener('mouseenter', () => {
+			p_species.classList.add('hovered');
+			setTimeout(() => { p_species.classList.remove('hovered'); }, 600);
+		});
 
 // pokeball
 	let InputGroupH3 = document.querySelectorAll('.InputGroup h3');
