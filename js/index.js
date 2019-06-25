@@ -57,6 +57,17 @@
 			hyperTrainingInputs.forEach(elem => { elem.setAttribute('disabled', ''); });
 	});
 
+// default IVs & EVs to 0 when blank
+	let statSpreads = document.querySelectorAll('[id^="i_iv-"], [id^="i_ev-"]');
+	function initializeStatSpread() {
+		statSpreads.forEach(elem => {
+			if (elem.value == '') elem.value = '0';
+		});
+	};
+	statSpreads.forEach(elem => {
+		elem.addEventListener('change', initializeStatSpread);
+	});
+
 // check EVs
 	let allEvs = document.querySelectorAll('[id^="i_ev-"]');
 	let ev_total = document.querySelector('#ev_total');

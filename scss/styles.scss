@@ -163,7 +163,7 @@ header {
 
 	#preview {
 		position: fixed;
-		left: 0; bottom: 0;
+		left: 0; bottom: 0; z-index: 2;
 		transform: translateX(-100%);
 		margin: 15px;
 		padding: 15px;
@@ -227,6 +227,7 @@ header {
 			}
 			#p_dex {
 				pointer-events: none;
+				white-space: nowrap;
 				position: absolute;
 				left: 50%; top: 0%;
 				transform: translate(-50%, -75%);
