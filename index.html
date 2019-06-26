@@ -228,37 +228,47 @@
 								</table>
 							</td>
 						</tr><tr>
-							<th>Move Set:</th>
-							<td>
-								<div class="move_set">
-									<div>
-										<select id="i_move1" class="i_moves" data-required></select>
-										<select id="i_move2" class="i_moves"></select>
-									</div><div>
-										<select id="i_move3" class="i_moves"></select>
-										<select id="i_move4" class="i_moves"></select>
-									</div>
-								</div>
-								
-								<label for="i_maxpp">Max PPs:</label>
-								<input id="i_maxpp" type="checkbox" checked>
-							</td>
+							<th>
+								Move Set:
+								<small class="move_set--small">*Manually input for any legal moves not shown in the dropdown.</small>
+							</th>
+							<td><table class="move_set">
+								<tr>
+									<td><select id="i_move1" class="i_moves" data-required></select></td>
+									<td><small>or</small> <input id="i_move1-manual" type="text" placeholder="Move 1 (Manual input)"></td>
+								</tr>
+								<tr>
+									<td><select id="i_move2" class="i_moves"></select></td>
+									<td><small>or</small> <input id="i_move2-manual" type="text" placeholder="Move 2 (Manual input)"></td>
+								</tr>
+								<tr>
+									<td><select id="i_move3" class="i_moves"></select></td>
+									<td><small>or</small> <input id="i_move3-manual" type="text" placeholder="Move 3 (Manual input)"></td>
+								</tr>
+								<tr>
+									<td><select id="i_move4" class="i_moves"></select></td>
+									<td><small>or</small> <input id="i_move4-manual" type="text" placeholder="Move 4 (Manual input)"></td>
+								</tr>
+							</table></td>
 						</tr><tr>
-								<th><label for="i_language">Language:</label></th>
-								<td>
-									<div class="select-container"><select id="i_language" data-required>
-										<option value="ENG">ENG</option>
-										<option value="FRE">FRE</option>
-										<option value="GER">GER</option>
-										<option value="ITA">ITA</option>
-										<option value="JPN">JPN</option>
-										<option value="KOR">KOR</option>
-										<option value="SPA">SPA</option>
-										<option value="CHS">CHS</option>
-										<option value="CHT">CHT</option>
-									</select></div>
-								</td>
-							</tr>
+							<th><label for="i_maxpp">Max PPs:</label></th>
+							<td><input id="i_maxpp" type="checkbox" checked></td>
+						</tr><tr>
+							<th><label for="i_language">Language:</label></th>
+							<td>
+								<div class="select-container"><select id="i_language" data-required>
+									<option value="ENG">ENG</option>
+									<option value="FRE">FRE</option>
+									<option value="GER">GER</option>
+									<option value="ITA">ITA</option>
+									<option value="JPN">JPN</option>
+									<option value="KOR">KOR</option>
+									<option value="SPA">SPA</option>
+									<option value="CHS">CHS</option>
+									<option value="CHT">CHT</option>
+								</select></div>
+							</td>
+						</tr>
 					</table>
 				</div>
 			</section>

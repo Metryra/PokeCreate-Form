@@ -65,11 +65,19 @@ label[for^="i_nature-"] {
 	}
 }
 
+.move_set--small {
+	display: block;
+	margin: 10px 0;
+}
 .move_set {
-	display: inline-block;
-	vertical-align: middle;
+	.ss-main { width: 200px; }
 
-	select {
-		display: block;
+	input {
+		vertical-align: middle;
+		padding: 9px;
+		margin-left: 5px;
+		background: transparent;
+
+		&::placeholder { color: lighten(#000, 75%); }
 	}
 }

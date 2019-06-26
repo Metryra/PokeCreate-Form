@@ -52,6 +52,7 @@ a[href] {
 }
 
 small {
+	vertical-align: middle;
 	color: lighten(#000, 75%);
 	font-weight: normal;
 	font-size: 0.7em;
@@ -74,6 +75,7 @@ textarea:not(#output) {
 	border-radius: 4px;
 	box-shadow: $box-shadow;
 	background-color: #fff;
+	font-size: 1em;
 
 	&::placeholder {
 		color: rgba(#000, .5);

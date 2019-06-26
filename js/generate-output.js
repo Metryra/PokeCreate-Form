@@ -49,10 +49,10 @@
 					S: document.getElementById('i_hyp-S').checked
 				},
 				moveset: [
-					document.getElementById('i_move1').value,
-					document.getElementById('i_move2').value,
-					document.getElementById('i_move3').value,
-					document.getElementById('i_move4').value
+					(document.getElementById('i_move1-manual').value || document.getElementById('i_move1').value),
+					(document.getElementById('i_move2-manual').value || document.getElementById('i_move2').value),
+					(document.getElementById('i_move3-manual').value || document.getElementById('i_move3').value),
+					(document.getElementById('i_move4-manual').value || document.getElementById('i_move4').value)
 				],
 				maxpp: document.getElementById('i_maxpp').checked,
 				language: document.getElementById('i_language').value
