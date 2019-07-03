@@ -12,7 +12,7 @@ gulp.task('sass', () => {
 	.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 	// 3. Autoprefixer
 	.pipe(autoprefixer({
-		overrideBrowserslist: ['last 2 versions', '> 1%', 'ie 11']
+		overrideBrowserslist: ['last 2 versions', '> 1%']
 	}))
 	// 4. Generate sourcemaps
 	.pipe(sourcemaps.write('./maps'))

@@ -240,7 +240,7 @@
 
 			`# Meeting Info\n` +
 				`* Game: ${ _.met.game }\n` +
-				`* Met Location: ${ _.met.location }\n` +
+				`* Met Location: ${ _.met.location.toUpperCase() }\n` +
 				`* Poké Ball: ${ _.pokemon.ball } Ball\n` +
 				`* Met Level: ${ _.met.lv }\n\n` +
 
@@ -265,10 +265,6 @@
 
 		output.select();
 		document.execCommand('copy');
-
-		function copiedAlert() {
-			
-		}
 
 		if (('Notification' in window)) {
 			if (Notification.permission === 'granted') notify('Output copied! Now head on over to /r/PokémonCreate to finalize your request.');
