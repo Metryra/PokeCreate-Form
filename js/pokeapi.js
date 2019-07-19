@@ -45,7 +45,7 @@ let pokeAPI = 'https://pokeapi.co/api/v2/';
 				i_moves.forEach(i_move => {
 					results.moves.forEach(move => {
 						i_move.insertAdjacentHTML('beforeend',
-							`<option value="${ move.move.name }">${ move.move.name.replace('-', ' ') }</option>`
+							`<option value="${ move.move.name }">${ move.move.name.replace(/-/g, ' ') }</option>`
 						)
 					});
 				});
