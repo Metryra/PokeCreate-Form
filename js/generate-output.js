@@ -188,6 +188,10 @@
 			return inName.replace(/(^([a-zA-Z\p{M}]))/g, function(firstLetter) {
 				return firstLetter.toUpperCase();
 			});
+		} else if (inName == 'mr-mime') {
+			return 'Mr. Mime';
+		} else if (inName == 'mime-jr') {
+			return 'Mime Jr.';
 		} else {
 			return inName.replace(/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g, function(firstLetter) {
 				return firstLetter.toUpperCase();
