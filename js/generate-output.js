@@ -183,13 +183,25 @@
 		elem.addEventListener('change', generateOutput);
 	});
 
+	function validateNames(inName) {
+		if (inName == 'jangmo-o' || inName == 'hakamo-o' || inName == 'kommo-o') {
+			return inName.replace(/(^([a-zA-Z\p{M}]))/g, function(firstLetter) {
+				return firstLetter.toUpperCase();
+			});
+		} else {
+			return inName.replace(/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g, function(firstLetter) {
+				return firstLetter.toUpperCase();
+			});
+		}
+	}
+
 	function writeToTextarea(inputs) {
 		let _ = inputs;
 		let pkmn = '';
 			if (_.pokemon.nickname != '')
-				pkmn = `${ _.pokemon.nickname } (${ _.pokemon.species.toUpperCase() })`;
+				pkmn = `${ _.pokemon.nickname } (${ validateNames(_.pokemon.species) })`;
 			else
-				pkmn = _.pokemon.species.toUpperCase();
+				pkmn = validateNames(_.pokemon.species);
 		let shiny = _.pokemon.shiny ? 'Yes' : 'No';
 		let maxpp = _.pokemon.maxpp ? 'Yes' : 'No';
 		let hyperTraining = '';
@@ -208,7 +220,7 @@
 				`* PKHex File Link: ${ _.file.pkhex }\n\n` +
 
 			`# Pokémon Info\n` +
-				`* ${ pkmn }${ _.pokemon.gender } @ ${ _.pokemon.item.replace('-', ' ').toUpperCase() }\n` +
+				`* ${ pkmn }${ _.pokemon.gender } @ ${ validateNames(_.pokemon.item.replace('-', ' ')) }\n` +
 				`* Ability: ${ _.pokemon.ability.toUpperCase() }\n` +
 				`* Level: ${ _.pokemon.lv }\n` +
 				`* Shiny: ${ shiny }\n` +
