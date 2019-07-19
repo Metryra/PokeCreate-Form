@@ -247,10 +247,10 @@
 					`${ _.pokemon.iv.C } SpA / ` +
 					`${ _.pokemon.iv.D } SpD / ` +
 					`${ _.pokemon.iv.S } Spe\n` +
-				` - ${ _.pokemon.moveset[0].replace('-', ' ').toUpperCase() }\n` +
-				` - ${ _.pokemon.moveset[1].replace('-', ' ').toUpperCase() }\n` +
-				` - ${ _.pokemon.moveset[2].replace('-', ' ').toUpperCase() }\n` +
-				` - ${ _.pokemon.moveset[3].replace('-', ' ').toUpperCase() }\n\n` +
+				`* - ${ _.pokemon.moveset[0].replace('-', ' ').toUpperCase() }\n` +
+				`* - ${ _.pokemon.moveset[1].replace('-', ' ').toUpperCase() }\n` +
+				`* - ${ _.pokemon.moveset[2].replace('-', ' ').toUpperCase() }\n` +
+				`* - ${ _.pokemon.moveset[3].replace('-', ' ').toUpperCase() }\n\n` +
 
 			`# Misc Pokémon Info\n` +
 				`* Language: ${ _.pokemon.language }\n` +
