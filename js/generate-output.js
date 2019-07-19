@@ -184,15 +184,19 @@
 	});
 
 	function validateNames(inName) {
-		if (inName == 'jangmo-o' || inName == 'hakamo-o' || inName == 'kommo-o') {
+		if (inName == 'nidoran-f') { return 'Nidoran♀'; }
+		else if (inName == 'nidoran-m') { return 'Nidoran♂'; }
+		else if (inName == 'mr-mime') { return 'Mr. Mime'; }
+		else if (inName == 'mime-jr') { return 'Mime Jr.'; }
+		else if (inName == 'flabebe') { return 'Flabébé'; }
+		else if (inName == 'type-null') { return 'Type: Null'; }
+		else if (inName == 'jangmo-o' || inName == 'hakamo-o' || inName == 'kommo-o') {
 			return inName.replace(/(^([a-zA-Z\p{M}]))/g, function(firstLetter) {
 				return firstLetter.toUpperCase();
 			});
-		} else if (inName == 'mr-mime') {
-			return 'Mr. Mime';
-		} else if (inName == 'mime-jr') {
-			return 'Mime Jr.';
-		} else {
+		}
+		else {
+			if (inName.includes('tapu-')) { inName = inName.replace('-', ' '); }
 			return inName.replace(/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g, function(firstLetter) {
 				return firstLetter.toUpperCase();
 			});
