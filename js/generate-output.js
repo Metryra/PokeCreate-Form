@@ -184,12 +184,20 @@
 	});
 
 	function validateNames(inName) {
-		if (inName == 'nidoran-f') { return 'Nidoran♀'; }
-		else if (inName == 'nidoran-m') { return 'Nidoran♂'; }
-		else if (inName == 'mr-mime') { return 'Mr. Mime'; }
-		else if (inName == 'mime-jr') { return 'Mime Jr.'; }
-		else if (inName == 'flabebe') { return 'Flabébé'; }
-		else if (inName == 'type-null') { return 'Type: Null'; }
+		// species
+		if (inName == 'nidoran-f') 			return 'Nidoran♀';
+		else if (inName == 'nidoran-m') 	return 'Nidoran♂';
+		else if (inName == 'mr-mime') 		return 'Mr. Mime';
+		else if (inName == 'mime-jr') 		return 'Mime Jr.';
+		else if (inName == 'flabebe') 		return 'Flabébé';
+		else if (inName == 'type-null') 	return 'Type: Null';
+		// items
+		else if (inName == 'pp-max') 		return 'PP Max';
+		else if (inName == 'pp-up') 		return 'PP Up';
+		// moves
+		else if (inName == 'u-turn') 		return 'U-turn';
+		else if (inName == 'freeze-dry') 	return 'Freeze-Dry';
+		// exceptions
 		else if (inName == 'jangmo-o' || inName == 'hakamo-o' || inName == 'kommo-o') {
 			return inName.replace(/(^([a-zA-Z\p{M}]))/g, function(firstLetter) {
 				return firstLetter.toUpperCase();
@@ -239,7 +247,7 @@
 					`${ _.pokemon.ev.C } SpA / ` +
 					`${ _.pokemon.ev.D } SpD / ` +
 					`${ _.pokemon.ev.S } Spe\n` +
-				`* ${ _.pokemon.nature.toUpperCase() } nature\n` +
+				`* ${ validateNames(_.pokemon.nature) } nature\n` +
 				`* IVs: ` +
 					`${ _.pokemon.iv.H } HP / ` +
 					`${ _.pokemon.iv.A } Atk / ` +
@@ -247,10 +255,10 @@
 					`${ _.pokemon.iv.C } SpA / ` +
 					`${ _.pokemon.iv.D } SpD / ` +
 					`${ _.pokemon.iv.S } Spe\n` +
-				`* - ${ validateNames(_.pokemon.moveset[0].replace(/-/g, ' ')) }\n` +
-				`* - ${ validateNames(_.pokemon.moveset[1].replace(/-/g, ' ')) }\n` +
-				`* - ${ validateNames(_.pokemon.moveset[2].replace(/-/g, ' ')) }\n` +
-				`* - ${ validateNames(_.pokemon.moveset[3].replace(/-/g, ' ')) }\n\n` +
+				`* - ${ validateNames(_.pokemon.moveset[0]) }\n` +
+				`* - ${ validateNames(_.pokemon.moveset[1]) }\n` +
+				`* - ${ validateNames(_.pokemon.moveset[2]) }\n` +
+				`* - ${ validateNames(_.pokemon.moveset[3]) }\n\n` +
 
 			`# Misc Pokémon Info\n` +
 				`* Language: ${ _.pokemon.language }\n` +
