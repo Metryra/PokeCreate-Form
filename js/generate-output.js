@@ -195,8 +195,14 @@
 		else if (inName == 'pp-max') 		return 'PP Max';
 		else if (inName == 'pp-up') 		return 'PP Up';
 		// moves
+		//else if (inName == 'wake-up-slap') return 'Wake-Up Slap';
 		else if (inName == 'u-turn') 		return 'U-turn';
+		//else if (inName == 'power-up-punch') return 'Power-Up Punch';
+		//else if (inName == 'baby-doll-eyes') return 'Baby-Doll Eyes';
 		else if (inName == 'freeze-dry') 	return 'Freeze-Dry';
+		/*-------------
+		Moves that are commented need a specific fix, they all have only one dash
+		*/
 		// exceptions
 		else if (inName == 'jangmo-o' || inName == 'hakamo-o' || inName == 'kommo-o') {
 			return inName.replace(/(^([a-zA-Z\p{M}]))/g, function(firstLetter) {
@@ -247,7 +253,7 @@
 					`${ _.pokemon.ev.C } SpA / ` +
 					`${ _.pokemon.ev.D } SpD / ` +
 					`${ _.pokemon.ev.S } Spe\n` +
-				`* ${ validateNames(_.pokemon.nature) } nature\n` +
+				`* ${ validateNames(_.pokemon.nature) } Nature\n` +
 				`* IVs: ` +
 					`${ _.pokemon.iv.H } HP / ` +
 					`${ _.pokemon.iv.A } Atk / ` +
@@ -255,10 +261,10 @@
 					`${ _.pokemon.iv.C } SpA / ` +
 					`${ _.pokemon.iv.D } SpD / ` +
 					`${ _.pokemon.iv.S } Spe\n` +
-				`* - ${ validateNames(_.pokemon.moveset[0]) }\n` +
-				`* - ${ validateNames(_.pokemon.moveset[1]) }\n` +
-				`* - ${ validateNames(_.pokemon.moveset[2]) }\n` +
-				`* - ${ validateNames(_.pokemon.moveset[3]) }\n\n` +
+		`* - ${validateNames(_.pokemon.moveset[0].replace(/-/g, ' ')) }\n` +
+		`* - ${validateNames(_.pokemon.moveset[1].replace(/-/g, ' ')) }\n` +
+		`* - ${validateNames(_.pokemon.moveset[2].replace(/-/g, ' ')) }\n` +
+		`* - ${validateNames(_.pokemon.moveset[3].replace(/-/g, ' ')) }\n\n` +
 
 			`# Misc Pokémon Info\n` +
 				`* Language: ${ _.pokemon.language }\n` +
