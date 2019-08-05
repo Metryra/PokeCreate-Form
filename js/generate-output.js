@@ -243,7 +243,7 @@
 
 			`# Pokémon Info\n` +
 				`* ${ pkmn }${ _.pokemon.gender } @ ${ validateNames(_.pokemon.item.replace('-', ' ')) }\n` +
-				`* Ability: ${validateNames(_.pokemon.ability.replace(/-/g, ' ')) }\n` +
+				`* Ability: ${ validateNames(_.pokemon.ability) }\n` +
 				`* Level: ${ _.pokemon.lv }\n` +
 				`* Shiny: ${ shiny }\n` +
 				`* EVs: ` +
