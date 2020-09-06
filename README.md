@@ -1,8 +1,8 @@
-# PokéCreate Form
-Form used at [/r/PokemonCreate](https://www.reddit.com/r/PokemonCreate/) to request trades.
+# PokémonCreate Request Form
 
-![(PokéCreate Form)](https://i.imgur.com/AueifLW.png)
+[PokémonCreate Request Form](https://nuotsu.github.io/PokeCreate-Form)
 
----
+![(v4)](https://i.imgur.com/GPrvxvS.png)
 
-@nuotsu. All Rights Reserved. | [Support the developer!](https://paypal.me/nuotsu)
+## Info
+- Use for [/r/PokemonCreate](https://www.reddit.com/r/PokemonCreate/)
