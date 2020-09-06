@@ -1,501 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PokémonCreate Request Form</title>
+    <!-- <link rel="icon" href="img/favicon.png"> -->
 
-	<title>PokéCreate Form for /r/PokemonCreate</title>
-	<meta name="description" content="Form used at /r/PokemonCreate to request trades.">
-	<meta name="author" content="nuotsu">
-	<link rel="shortcut icon" href="img/pokeball-icon.png" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 
-	<link rel="stylesheet" href="css/slimselect.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-	<!-- end vendor -->
-	<link rel="stylesheet" href="css/styles.css">
-
-	<script src="js/slimselect.min.js"></script>
-	<!-- end vendor -->
-	<script src="js/index.js" defer></script>
-	<script src="js/pokeapi.js" defer></script>
-	<script src="js/generate-output.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
-	<header>
-		<h1>PokéCreate Form</h1>
-		<h3>Form used at <a href="https://www.reddit.com/r/PokemonCreate/" target="_blank">/r/PokemonCreate</a> to request trades.</h3>
-	</header>
+    <nav>
+        <span class="bg"></span>
+        <a href="https://www.reddit.com/r/PokemonCreate/" target="_blank">
+            <img id="logo" src="img/logo.png">
+        </a>
+    </nav>
 
-	<main class="Inputs">
-		<h2>Inputs</h2>
+    <main id="inputs">
+        <details open><summary>File Info</summary>
+            <table>
+                <tr>
+                    <td>Game Version:</td>
+                    <td><select id="game_ver">
+                        <option value="Ultra Sun">Ultra Sun</option>
+                        <option value="Ultra Moon">Ultra Moon</option>
+                        <option value="Sun">Sun</option>
+                        <option value="Moon">Moon</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>QR Code Link:</td>
+                    <td><input id="qrcode" type="text" optional></td>
+                </tr>
+            </table>
+        </details>
+        <details open><summary>Pokémon Info</summary>
+            <table>
+                <tr>
+                    <td>Species:</td>
+                    <td>
+                        <select id="pkmn">
+                            <option disabled>Pokémon</option>
+                        </select>
+                        <span id="img_pkmn"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nickname:</td>
+                    <td><input id="nn" maxlength="12" type="text" optional></td>
+                </tr>
+                <tr>
+                    <td>Ball:</td>
+                    <td>
+                        <select id="ball" class="ball"></select>
+                        <span id="img_ball"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td><select id="gender"></select></td>
+                </tr>
+                <tr>
+                    <td><label for="shiny">Shiny:</label></td>
+                    <td><input id="shiny" type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Lv.</td>
+                    <td><input id="lv" type="number" min="1" max="100" value="50"></td>
+                </tr>
+                <tr>
+                    <td>Nature:</td>
+                    <td><select id="nat" class="nature">
+                        <option value="Jolly">Spe↑　SpA↓　Jolly</option>
+                        <option value="Timid">Spe↑　Atk↓　Timid</option>
+                        <option value="Adamant">Atk↑　SpA↓　Adamant</option>
+                        <option value="Modest">SpA↑　Atk↓　Modest</option>
+                        <option value="Brave">Atk↑　Spe↓　Brave</option>
+                        <option value="Quiet">SpA↑　Spe↓　Quiet</option>
+                        <option value="Hasty">Spe↑　Def↓　Hasty</option>
+                        <option value="Naive">Spe↑　SpD↓　Naive</option>
+                        <option value="Bold">Def↑　Atk↓　Bold</option>
+                        <option value="Impish">Def↑　SpA↓　Impish</option>
+                        <option value="Calm">SpD↑　Atk↓　Calm</option>
+                        <option value="Careful">SpD↑　SpA↓　Careful</option>
+                        <option value="Relaxed">Def↑　Spe↓　Relaxed</option>
+                        <option value="Sassy">SpD↑　Spe↓　Sassy</option>
+                        <option value="Lonely">Atk↑　Def↓　Lonely</option>
+                        <option value="Naughty">Atk↑　SpD↓　Naughty</option>
+                        <option value="Mild">SpA↑　Def↓　Mild</option>
+                        <option value="Rash">SpA↑　SpD↓　Rash</option>
+                        <option value="Lax">Def↑　SpD↓　Lax</option>
+                        <option value="Gentle">SpD↑　Def↓　Gentle</option>
+                        <option value="Hardy">−↑　−↓　Hardy</option>
+                        <option value="Hardy">−↑　−↓　Docile</option>
+                        <option value="Hardy">−↑　−↓　Serious</option>
+                        <option value="Hardy">−↑　−↓　Bashful</option>
+                        <option value="Hardy">−↑　−↓　Quirky</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Item:</td>
+                    <td><select id="item">
+                        <option value="None">(None)</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Ability:</td>
+                    <td><select id="ability"></select></td>
+                </tr>
+                <tr>
+                    <td>Language:</td>
+                    <td><select id="lang">
+        				<option value="ENG">ENG</option>
+        				<option value="FRE">FRE</option>
+        				<option value="GER">GER</option>
+        				<option value="ITA">ITA</option>
+        				<option value="JPN">JPN</option>
+        				<option value="KOR">KOR</option>
+        				<option value="SPA">SPA</option>
+        				<option value="CHS">CHS</option>
+        				<option value="CHT">CHT</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Pokérus:</td>
+                    <td><select id="pkrs">
+                        <option value="Cured">Cured</option>
+                        <option value="Infected">Infected</option>
+                        <option value="Uninfected">Uninfected</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><table class="ivev">
+                        <tr>
+                            <td style="background: #4cb050; text-align: center !important;">HP</td>
+                            <td style="background: #ff9800;">Atk</td>
+                            <td style="background: #f54337;">Def</td>
+                            <td style="background: #03a9f5;">SpA</td>
+                            <td style="background: #3f51b5;">SpD</td>
+                            <td style="background: #9c28b1;">Spe</td>
+                        </tr>
+                    </table></td>
+                </tr>
+                <tr>
+                    <td>IVs:</td>
+                    <td><table id="iv" class="spreads" data-id="iv" data-val="31" data-max="31" data-step="1"></table></td>
+                </tr>
+                <tr>
+                    <td>EVs:</td>
+                    <td><table id="ev" class="spreads" data-id="ev" data-val="0" data-max="252" data-step="4"></table></td>
+                </tr>
+                <tr>
+                    <td>Hyper Training:<p id="ht_100">*Only at Lv. 100</p></td>
+                    <td><table class="hyperTraining"><tr>
+                        <td><input id="ht_h" type="checkbox"></td>
+                        <td><input id="ht_a" type="checkbox"></td>
+                        <td><input id="ht_b" type="checkbox"></td>
+                        <td><input id="ht_c" type="checkbox"></td>
+                        <td><input id="ht_d" type="checkbox"></td>
+                        <td><input id="ht_s" type="checkbox"></td>
+                    </tr></table></td>
+                </tr>
+                <tr>
+                    <td>Moves:</td>
+                    <td>
+                        <select id="move1">
+                            <option value="None">(None)</option>
+                        </select><br>
+                        <select id="move2">
+                            <option value="None">(None)</option>
+                        </select><br>
+                        <select id="move3">
+                            <option value="None">(None)</option>
+                        </select><br>
+                        <select id="move4">
+                            <option value="None">(None)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="maxPP">Max PPs:</label></td>
+                    <td><input id="maxPP" type="checkbox" checked></td>
+                </tr>
+                <tr>
+                    <td><label for="notes">Additional Notes:</label></td>
+                    <td><textarea id="notes" optional></textarea></td>
+                </tr>
+            </table>
+        </details>
+        <details open><summary>Meeting Info</summary>
+            <table>
+                <tr>
+                    <td>Game Version:</td>
+                    <td><select id="met_game">
+        				<option value="Ultra Sun"></option>
+        				<option value="Ultra Moon"></option>
+        				<option value="Sun"></option>
+        				<option value="Moon"></option>
+        				<option value="Omega Ruby"></option>
+        				<option value="Alpha Sapphire"></option>
+        				<option value="X"></option>
+        				<option value="Y"></option>
+        				<option value="Black 2"></option>
+        				<option value="White 2"></option>
+        				<option value="Black"></option>
+        				<option value="White"></option>
+        				<option value="Platinum"></option>
+        				<option value="Heart Gold"></option>
+        				<option value="Soul Silver"></option>
+        				<option value="Diamond"></option>
+        				<option value="Pearl"></option>
+                        <option value="Emerald"></option>
+                        <option value="Fire Red"></option>
+                        <option value="Leaf Green"></option>
+                        <option value="Ruby"></option>
+                        <option value="Sapphire"></option>
+                        <option value="Crystal"></option>
+                        <option value="Gold"></option>
+                        <option value="Silver"></option>
+                        <option value="Yellow"></option>
+                        <option value="Blue"></option>
+                        <option value="Red"></option>
+                    </select></td>
+                </tr></td>
+                </tr>
+                <tr>
+                    <td>Met Location:</td>
+                    <td><input id="met_loc" stype="text" required></td>
+                </tr>
+                <tr>
+                    <td>Met Lv.</td>
+                    <td><input id="met_lv" type="number" min="1" max="100" value="50"></td>
+                </tr>
+            </table>
+        </details>
+        <details open><summary>Trainer Info</summary>
+            <table>
+                <tr>
+                    <td>OT:</td>
+                    <td><input id="ot" type="text" required></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td><select id="ot_gender">
+                        <option value="Male"></option>
+                        <option value="Female"></option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>nSID:</td>
+                    <td><input id="nsid" type="text" maxlength="4" optional></td>
+                </tr>
+                <tr><td></td><td class="nsid_supplemental">
+                    <sup>*</sup>nSID is a new 4-digit value. If nSID is unknown, leave blank.
+                    You can check it out at our <a href="https://discord.gg/qFvh6n8" target="_blank">Discord</a>.
+                </td></tr>
+                <tr>
+                    <td>Passport ID:</td>
+                    <td><input id="ppid" type="text" maxlength="6" required></td>
+                </tr>
+            </table>
+        </details>
+        <details open><summary>GTS Deposit</summary>
+            <table>
+                <tr>
+                    <td>IGN:</td>
+                    <td><input id="ign" type="text"></td>
+                </tr>
+                <tr>
+                    <td>FC:</td>
+                    <td><input id="fc" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Pokémon:</td>
+                    <td>
+                        <select id="gts_pkmn">
+                            <option value="Cutiefly">Cutiefly</option>
+                            <option value="Meowth">Meowth</option>
+                            <option value="Wingull">Wingull</option>
+                            <option value="Crabrawler">Crabrawler</option>
+                            <option value="Yungoos">Yungoos</option>
+                            <option value="Mareep">Mareep</option>
+                            <option value="Lillipup">Lillipup</option>
+                            <option value="Wishiwashi">Wishiwashi</option>
+                            <option value="Inkay">Inkay</option>
+                            <option value="Mudbray">Mudbray</option>
+                            <option value="Glalie">Glalie</option>
+                            <option value="Absol">Absol</option>
+                            <option value="Ekans">Ekans</option>
+                            <option value="Spinarak">Spinarak</option>
+                            <option value="Roggenrola">Roggenrola</option>
+                        </select>
+                        <span id="img_gts_pkmn"></span>
+                    </td>
+                </tr>
+                <tr><td></td><td class="nsid_supplemental">
+                    <sup>*</sup>Species count for both Regular and Alolan forms.
+                </td></tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td><select id="gts_gender">
+                        <option value="(M) ">♂</option>
+                        <option value="(F) ">♀</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Lv.</td>
+                    <td><input id="gts_lv" type="number" min="1" max="100" value="50"></td>
+                </tr>
+                <tr>
+                    <td>Ball:</td>
+                    <td>
+                        <select id="gts_ball" class="ball"></select>
+                        <span id="img_gts_ball"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Message:</td>
+                    <td><select id="gts_msg">
+            			<option value="Please trade Pokémon with me. Thanks in advance."></option>
+            			<option value="I want to trade for a Pokémon that will help me with my adventure."></option>
+            			<option value="I want to trade for a Pokémon that is strong in battles."></option>
+            			<option value="I want to trade for a treasured Pokémon that has been raised from an Egg."></option>
+            			<option value="I want to fill my Pokédex."></option>
+            			<option value="I want to fill my Pokédex with other languages."></option>
+            			<option value="I want to trade for one of your precious Pokémon you've given a nickname to."></option>
+            			<option value="This is a Pokémon I raised very carefully. Please trade with me if you'd like."></option>
+            			<option value="This is a Pokémon that I just hatched. Please raise it carefully."></option>
+            			<option value="This is a Pokémon that I just raised so that it will do great in battles."></option>
+            			<option value="This is a Pokémon with great potential. Please raise it if you'd like."></option>
+                    </select></td>
+                </tr>
+            </table>
+        </details>
+    </main>
 
-		<form id="inputsForm" action="">
-			<section class="InputGroup"><h3>File Information</h3>
-				<table class="InputGroup__Content">
-					<tr>
-						<th><label for="i_game">Game Version:</label></th>
-						<td>
-							<div class="select-container"><select id="i_game" data-required>
-								<option value="Ultra Sun">Ultra Sun</option>
-								<option value="Ultra Moon">Ultra Moon</option>
-								<option value="Sun">Sun</option>
-								<option value="Moon">Moon</option>
-							</select></div>
-						</td>
-					</tr><tr>
-						<th><label for="i_pkhex">PKHex Code Link:</label></th>
-						<td>
-							<input id="i_pkhex" type="text" optional>
-							<small>*QR code image link.</small>
-						</td>
-					</tr><tr>
-						<th><label for="i_notes">Additional notes:</label></th>
-						<td><textarea id="i_notes" optional></textarea></td>
-					</tr>
-				</table>
-			</section>
+    <article id="output">
+        <textarea placeholder="Simply type the inputs!"></textarea>
+        <button id="copy">Copy</button>
+    </article>
 
-			<section class="InputGroup"><h3>Your Pokémon</h3>
-				<div class="scrollable">
-					<table class="InputGroup__Content">
-						<tr>
-							<th><label for="i_species">Pokémon Species:</label></th>
-							<td><select id="i_species" data-required></select></td>
-						</tr><tr>
-							<th><label for="i_ability">Ability:</label></th>
-							<td><select id="i_ability" data-required></select></td>
-						</tr><tr>
-							<th><label for="i_nickname">Nickname:</label></th>
-							<td><input id="i_nickname" type="text" maxlength="12" optional></td>
-						</tr><tr>
-							<th><label for="i_gender">Gender:</label></th>
-							<td><select id="i_gender" data-required></select></td>
-						</tr><tr>
-							<th><label for="i_shiny">Shiny:</label></th>
-							<td><input id="i_shiny" type="checkbox"></td>
-						</tr><tr>
-							<th><label for="i_pokerus">Pokérus:</label></th>
-							<td>
-								<div class="select-container"><select id="i_pokerus">
-									<option value="Cured">Cured</option>
-									<option value="Infected">Infected</option>
-									<option value="Uninfected">Uninfected</option>
-								</select></div>
-							</td>
-						</tr><tr>
-							<th><label for="i_lv">Lv.</label></th>
-							<td><input id="i_lv" type="number" min="1" max="100" value="50" data-required></td>
-						</tr><tr>
-							<th><label for="i_nature">Nature:</label></th>
-							<td>
-								<div class="select-container"><select id="i_nature" data-required>
-									<option value="jolly" selected>Jolly</option>
-									<option value="timid">Timid</option>
-									<option value="adamant">Adamant</option>
-									<option value="modest">Modest</option>
-									<option value="brave">Brave</option>
-									<option value="quiet">Quiet</option>
-									<option value="hasty">Hasty</option>
-									<option value="naive">Naive</option>
-									<option value="bold">Bold</option>
-									<option value="impish">Impish</option>
-									<option value="calm">Calm</option>
-									<option value="careful">Careful</option>
-									<option value="relaxed">Relaxed</option>
-									<option value="sassy">Sassy</option>
-									<option value="lonely">Lonely</option>
-									<option value="naughty">Naughty</option>
-									<option value="mild">Mild</option>
-									<option value="rash">Rash</option>
-									<option value="lax">Lax</option>
-									<option value="gentle">Gentle</option>
-									<optgroup label="No stat change">
-										<option value="hardy">Hardy</option>
-										<option value="docile">Docile</option>
-										<option value="serious">Serious</option>
-										<option value="bashful">Bashful</option>
-										<option value="quirky">Quirky</option>
-									</optgroup>
-								</select></div>
+    <footer>
+        <span>
+            &copy; <a href="https://github.com/nuotsu" target="_blank">Nuotsu</a> 2018 &nbsp;|&nbsp;
+            <a href="https://paypal.me/nuotsu" target="_blank">Donate!</a>
+        </span>
+    </footer>
 
-								<label for="i_nature-inc">↑</label>
-								<div class="select-container"><select id="i_nature-inc">
-									<option value="null">--</option>
-									<option value="attack">Atk</option>
-									<option value="defense">Def</option>
-									<option value="special-attack">SpA</option>
-									<option value="special-defense">SpD</option>
-									<option value="speed" selected>Spe</option>
-								</select></div>
-
-								<label for="i_nature-dec">↓</label>
-								<div class="select-container"><select id="i_nature-dec">
-									<option value="null">--</option>
-									<option value="attack">Atk</option>
-									<option value="defense">Def</option>
-									<option value="special-attack" selected>SpA</option>
-									<option value="special-defense">SpD</option>
-									<option value="speed">Spe</option>
-								</select></div>
-							</td>
-						</tr><tr>
-							<th><label for="i_ball">Ball:</label></th>
-							<td>
-								<select id="i_ball" data-required>
-									<option value="Poke">Poké Ball</option>
-									<option value="Great">Great Ball</option>
-									<option value="Ultra">Ultra Ball</option>
-									<option value="Master">Master Ball</option>
-									<option value="Safari">Safari Ball</option>
-									<option value="Sport">Sport Ball</option>
-									<option value="Premier">Premier Ball</option>
-									<option value="Repeat">Repeat Ball</option>
-									<option value="Timer">Timer Ball</option>
-									<option value="Nest">Nest Ball</option>
-									<option value="Net">Net Ball</option>
-									<option value="Dive">Dive Ball</option>
-									<option value="Luxury">Luxury Ball</option>
-									<option value="Heal">Heal Ball</option>
-									<option value="Quick">Quick Ball</option>
-									<option value="Dusk">Dusk Ball</option>
-									<!-- <option value="Cherish">Cherish Ball</option> -->
-									<option value="Dream">Dream Ball</option>
-									<option value="Beast">Beast Ball</option>
-									<optgroup label="Apricorn Balls">
-										<option value="Level">Level Ball</option>
-										<option value="Lure">Lure Ball</option>
-										<option value="Moon">Moon Ball</option>
-										<option value="Friend">Friend Ball</option>
-										<option value="Love">Love Ball</option>
-										<option value="Heavy">Heavy Ball</option>
-										<option value="Fast">Fast Ball</option>
-									</optgroup>
-								</select>
-							</td>
-						</tr><tr>
-							<th><label for="i_item">Held item:</label></th>
-							<td><select id="i_item" data-required></select></td>
-						</tr><tr>
-							<td colspan="2">
-								<table class="stat_spread">
-									<thead>
-										<tr>
-											<th></th>
-											<td class="color-H">HP</td>
-											<td class="color-A">Atk</td>
-											<td class="color-B">Def</td>
-											<td class="color-C">SpA</td>
-											<td class="color-D">SpD</td>
-											<td class="color-S">Spe</td>
-										</tr>
-									</thead><tbody>
-										<tr>
-											<th>IVs:</th>
-											<td class="bg-color-H"><input id="i_iv-H" type="number" min="0" max="31" value="31"></td>
-											<td class="bg-color-A"><input id="i_iv-A" type="number" min="0" max="31" value="31"></td>
-											<td class="bg-color-B"><input id="i_iv-B" type="number" min="0" max="31" value="31"></td>
-											<td class="bg-color-C"><input id="i_iv-C" type="number" min="0" max="31" value="31"></td>
-											<td class="bg-color-D"><input id="i_iv-D" type="number" min="0" max="31" value="31"></td>
-											<td class="bg-color-S"><input id="i_iv-S" type="number" min="0" max="31" value="31"></td>
-										</tr><tr>
-											<th>EVs:</th>
-											<td class="bg-color-H"><input id="i_ev-H" type="number" min="0" max="252" step="4" value="4"></td>
-											<td class="bg-color-A"><input id="i_ev-A" type="number" min="0" max="252" step="4" value="252"></td>
-											<td class="bg-color-B"><input id="i_ev-B" type="number" min="0" max="252" step="4" value="0"></td>
-											<td class="bg-color-C"><input id="i_ev-C" type="number" min="0" max="252" step="4" value="0"></td>
-											<td class="bg-color-D"><input id="i_ev-D" type="number" min="0" max="252" step="4" value="0"></td>
-											<td class="bg-color-S"><input id="i_ev-S" type="number" min="0" max="252" step="4" value="252"></td>
-										</tr><tr class="hyper-training">
-											<th>Hyper Training: <p><small>*Only at Lv.100</small></p></th>
-											<td class="bg-color-H"><input id="i_hyp-H" type="checkbox" disabled></td>
-											<td class="bg-color-A"><input id="i_hyp-A" type="checkbox" disabled></td>
-											<td class="bg-color-B"><input id="i_hyp-B" type="checkbox" disabled></td>
-											<td class="bg-color-C"><input id="i_hyp-C" type="checkbox" disabled></td>
-											<td class="bg-color-D"><input id="i_hyp-D" type="checkbox" disabled></td>
-											<td class="bg-color-S"><input id="i_hyp-S" type="checkbox" disabled></td>
-										</tr><tr>
-											<th></th>
-											<td colspan="6" class="ev_info">
-												<p>Total EVs: <span id="ev_total">0</span></p>
-												<p>Remaining: <span id="ev_rem">0</span></p>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</td>
-						</tr><tr>
-							<th>
-								Move Set:
-								<small class="move_set--small">*Manually input for any legal moves not shown in the dropdown.</small>
-							</th>
-							<td><table class="move_set">
-								<tr>
-									<td><select id="i_move1" class="i_moves" data-required></select></td>
-									<td><small>or</small> <input id="i_move1-manual" type="text" placeholder="Move 1 (Manual input)"></td>
-								</tr>
-								<tr>
-									<td><select id="i_move2" class="i_moves"></select></td>
-									<td><small>or</small> <input id="i_move2-manual" type="text" placeholder="Move 2 (Manual input)"></td>
-								</tr>
-								<tr>
-									<td><select id="i_move3" class="i_moves"></select></td>
-									<td><small>or</small> <input id="i_move3-manual" type="text" placeholder="Move 3 (Manual input)"></td>
-								</tr>
-								<tr>
-									<td><select id="i_move4" class="i_moves"></select></td>
-									<td><small>or</small> <input id="i_move4-manual" type="text" placeholder="Move 4 (Manual input)"></td>
-								</tr>
-							</table></td>
-						</tr><tr>
-							<th><label for="i_maxpp">Max PPs:</label></th>
-							<td><input id="i_maxpp" type="checkbox" checked></td>
-						</tr><tr>
-							<th><label for="i_language">Language:</label></th>
-							<td>
-								<div class="select-container"><select id="i_language" data-required>
-									<option value="ENG">ENG</option>
-									<option value="FRE">FRE</option>
-									<option value="GER">GER</option>
-									<option value="ITA">ITA</option>
-									<option value="JPN">JPN</option>
-									<option value="KOR">KOR</option>
-									<option value="SPA">SPA</option>
-									<option value="CHS">CHS</option>
-									<option value="CHT">CHT</option>
-								</select></div>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</section>
-
-			<section class="InputGroup"><h3>Meeting Information</h3>
-				<table class="InputGroup__Content">
-					<tr>
-						<th><label for="i_met-game">Met Game Version:</label></th>
-						<td>
-							<select id="i_met-game" data-required>
-								<optgroup label="Gen 7">
-									<option value="Ultra Sun">Ultra Sun</option>
-									<option value="Ultra Moon">Ultra Moon</option>
-									<option value="Sun">Sun</option>
-									<option value="Moon">Moon</option>
-								</optgroup>
-								<optgroup label="Gen 6">
-									<option value="Omega Ruby">Omega Ruby</option>
-									<option value="Alpha Sapphire">Alpha Sapphire</option>
-									<option value="X">X</option>
-									<option value="Y">Y</option>
-								</optgroup>
-								<optgroup label="Gen 5">
-									<option value="White 2">White 2</option>
-									<option value="Black 2">Black 2</option>
-									<option value="White">White</option>
-									<option value="Black">Black</option>
-								</optgroup>
-								<optgroup label="Gen 4">
-									<option value="Platinum">Platinum</option>
-									<option value="Heart Gold">Heart Gold</option>
-									<option value="Soul Silver">Soul Silver</option>
-									<option value="Pearl">Pearl</option>
-									<option value="Diamond">Diamond</option>
-								</optgroup>
-								<optgroup label="Gen 3">
-									<option value="Emerald">Emerald</option>
-									<option value="Leaf Green">Leaf Green</option>
-									<option value="Fire Red">Fire Red</option>
-									<option value="Sapphire">Sapphire</option>
-									<option value="Ruby">Ruby</option>
-								</optgroup>
-								<optgroup label="Gen 2">
-									<option value="Crystal">Crystal</option>
-									<option value="Silver">Silver</option>
-									<option value="Gold">Gold</option>
-								</optgroup>
-								<optgroup label="Gen 1">
-									<option value="Yellow">Yellow</option>
-									<option value="Blue">Blue</option>
-									<option value="Green">Green (JPN)</option>
-									<option value="Red">Red</option>
-								</optgroup>
-							</select>
-						</td>
-					</tr><tr>
-						<th><label for="i_met-location">Met Location:</label></th>
-						<td><select id="i_met-location" data-required></td>
-					</tr><tr>
-						<th><label for="i_met-lv">Met Lv.</label></th>
-						<td><input id="i_met-lv" type="number" min="1" max="100" value="50" data-required></td>
-					</tr>
-				</table>
-			</section>
-
-			<section class="InputGroup"><h3>Trainer Information</h3>
-				<table class="InputGroup__Content">
-					<tr>
-						<th><label for="i_ot">OT:</label></th>
-						<td><input id="i_ot" type="text" maxlength="12" placeholder="Required" data-required></td>
-					</tr><tr>
-						<th><label for="i_ot-gender">OT Gender:</label></th>
-						<td>
-							<div class="select-container"><select id="i_ot-gender" data-required>
-								<option value="Male">Male</option>
-								<option value="Female">Female</option>
-							</select></div>
-						</td>
-					</tr><tr>
-						<th><label for="i_nsid">nSID:</label></th>
-						<td>
-							<input id="i_nsid" type="text" maxlength="4" optional>
-							<p><small>*nSID is a new 4-digit value. If nSID is unknown, leave blank. You can find out at our <a href="https://discord.gg/qFvh6n8" target="_blank">Discord</a>.</small></p>
-						</td>
-					</tr><tr>
-						<th><label for="i_pid">Passport ID:</label></th>
-						<td><input id="i_pid" type="text" maxlength="6" placeholder="Required" data-required></td>
-					</tr>
-				</table>
-			</section>
-
-			<section class="InputGroup"><h3>GTS Deposit</h3>
-				<table class="InputGroup__Content">
-					<tr>
-						<th><label for="i_ign">IGN:</label></th>
-						<td><input id="i_ign" type="text" placeholder="Required"" data-required></td>
-					</tr><tr>
-						<th><label for="i_fc">FC:</label></th>
-						<td>
-							<input id="i_fc" type="text" optional>
-							<p><small>*0000-0000-0000</small></p>
-						</td>
-					</tr><tr>
-						<th><label for="i_gts-species">Depositing Pokémon:</label></th>
-						<td>
-							<div class="select-container"><select id="i_gts-species" data-required>
-								<option value="Mudbray">No.749　Mudbray</option>
-								<option value="Wishiwashi">No.746　Wishiwashi</option>
-								<option value="Cutiefly">No.742　Cutiefly</option>
-								<option value="Crabrawler">No.739　Crabrawler</option>
-								<option value="Yungoos">No.734　Yungoos</option>
-								<option value="Inkay">No.686　Inkay</option>
-								<option value="Roggenrola">No.524　Roggenrola</option>
-								<option value="Lillipup">No.506　Lillipup</option>
-								<option value="Glalie">No.362　Glalie</option>
-								<option value="Absol">No.359　Absol</option>
-								<option value="Wingull">No.278　Wingull</option>
-								<option value="Spinarak">No.167　Spinarak</option>
-								<option value="Mareep">No.179　Mareep</option>
-								<option value="Meowth">No.052　Meowth</option>
-								<option value="Ekans">No.023　Ekans</option>
-							</select></div>
-
-							<p><small>*Species count for both regular and Alolan forms.</small></p>
-						</td>
-					</tr><tr>
-						<th><label for="i_gts-gender">Gender:</label></th>
-						<td>
-							<div class="select-container"><select id="i_gts-gender" data-required>
-								<option value="(M)">♂ Male</option>
-								<option value="(F)">♀ Female</option>
-							</select></div>
-						</td>
-					</tr><tr>
-						<th><label for="i_gts-lv">Lv.</label></th>
-						<td><input id="i_gts-lv" type="number" min="1" max="100" value="50" data-required></td>
-					</tr><tr>
-						<th><label for="i_gts-ball">Ball:</label></th>
-						<td>
-							<select id="i_gts-ball" data-required>
-								<option value="Poke">Poké Ball</option>
-								<option value="Great">Great Ball</option>
-								<option value="Ultra">Ultra Ball</option>
-								<option value="Master">Master Ball</option>
-								<option value="Safari">Safari Ball</option>
-								<option value="Sport">Sport Ball</option>
-								<option value="Premier">Premier Ball</option>
-								<option value="Repeat">Repeat Ball</option>
-								<option value="Timer">Timer Ball</option>
-								<option value="Nest">Nest Ball</option>
-								<option value="Net">Net Ball</option>
-								<option value="Dive">Dive Ball</option>
-								<option value="Luxury">Luxury Ball</option>
-								<option value="Heal">Heal Ball</option>
-								<option value="Quick">Quick Ball</option>
-								<option value="Dusk">Dusk Ball</option>
-								<!-- <option value="Cherish">Cherish Ball</option> -->
-								<option value="Dream">Dream Ball</option>
-								<option value="Beast">Beast Ball</option>
-								<optgroup label="Apricorn Balls">
-									<option value="Level">Level Ball</option>
-									<option value="Lure">Lure Ball</option>
-									<option value="Moon">Moon Ball</option>
-									<option value="Friend">Friend Ball</option>
-									<option value="Love">Love Ball</option>
-									<option value="Heavy">Heavy Ball</option>
-									<option value="Fast">Fast Ball</option>
-								</optgroup>
-							</select>
-						</td>
-					</tr><tr>
-						<th><label for="i_gts-message">Message:</label></th>
-						<td>
-							<div class="select-container"><select id="i_gts-message" data-required>
-								<option value="Please trade Pokémon with me. Thanks in advance."></option>
-								<option value="I want to trade for a Pokémon that will help me with my adventure."></option>
-								<option value="I want to trade for a Pokémon that is strong in battles."></option>
-								<option value="I want to trade for a treasured Pokémon that has been raised from an Egg."></option>
-								<option value="I want to fill my Pokédex."></option>
-								<option value="I want to fill my Pokédex with other languages."></option>
-								<option value="I want to trade for one of your precious Pokémon you've given a nickname to."></option>
-								<option value="This is a Pokémon I raised very carefully. Please trade with me if you'd like."></option>
-								<option value="This is a Pokémon that I just hatched. Please raise it carefully."></option>
-								<option value="This is a Pokémon that I just raised so that it will do great in battles."></option>
-								<option value="This is a Pokémon with great potential. Please raise it if you'd like."></option>
-							</select></div>
-						</td>
-					</tr>
-				</table>
-			</section>
-		</form>
-
-		<aside id="preview">
-			<span id="previewTrigger"></span>
-			<figure>
-				<img id="p_species" src="https://www.serebii.net/pokedex-sm/icon/025.png">
-				<img id="p_ball" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png">
-				<img id="p_item" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png">
-				<i id="p_shiny" class="fas fa-star"></i>
-				<figcaption id="p_dex">No. 025</figcaption>
-			</figure>
-		</aside>
-	</main>
-
-	<aside class="Output">
-		<h2 class="Output__header">Output</h2>
-
-		<ul id="warnings">
-			<li id="requiredInputsWarning"></li>
-			<li id="speciesWarning"></li>
-			<li id="itemWarning"></li>
-			<li id="EVsWarning"></li>
-		</ul>
-
-		<textarea id="output" placeholder="Start typing into the inputs..."></textarea>
-
-		<div class="Output__footer">
-			<button id="copyOutput">Copy!</button>
-		</div>
-
-		<p id="copied">Output copied!</p>
-	</aside>
-
-	<footer>
-		<p>@<a href="https://github.com/nuotsu" target="_blank">nuotsu</a> 2019. All Rights Reserved.</p>
-		<p><a href="https://paypal.me/nuotsu" target="_blank">Support the developer!</a> Special thanks to <a>@Merty</a>.</p>
-	</footer>
+    <!-- .js -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+        <script src="js/main.js"></script>
 </body>
 
 </html>
